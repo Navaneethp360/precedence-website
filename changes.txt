@@ -1,0 +1,25 @@
+footer: follow us remove":" --done
+left intedation , icons in centre , ask to designer.  
+black color footer   --done
+
+contact us: need form wider --done
+email and number outside box. --done
+background image outside form --done
+
+Meet out client:
+Change to company photo and add name --done
+make slider
+
+
+Maketing headline: Creativity work and paragraph change --done
+and add image slider slideshow 
+change backgroud to solid color. --done
+
+Package: background color add
+
+Banner: give image size to designer and ask for photos
+
+logo : crop to only logo. --done
+logo to left edge --done
+
+move navigation to left itself with small padding.--done
