@@ -1,3 +1,4 @@
+
 // Carousel Section: Handles the carousel functionality
 const carousel = document.querySelector('.carousel-container');
 const slides = document.querySelectorAll('.carousel-slide');
@@ -24,7 +25,7 @@ indicators.forEach((indicator, index) => {
 });
 
 // Service Boxes Section: Handles the service box functionality
-const serviceBoxes = document.querySelectorAll('.service-box');
+const serviceBoxes = document.querySelectorAll('.service-box')
 
 serviceBoxes.forEach(box => {
     box.addEventListener('click', function() {
@@ -49,7 +50,7 @@ serviceBoxes.forEach(box => {
 });
 
 // Package Items Section: Handles the package item functionality
-const packageItems = document.querySelectorAll('.package-item');
+const packageItems = document.querySelectorAll('.package-item')
 
 packageItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -83,40 +84,5 @@ serviceBoxes.forEach(box => {
 packageItems.forEach(item => {
     observer.observe(item);
 });
-
-let currentCreativeSlide = 0;
-const creativeSlides = document.querySelectorAll('#CreativeWorks .creative-carousel-slide');
-const creativeIndicators = document.querySelectorAll('#CreativeWorks .creative-indicator');
-
-function showCreativeSlide(index) {
-    creativeSlides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        creativeIndicators[i].classList.remove('active');
-        if (i === index) {
-            slide.classList.add('active');
-            creativeIndicators[i].classList.add('active');
-        }
-    });
-}
-
-function nextCreativeSlide() {
-    currentCreativeSlide = (currentCreativeSlide + 1) % creativeSlides.length;
-    showCreativeSlide(currentCreativeSlide);
-}
-
-// Auto slide every 3 seconds
-setInterval(nextCreativeSlide, 3000);
-
-// Add click event to indicators
-creativeIndicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        currentCreativeSlide = index;
-        showCreativeSlide(currentCreativeSlide);
-    });
-});
-
-// Initialize the first slide
-showCreativeSlide(currentCreativeSlide);
-
 
 document.head.appendChild(style);
