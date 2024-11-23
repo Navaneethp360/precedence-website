@@ -27,26 +27,98 @@
             });
         });
   </script>
+  
+  <style>
+      
+      .header nav.navigation ul li a { text-decoration: none; }
+      .header .languages button { padding: 7px; border-radius: 3px; border: none;background-color:aqua;font-size:12px;}
+
+
+  </style>
+  <script>
+ document.addEventListener('DOMContentLoaded', function() {
+    // Function to switch language
+    function switchLanguage(language) {
+        var elements = document.querySelectorAll('[data-en], [data-ar], [data-en-placeholder], [data-ar-placeholder]');
+        
+        elements.forEach(function(element) {
+            // Switch text content based on the selected language
+            if (element.hasAttribute('data-en')) {
+                element.textContent = language === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-ar');
+            }
+
+            // Switch placeholder text based on the selected language
+            if (element.hasAttribute('data-en-placeholder')) {
+                element.setAttribute('placeholder', language === 'en' ? element.getAttribute('data-en-placeholder') : element.getAttribute('data-ar-placeholder'));
+            }
+        });
+
+        // Switch text direction for Arabic (Right to Left)
+        if (language === 'ar') {
+            document.body.classList.add('rtl');
+        } else {
+            document.body.classList.remove('rtl');
+        }
+    }
+
+    // Button click event to toggle languages
+    document.getElementById('swap-btn').addEventListener('click', function() {
+        var currentLang = this.getAttribute('data-lang');
+        var newLang = currentLang === 'en' ? 'ar' : 'en';
+        switchLanguage(newLang);
+
+        // Update button text and language attribute
+        this.setAttribute('data-lang', newLang);
+        this.textContent = newLang === 'en' ? 'E' : 'ع ';
+    });
+
+    // Initialize with English language
+    switchLanguage('en');
+});
+ 
+    </script>
 </head>
     <body>
     <!-- Header -->
+    <!--<header class="header">-->
+    <!--    <div class="logo">-->
+    <!--        <img src="icons and logos/logo1.png" alt="Company Logo">-->
+    <!--    </div>-->
+    <!--    <nav class="navigation">-->
+    <!--        <ul>-->
+    <!--            <li><a href="#home">Home</a></li>-->
+    <!--            <li><a href="#services">Services</a></li>-->
+    <!--            <li><a href="pages/about.html">About Us</a></li>-->
+    <!--            <li><a href="#packages">Packages</a></li>-->
+    <!--            <li><a href="#contact">Contact</a></li>-->
+    <!--        </ul>-->
+            
+    <!--    </nav>-->
+        
+    <!--    <div class="languages"><button class="swap-button" data-lang="en" id="swap-btn">A</button></div>-->
+    <!--</header>-->
+    
+    
+    
     <header class="header">
-        <div class="logo">
-            <img src="icons and logos/logo1.png" alt="Company Logo">
-        </div>
-        <nav class="navigation">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="pages/about.html">About Us</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="right-element">
-                <a href="#lang">AR/EN</a>
-            </div>
-        </nav>
-    </header>
+        
+    <div class="logo">
+        <img src="icons and logos/logo1.png" alt="Company Logo">
+    </div>
+    <nav class="navigation">
+        <ul>
+            <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
+            <li><a href="pages/about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+            <li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a></li>
+            <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="languages">
+        <button class="swap-button" data-lang="en" id="swap-btn">ع</button>
+    </div>
+</header>
+
 
     <!-- Image Carousel -->
 <section id="home" class="carousel">
@@ -81,8 +153,10 @@
     <div class="services-container">
         <!-- Left Container -->
         <div class="services-left">
-            <h2>Our Services</h2>
-            <p>Discover the comprehensive range of solutions we offer to meet your business needs</p>
+            <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+            <p data-en="Discover the comprehensive range of solutions we offer to meet your business needs" data-ar="اكتشف مجموعة الحلول الشاملة التي نقدمها لتلبية احتياجات عملك">
+                Discover the comprehensive range of solutions we offer to meet your business needs
+            </p>
         </div>
         
         <!-- Right Container with Grid -->
@@ -91,42 +165,42 @@
                 <!-- Service Box 1 -->
                 <div class="service-box" style="background-image: url('images/ser1.jpeg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3>Branding / Rebranding</h3>
+                        <h3 data-en="Branding / Rebranding" data-ar="العلامة التجارية / إعادة العلامة التجارية">Branding / Rebranding</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 2 -->
                 <div class="service-box" style="background-image: url('images/ser2.jpeg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3>Marketing Plan</h3>
+                        <h3 data-en="Marketing Plan" data-ar="خطة التسويق">Marketing Plan</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 3 -->
                 <div class="service-box" style="background-image: url('images/ser3.jpeg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3>Digital Marketing</h3>
+                        <h3 data-en="Digital Marketing" data-ar="التسويق الرقمي">Digital Marketing</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 4 -->
                 <div class="service-box" style="background-image: url('images/ser4.jpeg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3>Account Management</h3>
+                        <h3 data-en="Account Management" data-ar="إدارة الحسابات">Account Management</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 5 -->
                 <div class="service-box" style="background-image: url('images/ser5.jpeg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3>Media & Advertising</h3>
+                        <h3 data-en="Media & Advertising" data-ar="الإعلام والإعلان">Media & Advertising</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 6 -->
                 <div class="service-box" style="background-image: url('images/ser6.jpeg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3>⁠Sponsored Ads</h3>
+                        <h3 data-en="Sponsored Ads" data-ar="الإعلانات المدفوعة">Sponsored Ads</h3>
                     </div>
                 </div>
             </div>
@@ -135,45 +209,47 @@
 </section>
 
 
+
 <!--packages section -->
 
 <section id="packages" class="packages">
-    <h2>Our Packages</h2>
-    <h3>Choose the perfect package for your needs</h3>
+    <h2 data-en="Our Packages" data-ar="باقاتنا">Our Packages</h2>
+    <h3 data-en="Choose the perfect package for your needs" data-ar="اختر الباقة المثالية لاحتياجاتك">Choose the perfect package for your needs</h3>
     <div style="height: 30px;"></div>
     <div class="packages-grid">
         <div class="package-item">
             <img src="images/package.jpg" alt="Package 1">
-            <h3>Package Name</h3>
-            <p>Package description</p>
-            <div class="package-price">$XX.XX</div>
+            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
+            <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
         <div class="package-item">
             <img src="images/package.jpg" alt="Package 2">
-            <h3>Package Name</h3>
-            <p>Package description</p>
-            <div class="package-price">$XX.XX</div>
+            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
+            <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
         <div class="package-item">
             <img src="images/package.jpg" alt="Package 3">
-            <h3>Package Name</h3>
-            <p>Package description</p>
-            <div class="package-price">$XX.XX</div>
+            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
+            <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
         <div class="package-item">
             <img src="images/package.jpg" alt="Package 4">
-            <h3>Package Name</h3>
-            <p>Package description</p>
-            <div class="package-price">$XX.XX</div>
+            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
+            <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
     </div>
 </section>
 
+
 <!-- Marketting Section -->
 <section id="CreativeWorks" class="creative-carousel">
     <div>
-        <h2>Our Creative Works</h2>
-        <p>Some of our latest works.</p>
+        <h2 data-en="Our Creative Works" data-ar="أعمالنا الإبداعية">Our Creative Works</h2>
+        <p data-en="Some of our latest works." data-ar="بعض من أحدث أعمالنا.">Some of our latest works.</p>
     </div>
     <div style="height: 20px;"></div>
     <div class="creative-carousel-container">
@@ -190,103 +266,107 @@
 </section>
 
 
+
 <!--Clients section -->
 
 <section id="clients" class="clients">
-    <h2 class="center">Meet Our Clients</h2>
-    <p class="center">We have had the pleasure of working with some amazing clients. Here are a few of them.</p>
-    <!-- <div class="center">
-        <button class="learn-more">Learn More</button>
-    </div> -->
+    <h2 class="center" data-en="Meet Our Clients" data-ar="تعرف على عملائنا">Meet Our Clients</h2>
+    <p class="center" data-en="We have had the pleasure of working with some amazing clients. Here are a few of them." data-ar="لقد كان لدينا شرف العمل مع بعض العملاء الرائعين. إليكم بعض منهم.">We have had the pleasure of working with some amazing clients. Here are a few of them.</p>
     <div class="clients-logos">
         <div class="client-logo-container">
             <img src="images/client1.jpg" alt="Client 1" class="client-logo">
-            <p>Lajona</p>
+            <p data-en="Lajona" data-ar="لاجونا">Lajona</p>
         </div>
         <div class="client-logo-container">
             <img src="images/client2.jpg" alt="Client 2" class="client-logo">
-            <p>Prudence</p>
+            <p data-en="Prudence" data-ar="برودنس">Prudence</p>
         </div>
         <div class="client-logo-container">
             <img src="images/client3.jpg" alt="Client 3" class="client-logo"> 
-            <p>MJC</p>
+            <p data-en="MJC" data-ar="إم جي سي">MJC</p>
         </div>
         <div class="client-logo-container">
             <img src="images/client4.jpg" alt="Client 4" class="client-logo">
-            <p>Pertinence</p>
+            <p data-en="Pertinence" data-ar="بيرتينينس">Pertinence</p>
         </div>
         <div class="client-logo-container">
             <img src="images/client5.jpg" alt="Client 4" class="client-logo">
-            <p>Nine T Six</p>
+            <p data-en="Nine T Six" data-ar="ناين تي سيكس">Nine T Six</p>
         </div>
     </div>
 </section>
 
+
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <div class="new-form">
-                <div class="contact-form">
-                    <h2>Contact Us</h2>
-                    <h3>Do you have any questions?</h3>
-                    <form action="#" method="POST">
-                        <input 
-                            type="text" 
-                            name="first_name" 
-                            placeholder="First Name" 
-                            required 
-                            aria-label="First Name"
-                        >
-                        <input 
-                            type="text" 
-                            name="last_name" 
-                            placeholder="Last Name" 
-                            required 
-                            aria-label="Last Name"
-                        >
-                        <input 
-                            type="text" 
-                            name="company" 
-                            placeholder="Company" 
-                            aria-label="Company"
-                        >
-                        <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="Your Email" 
-                            required 
-                            aria-label="Email"
-                        >
-                        <textarea 
-                            name="message" 
-                            placeholder="Your Message" 
-                            required 
-                            aria-label="Message"
-                        ></textarea>
-                        <input 
-                            type="tel" 
-                            name="phone" 
-                            placeholder="Phone Number" 
-                            aria-label="Phone Number"
-                        >
-                        <button type="submit">Send</button>
-                    </form>
-                </div>
-            </div>  
-        </div>
-        <div class="contact-section">
-            <div class="contact-info">
-                <div class="phone-number">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <span>+965 666666</span>
-                </div>
-                <div class="email-id">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    <span>info@precedence.com</span>
-                </div>
+<section id="contact" class="contact">
+    <div class="contact-container">
+        <div class="new-form">
+            <div class="contact-form">
+                <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
+                <h3 data-en="Do you have any questions?" data-ar="هل لديك أي أسئلة؟">Do you have any questions?</h3>
+                <form action="#" method="POST">
+                    <input 
+                        type="text" 
+                        name="first_name" 
+                        placeholder="First Name" 
+                        required 
+                        aria-label="First Name" 
+                        data-en-placeholder="First Name" 
+                        data-ar-placeholder="الاسم الأول"
+                    >
+                    <input 
+                        type="text" 
+                        name="last_name" 
+                        placeholder="Last Name" 
+                        required 
+                        aria-label="Last Name" 
+                        data-en-placeholder="Last Name" 
+                        data-ar-placeholder="الاسم الأخير"
+                    >
+                    <input 
+                        type="text" 
+                        name="company" 
+                        placeholder="Company" 
+                        aria-label="Company"
+                        data-en-placeholder="Company" 
+                        data-ar-placeholder="الشركة"
+                    >
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="Your Email" 
+                        required 
+                        aria-label="Email"
+                        data-en-placeholder="Your Email" 
+                        data-ar-placeholder="البريد الإلكتروني"
+                    >
+                    <textarea 
+                        name="message" 
+                        placeholder="Your Message" 
+                        required 
+                        aria-label="Message"
+                        data-en-placeholder="Your Message" 
+                        data-ar-placeholder="رسالتك"
+                    ></textarea>
+                    <input 
+                        type="tel" 
+                        name="phone" 
+                        placeholder="Phone Number" 
+                        aria-label="Phone Number"
+                        data-en-placeholder="Phone Number" 
+                        data-ar-placeholder="رقم الهاتف"
+                    >
+                    <button type="submit" data-en="Send" data-ar="إرسال">Send</button>
+                </form>
             </div>
-        </div>
-    </section>
+        </div>  
+    </div>
+
+    <!-- Language Toggle Button -->
+    <button id="swap-btn" data-lang="en">E</button>
+</section>
+
+
 
     <!-- Footer -->
 <footer class="footer">

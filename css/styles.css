@@ -8,8 +8,17 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    font-size:16px;
+    overflow-x:hidden;
+    
 }
+/*contanier css here*/
+.container { max-width: 1400px; width: 100%; margin: auto; padding: 0 20px; }
+/*header  css here*/
 
+.header nav.navigation ul li a { text-decoration: none; }
+
+.header .languages button { padding: 7px; border-radius: 9px; border: none;}
 .header {
     position: fixed;
     top: 0;
@@ -26,6 +35,8 @@ body {
 .header img {
     height: 60px; /* Set a fixed height for the logo */
     margin-right: 10px;
+    
+    max-width:100px;width:100%;
 }
 
 .navigation {
@@ -50,14 +61,7 @@ body {
     color: white;
 }
 
-.right-element {
-    margin-left: auto;
-    padding-right: 20px;
-}
-
-.right-element a {
-    color: white;
-}
+.header .languages button {padding: 7px;border-radius: 3px;border: none;background-color:aqua;font-size:12px;margin-right: 10px;}
 
 /* Carousel Styles */
 .carousel {
