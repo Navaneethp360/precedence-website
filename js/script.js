@@ -85,4 +85,45 @@ packageItems.forEach(item => {
     observer.observe(item);
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to switch language
+    function switchLanguage(language) {
+        var elements = document.querySelectorAll('[data-en], [data-ar], [data-en-placeholder], [data-ar-placeholder]');
+        
+        elements.forEach(function(element) {
+            // Switch text content based on the selected language
+            if (element.hasAttribute('data-en')) {
+                element.textContent = language === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-ar');
+            }
+
+            // Switch placeholder text based on the selected language
+            if (element.hasAttribute('data-en-placeholder')) {
+                element.setAttribute('placeholder', language === 'en' ? element.getAttribute('data-en-placeholder') : element.getAttribute('data-ar-placeholder'));
+            }
+        });
+
+        // Switch text direction for Arabic (Right to Left)
+        if (language === 'ar') {
+            document.body.classList.add('rtl');
+        } else {
+            document.body.classList.remove('rtl');
+        }
+    }
+
+    // Button click event to toggle languages
+    document.getElementById('swap-btn').addEventListener('click', function() {
+        var currentLang = this.getAttribute('data-lang');
+        var newLang = currentLang === 'en' ? 'ar' : 'en';
+        switchLanguage(newLang);
+
+        // Update button text and language attribute
+        this.setAttribute('data-lang', newLang);
+        this.textContent = newLang === 'en' ? 'E' : 'ع ';
+    });
+
+    // Initialize with English language
+    switchLanguage('en');
+});
+ 
+
 document.head.appendChild(style);

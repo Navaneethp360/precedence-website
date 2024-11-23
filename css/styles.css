@@ -62,6 +62,38 @@ body {
 }
 
 .header .languages button {padding: 7px;border-radius: 3px;border: none;background-color:aqua;font-size:12px;margin-right: 10px;}
+      
+.header nav.navigation ul li a { text-decoration: none; }
+
+
+/* About Us Section */
+.about-us {
+    padding: 100px 20px;
+    padding-bottom : 225px;
+    background-color: #f4f4f4; /* Light background for contrast */
+    text-align: center; /* Centering text */
+}
+
+.about-us-content h1 {
+    font-size: 2.5em; /* Large font size for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #333; /* Dark color for the heading */
+}
+
+.about-us-content p {
+    font-size: 1.2em; /* Slightly larger font for paragraphs */
+    margin: 10px 0; /* Space above and below paragraphs */
+    color: #555; /* Medium gray color for text */
+}
+
+/* Optional: Add a hover effect for paragraphs */
+.about-us-content p:hover {
+    color: #007BFF; /* Change color on hover */
+    transition: color 0.3s ease; /* Smooth transition */
+}
+
+
+
 
 /* Carousel Styles */
 .carousel {
@@ -509,6 +541,9 @@ body {
 /* footer*/
 /* General Footer Styles */
 .footer {
+    /* Remove the fixed positioning */
+    position: relative; /* or you can omit this line */
+    width: 100%;
     background-color: #000b70;
     background-size: cover;
     background-position: center;

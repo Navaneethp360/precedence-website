@@ -4,36 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <div>About Us</div>
-    </header>
-    <main>
-        <section>
-            <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-            <img src="team.jpg" alt="Our Team">
-            <h2>Our Mission</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-            <h2>Our Team</h2>
+    <!-- Header --> 
+          
+    <header class="header">
+        
+        <div class="logo">
+            <img src="icons and logos/logo1.png" alt="Company Logo">
+        </div>
+        <nav class="navigation">
             <ul>
-                <li>
-                    <img src="john.jpg" alt="John Doe">
-                    <h3>John Doe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </li>
-                <li>
-                    <img src="jane.jpg" alt="Jane Doe">
-                    <h3>Jane Doe</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </li>
+                <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
+                <li><a href="pages/about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+                <li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a></li>
+                <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
             </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 About Us</p>
-    </footer>
+        </nav>
+        <div class="languages">
+            <button class="swap-button" data-lang="en" id="swap-btn">ع</button>
+        </div>
+    </header>
+
+ 
+<section class="about-us">
+    <div class="about-us-content">
+        <h1 data-en="About Us" data-ar="معلومات عنا">About Us</h1>
+        <p data-en="Welcome to Precedence, a leading marketing agency dedicated to helping businesses thrive in the digital age." data-ar="مرحبا بكم في بريسيادن، وكالة تسويق رائدة مكرسة لمساعدة الشركات على النجاح في العصر الرقمي.">مرحبا بكم في بريسيادن، وكالة تسويق رائدة مكرسة لمساعدة الشركات على النجاح في العصر الرقمي.</p>
+        <p data-en="Our mission is to provide innovative and effective marketing solutions that drive results and exceed our clients' expectations." data-ar="مهمتنا هي تقديم حلول تسويقية مبتكرة وفعالة تحقق نتائج تتجاوز توقعات عملائنا.">مهمتنا هي تقديم حلول تسويقية مبتكرة وفعالة تحقق نتائج تتجاوز توقعات عملائنا.</p>
+        <p data-en="With a team of experienced professionals and a passion for creativity, we strive to deliver exceptional service and unparalleled results." data-ar="مع فريق من المحترفين ذوي الخبرة وشغف بالابتكار، نسعى لتقديم خدمة استثنائية ونتائج لا مثيل لها.">مع فريق من المحترفين ذوي الخبرة وشغف بالابتكار، نسعى لتقديم خدمة استثنائية ونتائج لا مثيل لها.</p>
+    </div>
+</section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <h2 data-en="Marketing Agency" data-ar="وكالة التسويق">Marketing Agency</h2>
+                <a href="contact.html">
+                    <button class="get-in-touch" data-en="Get in Touch" data-ar="اتصل بنا">Get in Touch</button>
+                </a>
+                <div class="footer-links" style="display: block;">
+                    <a href="privacypolicy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+                </div>
+                <div class="footer-copyright" data-en="&copy; 2024 Precedence. All Rights Reserved." data-ar="© 2024 بريسيادن. جميع الحقوق محفوظة.">
+                    &copy; 2024 Precedence. All Rights Reserved.
+                </div>
+                <div class="footer-social">
+                    <span data-en="Follow us" data-ar="تابعنا">Follow us</span>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/fb-icon.png" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/x-icon.png" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/ig-icon.png" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/lkd-icon.png" alt="LinkedIn">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/yt-icon.png" alt="Youtube">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/snap-icon.png" alt="Snapchat">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/tk-icon.png" alt="Tiktok">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/wp-icon.png" alt="Whatsapp">
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+
+
+<script src="js/script.js"></script>
 </body>
 </html>

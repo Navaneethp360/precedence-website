@@ -27,58 +27,12 @@
             });
         });
   </script>
-  
-  <style>
-      
-      .header nav.navigation ul li a { text-decoration: none; }
-      .header .languages button { padding: 7px; border-radius: 3px; border: none;background-color:aqua;font-size:12px;}
 
 
-  </style>
-  <script>
- document.addEventListener('DOMContentLoaded', function() {
-    // Function to switch language
-    function switchLanguage(language) {
-        var elements = document.querySelectorAll('[data-en], [data-ar], [data-en-placeholder], [data-ar-placeholder]');
-        
-        elements.forEach(function(element) {
-            // Switch text content based on the selected language
-            if (element.hasAttribute('data-en')) {
-                element.textContent = language === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-ar');
-            }
-
-            // Switch placeholder text based on the selected language
-            if (element.hasAttribute('data-en-placeholder')) {
-                element.setAttribute('placeholder', language === 'en' ? element.getAttribute('data-en-placeholder') : element.getAttribute('data-ar-placeholder'));
-            }
-        });
-
-        // Switch text direction for Arabic (Right to Left)
-        if (language === 'ar') {
-            document.body.classList.add('rtl');
-        } else {
-            document.body.classList.remove('rtl');
-        }
-    }
-
-    // Button click event to toggle languages
-    document.getElementById('swap-btn').addEventListener('click', function() {
-        var currentLang = this.getAttribute('data-lang');
-        var newLang = currentLang === 'en' ? 'ar' : 'en';
-        switchLanguage(newLang);
-
-        // Update button text and language attribute
-        this.setAttribute('data-lang', newLang);
-        this.textContent = newLang === 'en' ? 'E' : 'ع ';
-    });
-
-    // Initialize with English language
-    switchLanguage('en');
-});
- 
-    </script>
 </head>
     <body>
+
+    <!-- Header --> 
           
     <header class="header">
         
@@ -87,9 +41,9 @@
     </div>
     <nav class="navigation">
         <ul>
-            <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
             <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
-            <li><a href="pages/about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+            <li><a href="about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
             <li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a></li>
             <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
         </ul>
@@ -341,53 +295,53 @@
             </div>
         </div>  
     </div>
-
-    <!-- Language Toggle Button -->
-    <button id="swap-btn" data-lang="en">E</button>
 </section>
 
 
 
     <!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <h2>Marketing Agency</h2>
-        <a href="pages/contact.html"><button class="get-in-touch">Get in Touch</button></a>
-        <div class="footer-links" style="display: block;">
-            <a href="pages/privacypolicy.html">Privacy Policy</a>
+    <footer class="footer">
+        <div class="footer-content">
+            <h2 data-en="Marketing Agency" data-ar="وكالة التسويق">Marketing Agency</h2>
+            <a href="contact.html">
+                <button class="get-in-touch" data-en="Get in Touch" data-ar="اتصل بنا">Get in Touch</button>
+            </a>
+            <div class="footer-links" style="display: block;">
+                <a href="privacypolicy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+            </div>
+            <div class="footer-copyright" data-en="&copy; 2024 Precedence. All Rights Reserved." data-ar="© 2024 بريسيادن. جميع الحقوق محفوظة.">
+                &copy; 2024 Precedence. All Rights Reserved.
+            </div>
+            <div class="footer-social">
+                <span data-en="Follow us" data-ar="تابعنا">Follow us</span>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/fb-icon.png" alt="Facebook">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/x-icon.png" alt="Twitter">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/ig-icon.png" alt="Instagram">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/lkd-icon.png" alt="LinkedIn">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/yt-icon.png" alt="Youtube">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/snap-icon.png" alt="Snapchat">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/tk-icon.png" alt="Tiktok">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="icons and logos/wp-icon.png" alt="Whatsapp">
+                </a>
+            </div>
         </div>
-        <div class="footer-copyright">
-            &copy; 2024 Precedence. All Rights Reserved.
-        </div>
-        <div class="footer-social">
-            <span>Follow us</span>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/fb-icon.png" alt="Facebook">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/x-icon.png" alt="Twitter">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/ig-icon.png" alt="Instagram">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/lkd-icon.png" alt="LinkedIn">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/yt-icon.png" alt="Youtube">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/snap-icon.png" alt="Snapchat">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/tk-icon.png" alt="Tiktok">
-            </a>
-            <a href="#" class="social-icon">
-                <img src="icons and logos/wp-icon.png" alt="Whatsapp">
-            </a>
-        </div>
-    </div>
-</footer>
+    </footer>
+    
 
     <script src="js/script.js"></script>
 </body>
