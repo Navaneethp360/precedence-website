@@ -34,6 +34,15 @@ body .rtl .navigation{
     text-align: right;
     align-items: right;
 }
+body.rtl header.header {
+    flex-direction: row-reverse;
+    justify-content: unset;
+}
+
+
+body.rtl nav.navigation {
+    justify-content: flex-end;
+}
 .header nav.navigation ul li a { text-decoration: none; }
 
 .header .languages button { padding: 7px; border-radius: 9px; border: none;}
@@ -78,10 +87,10 @@ body .rtl .navigation{
     color: white;
 }
 
-.header .languages button {padding: 7px;border-radius: 3px;border: none;background-color:aqua;font-size:12px;margin-right: 10px;}
+.header .languages button {padding: 7px;border-radius: 3px;border: none;background-color:#A0D6E6;font-size:12px;margin-right: 10px;}
       
 .header nav.navigation ul li a { text-decoration: none; }
-
+#A0D6E6
 
 /* About Us Section */
 body.rtl .about-us {
@@ -161,12 +170,13 @@ body.rtl .about-us {
 
 body.rtl .services-container {
     flex-direction: row-reverse;
+    text-align: right;
 }
 
 .services-section {
     display: flex;
     padding: 50px 10%;
-    background-color: #ebfaff;
+    background-color: #055595;
 }
 
 .services-container {
@@ -186,13 +196,13 @@ body.rtl .services-container {
 
 .services-left h2 {
     font-size: 2.5rem;
-    color: #105daa;
+    color: #ffffff;
     margin-bottom: 15px;
 }
 
 .services-left p {
     font-size: 1rem;
-    color: #013f6a;
+    color: #ffffff;
     line-height: 1.6;
 }
 
@@ -212,7 +222,7 @@ body.rtl .services-container {
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
@@ -274,7 +284,7 @@ body.rtl .packages h3 {
 .packages {
     margin: 0 auto;
     padding: 60px 15px;
-    background-color: #ebfaff;
+    background-color: #ede9de;
 }
 
 .packages > h2 {
@@ -377,6 +387,7 @@ body.rtl .creative-carousel {
 #CreativeWorks {
     background-color: #ebfaff;
     position: relative; /* Add relative positioning to the container */
+    padding: 50px 0px;
 }
 
 #CreativeWorks h2 {
@@ -430,7 +441,7 @@ body.rtl .clients {
     flex-direction: row-reverse;
 }
 .clients {
-    background-color: #ebfaff;
+    background-color: #055595;
     padding: 40px 20px; /* Padding around the section */
     text-align: center; /* Center-align text */
 }
@@ -438,9 +449,13 @@ body.rtl .clients {
 /* Paragraph Styles */
 .clients p {
     font-size: 1.2em; /* Font size for the paragraph */
-    color: #666; /* Lighter text color */
+    color: #ffffff; /* Lighter text color */
     margin-bottom: 30px; /* Space below the paragraph */
     text-align: center;
+}
+
+.clients h2 {
+    color : white;
 }
 
 /* Button Styles */
@@ -475,14 +490,35 @@ body.rtl .clients {
     width: 250px; /* Set a fixed width in pixels */
     height: auto; /* Maintains the aspect ratio of the image */
     margin: 0 auto;
+    width : 341px;
+}
+.clients .slick-slide > img
+{    border-radius: 10px;}
+.clients .slick-next {
+    right: 7px !important;
+}
+.clients .slick-prev {
+    right: 7px !important;
+}
+.slick-prev {
+    left:0 !important;
+}
+.slick-next {
+    right:0 !important;
 }
 
 .client-logo-container p {
     align-items: center;
     margin-top: 5px; /* Space between logo and text */
-    color: #666; /* Change color as needed */
+    color: #ffffff; /* Change color as needed */
     font-size: 1em; /* Adjust font size as needed */
 }
+.container { max-width: 1270px; width: 100%; margin: auto; padding: 0 20px; }
+@media (min-width:1200px) and (max-width:1400px) { .container { max-width:1100px; } }
+@media (min-width:992px) and (max-width:1199px) { .container { max-width:960px; } }
+@media (min-width:768px) and (max-width:991px) { .container { max-width:720px; } }
+@media (max-width:767px) { .container { max-width:100%; } }
+
 /* Contact Section */
 .contact {
     width: 100%;
@@ -512,7 +548,7 @@ body.rtl .contact-form textarea{
     flex-direction:row-reverse;
 }
 .contact {
-    background-color: #ebfaff;
+    background-color: #ffffff;
     background-size: cover;
     background-position: center;
     padding: 50px 0;
@@ -556,7 +592,7 @@ body.rtl .contact-form textarea{
 }
 
 .contact-form button {
-    background-color: #007BFF;
+    background-color: #0E91D0;
     color: white;
     border: none;
     cursor: pointer;
@@ -595,11 +631,19 @@ body.rtl .contact-form textarea{
 body.rtl .footer {
     flex-direction: row-reverse;
 }
+body.rtl .footer-social {
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 5px;
+}
 .footer {
     /* Remove the fixed positioning */
     position: relative; /* or you can omit this line */
     width: 100%;
-    background-color: #000b70;
+    background-color: #055595;
     background-size: cover;
     background-position: center;
     height: 200px;
@@ -625,7 +669,7 @@ body.rtl .footer {
 
 /* Get in Touch Button */
 .get-in-touch {
-    background-color: #007BFF;
+    background-color: #0E91D0;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -637,7 +681,7 @@ body.rtl .footer {
 }
 
 .get-in-touch:hover {
-    background-color: #3300ff;
+    background-color: #A0D6E6;
 }
 
 /* Footer Links */
@@ -667,6 +711,7 @@ body.rtl .footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .footer-social span {

@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update button text and language attribute
         this.setAttribute('data-lang', newLang);
-        this.textContent = newLang === 'en' ? 'E' : 'ع ';
+        this.textContent = newLang === 'en' ? 'E/A' : 'E/A';
     });
 
     // Initialize with English language
