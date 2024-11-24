@@ -12,10 +12,28 @@ body {
     overflow-x:hidden;
     
 }
+
+
 /*contanier css here*/
 .container { max-width: 1400px; width: 100%; margin: auto; padding: 0 20px; }
 /*header  css here*/
-
+body.rtl header.header {flex-direction: row-reverse;}
+body.rtl header.header img {flex-direction: row-reverse;height: 60px; margin-right: 10px;max-width:100px;width:100%;}
+body.rtl header.header {
+    flex-direction: row-reverse;
+    justify-content: unset;
+}
+body.rtl nav.navigation {
+    justify-content: flex-end;
+}
+body .rtl .button#swap-btn {
+    margin-left: 10px;
+}
+body .rtl .navigation{
+    flex-direction: row-reverse;
+    text-align: right;
+    align-items: right;
+}
 .header nav.navigation ul li a { text-decoration: none; }
 
 .header .languages button { padding: 7px; border-radius: 9px; border: none;}
@@ -35,7 +53,6 @@ body {
 .header img {
     height: 60px; /* Set a fixed height for the logo */
     margin-right: 10px;
-    
     max-width:100px;width:100%;
 }
 
@@ -67,6 +84,9 @@ body {
 
 
 /* About Us Section */
+body.rtl .about-us {
+    flex-direction: row-reverse;
+}
 .about-us {
     padding: 100px 20px;
     padding-bottom : 225px;
@@ -138,6 +158,11 @@ body {
     background: white;
 }
 /* Services Section Styles */
+
+body.rtl .services-container {
+    flex-direction: row-reverse;
+}
+
 .services-section {
     display: flex;
     padding: 50px 10%;
@@ -241,6 +266,11 @@ body {
     }
 }
 /* Packages Section Layout */
+body.rtl .packages h3 {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
 .packages {
     margin: 0 auto;
     padding: 60px 15px;
@@ -339,6 +369,11 @@ body {
 /* Marketing Banner Section */
 
 /* Container for the entire creative carousel section */
+body.rtl .creative-carousel {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
 #CreativeWorks {
     background-color: #ebfaff;
     position: relative; /* Add relative positioning to the container */
@@ -391,6 +426,9 @@ body {
 
 
 /* General Styles for the Clients Section */
+body.rtl .clients {
+    flex-direction: row-reverse;
+}
 .clients {
     background-color: #ebfaff;
     padding: 40px 20px; /* Padding around the section */
@@ -463,6 +501,16 @@ body {
 }
 
 /* Contact Info Section */
+body.rtl .contact-form input,
+.contact-form textarea,
+.contact-form button {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+body.rtl .contact-form textarea{
+    text-align: right;
+    flex-direction:row-reverse;
+}
 .contact {
     background-color: #ebfaff;
     background-size: cover;
@@ -501,6 +549,10 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: left;
+}
+.contact-form textarea{
+    text-align: left;
 }
 
 .contact-form button {
@@ -540,6 +592,9 @@ body {
 }
 /* footer*/
 /* General Footer Styles */
+body.rtl .footer {
+    flex-direction: row-reverse;
+}
 .footer {
     /* Remove the fixed positioning */
     position: relative; /* or you can omit this line */
