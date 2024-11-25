@@ -481,7 +481,7 @@ body.rtl .clients {
     width: 250px; /* Set a fixed width in pixels */
     height: auto; /* Maintains the aspect ratio of the image */
     margin: 0 auto;
-    width : 341px;
+    
 }
 .clients .slick-slide > img
 {    border-radius: 10px;}
@@ -634,7 +634,7 @@ body.rtl .footer-social {
     background-color: #055595;
     background-size: cover;
     background-position: center;
-    height: 200px;
+  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -777,6 +777,10 @@ body.new-class nav.navigation {
     display: block;
 } 
 
+.package-item {
+    width:100%;
+    margin: 10px;
+}
 
 }
 
