@@ -67,6 +67,15 @@
         ]
     });
 
+    $(".carousel-container").slick({
+        autoplay: true,
+        autoplaySpeed: 1000,
+        infinite: true,
+        slidesToShow: 1,
+          arrows: false, // Disable navigation arrows
+        slidesToScroll: 1,
+    });
+
 
            $(".humbergur-link").click(function () {
         $("body").toggleClass("new-class"); 
@@ -98,15 +107,16 @@
     </div>
     <nav class="navigation">
         <ul>
-            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
             <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
             <li><a href="about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+            <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
             <li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a></li>
             <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
         </ul>
     </nav>
     <div class="languages">
-        <button class="swap-button" data-lang="en" id="swap-btn">E/A</button>
+        <button class="swap-button" data-lang="en" id="swap-btn">En/Ar</button>
     </div>
 
 
@@ -118,7 +128,7 @@
 </header>
 
 
-<section id="home" class="carousel">
+<section id="Home" class="carousel">
     <div class="carousel-container">
         <div class="carousel-slide">
             <img src="images/b1.jpg" alt="Slide 1">
@@ -129,20 +139,6 @@
         <div class="carousel-slide">
             <img src="images/b3.jpg" alt="Slide 3">
         </div>
-        <!-- <div class="carousel-slide">
-            <img src="b4.jpg" alt="Slide 4">
-        </div>
-        <div class="carousel-slide">
-            <img src="b5.jpg" alt="Slide 5">
-        </div>
-        </div> -->
-    </div>
-    <div class="carousel-indicators">
-        <span class="indicator active"></span>
-        <span class="indicator"></span>
-        <span class="indicator"></span>
-        <!-- <span class="indicator"></span>
-        <span class="indicator"></span> -->
     </div>
 </section>
 

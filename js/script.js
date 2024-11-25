@@ -1,29 +1,4 @@
 
-// Carousel Section: Handles the carousel functionality
-const carousel = document.querySelector('.carousel-container');
-const slides = document.querySelectorAll('.carousel-slide');
-const indicators = document.querySelectorAll('.indicator');
-let currentSlide = 0;
-
-function changeSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-    indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentSlide);
-    });
-}
-
-setInterval(changeSlide, 3000);
-
-indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        currentSlide = index;
-        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-        indicators.forEach(ind => ind.classList.remove('active'));
-        indicator.classList.add('active');
-    });
-});
-
 // Service Boxes Section: Handles the service box functionality
 const serviceBoxes = document.querySelectorAll('.service-box')
 
