@@ -12,7 +12,17 @@ body {
     overflow-x:hidden;
     
 }
+/*reset css*/
 
+.dis-flex{ display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.align-center{ align-items: center; }
+.row-reverse{ flex-direction: row-reverse; }
+.col-reverse{ flex-direction: column-reverse; }
+.justify-center { justify-content: center; }
+.justify-left { justify-content: left; }
+.text-left { text-align:left; }
+.text-center { text-align:center; }
+.text-right { text-align:right; }
 
 /*contanier css here*/
 .container { max-width: 1400px; width: 100%; margin: auto; padding: 0 20px; }
@@ -54,7 +64,7 @@ body.rtl nav.navigation {
     align-items: center;
     justify-content: space-between; /* Space between logo and navigation */
     padding: 5px 3px; 
-    background: rgba(0, 0, 0, 0.5); /* Keep it semi-transparent */
+    background: rgba(225, 225, 225, 0.711); /* Keep it semi-transparent */
     z-index: 1000;
     height: 60px; /* Set a fixed height for the header */
 }
@@ -90,7 +100,7 @@ body.rtl nav.navigation {
 .header .languages button {padding: 7px;border-radius: 3px;border: none;background-color:#A0D6E6;font-size:12px;margin-right: 10px;}
       
 .header nav.navigation ul li a { text-decoration: none; }
-#A0D6E6
+.humbergur-link { display: none; }
 
 /* About Us Section */
 body.rtl .about-us {
@@ -127,7 +137,7 @@ body.rtl .about-us {
 /* Carousel Styles */
 .carousel {
     position: relative;
-    height: 100vh;
+  
     overflow: hidden;
 }
 
@@ -142,7 +152,8 @@ body.rtl .about-us {
 
 .carousel-slide img {
     width: 100%;
-    height: 100vh;
+    min-height: 500px;
+   
     object-fit: cover;
 }
 
@@ -174,9 +185,8 @@ body.rtl .services-container {
 }
 
 .services-section {
-    display: flex;
-    padding: 50px 10%;
-    background-color: #055595;
+  
+    background-color: #055595;padding: 20px 0px;
 }
 
 .services-container {
@@ -188,10 +198,10 @@ body.rtl .services-container {
 }
 
 .services-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 35%;
+   
+   
+    
 }
 
 .services-left h2 {
@@ -207,13 +217,13 @@ body.rtl .services-container {
 }
 
 .services-right {
-    flex: 2;
-}
+    width: 65%;margin: 0px -10px;
+  }
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex;flex-wrap: wrap;
+ 
+ 
 }
 
 .service-box {
@@ -228,7 +238,8 @@ body.rtl .services-container {
     position: relative;
     transform: translateY(0px);
     max-width: 300px;
-    height: 250px;
+    height: 250px;width: calc(33.33% - 20px);
+    margin: 0px 10px 10px;
 }
 
 .service-box::before {
@@ -259,22 +270,9 @@ body.rtl .services-container {
     transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 1024px) {
-    .services-container {
-        flex-direction: column;
-        gap: 30px;
-    }
 
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media screen and (max-width: 768px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
+
 /* Packages Section Layout */
 body.rtl .packages h3 {
     flex-direction: row-reverse;
@@ -282,23 +280,23 @@ body.rtl .packages h3 {
 }
 
 .packages {
-    margin: 0 auto;
-    padding: 60px 15px;
-    background-color: #ede9de;
+ 
+    background-color: #c2d4ef;
+    padding:30px 0px;
 }
 
 .packages > h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #fffefe;
 }
 
 .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    padding: 0 20px;
+   
+
+ 
+   
 }
 
 .package-item {
@@ -311,6 +309,8 @@ body.rtl .packages h3 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     text-align: center;
+    width: calc(100% / 4 - 20px);  
+    margin: 0px 10px;
 }
 
 .package-item:hover {
@@ -358,23 +358,14 @@ body.rtl .packages h3 {
     background-color: #2980b9;
 }
 
-@media screen and (max-width: 1200px) {
-    .packages-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+
+.packing-wrap {
+    margin: 0px -10px;
+    padding-top:20px;
 }
 
-@media screen and (max-width: 900px) {
-    .packages-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-@media screen and (max-width: 600px) {
-    .packages-grid {
-        grid-template-columns: 1fr;
-    }
-}
+
 
 /* Marketing Banner Section */
 
@@ -385,7 +376,7 @@ body.rtl .creative-carousel {
 }
 
 #CreativeWorks {
-    background-color: #ebfaff;
+    background-color: #f6deb7;
     position: relative; /* Add relative positioning to the container */
     padding: 50px 0px;
 }
@@ -441,7 +432,7 @@ body.rtl .clients {
     flex-direction: row-reverse;
 }
 .clients {
-    background-color: #055595;
+    background-color: #005ca7;
     padding: 40px 20px; /* Padding around the section */
     text-align: center; /* Center-align text */
 }
@@ -514,10 +505,7 @@ body.rtl .clients {
     font-size: 1em; /* Adjust font size as needed */
 }
 .container { max-width: 1270px; width: 100%; margin: auto; padding: 0 20px; }
-@media (min-width:1200px) and (max-width:1400px) { .container { max-width:1100px; } }
-@media (min-width:992px) and (max-width:1199px) { .container { max-width:960px; } }
-@media (min-width:768px) and (max-width:991px) { .container { max-width:720px; } }
-@media (max-width:767px) { .container { max-width:100%; } }
+
 
 /* Contact Section */
 .contact {
@@ -738,19 +726,85 @@ body.rtl .footer-social {
     margin: 0 5px; /* Adds some spacing between icons */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .footer {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .footer-content {
-        text-align: center;
-    }
 
-    .footer-links, .footer-social {
-        margin: 10px 0;
-    }
+/*new css add here*/
+.packages h2 { color: #ffffff; font-weight: 700; font-size: 38px; line-height: 52px; } 
+
+
+
+@media (min-width:1200px) and (max-width:1400px) { .container { max-width:1200px; } }
+@media (min-width:992px) and (max-width:1199px) { .container { max-width:960px; } }
+@media (min-width:768px) and (max-width:991px) { .container { max-width:720px; } }
+@media (max-width:767px) { .container { max-width:100%; } }
+
+
+@media(max-width:1024px)
+{
+    /*    our packages section css here*/
+
+.package-item {
+    width: calc(50% - 20px);
+    margin: 10px;
 }
-/* Add more section-specific styles */
+
+
+
+/*header css here*/
+
+.humbergur-link { display: block; } ul {display: none;}
+.nav.navigation ul {display: none;}
+
+
+}
+@media(max-width: 992px) {
+    .services-left {
+        width: 100%;
+        
+    }
+
+    .services-right {
+        width: 100%;margin: 0px;
+      
+    }
+
+
+    nav.navigation {
+    display: none;
+}   
+
+body.new-class nav.navigation {
+    display: block;
+} 
+
+
+}
+
+
+@media(max-width: 767px) {
+    .service-box {
+    width: 100%;max-width: 100%;margin: 10px 0px;
+}
+
+
+.services-left h2 {
+    margin-bottom: 10px;font-size: 20px;
+
+}
+
+.contact-form
+{
+    width: 100%;
+}
+}
+
+@media(max-width:1024px)
+n
+{
+    .package-item {width: 100%;}
+    .packages h2{font-size: 27px;}
+
+    header.header .logo img {
+    max-width: 237px;
+}
+}

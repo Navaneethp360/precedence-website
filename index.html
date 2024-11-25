@@ -2,30 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Your Company Website</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
+    <!-- Font awsome Css LInk HEre -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).on('ready', function () {
-            $(".clients-logos").slick({
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
+           $(".clients-logos").slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+        {
+            breakpoint: 1024, // For screens 1024px and below
+            settings: {
+                slidesToShow: 2, // Show 3 slides
+                slidesToScroll: 2 // Scroll 3 slides at a time
+            }
+        },
+        {
+            breakpoint: 768, // For screens 768px and below
+            settings: {
+                slidesToShow: 1, // Show 2 slides
+                slidesToScroll: 1 // Scroll 2 slides at a time
+            }
+        },
+        {
+            breakpoint: 480, // For screens 480px and below
+            settings: {
+                slidesToShow: 1, // Show 1 slide
+                slidesToScroll: 1 // Scroll 1 slide at a time
+            }
+        }   
+    ]
+})
+     
+         $(".creative-carousel-container").slick({
+        autoplay: true,
+        autoplaySpeed: 1000,
+        infinite: true,
+        slidesToShow: 2,
+          arrows: false, // Disable navigation arrows
+        slidesToScroll: 2,
+
+        responsive: [
+            {
+                breakpoint: 480, // Screen width at which the settings will apply
+                settings: {
+                    slidesToShow: 1, // Show only 1 slide
+                arrows: false, // Disable navigation arrows
+
+                    slidesToScroll: 1 // Scroll 1 slide at a time
+                    
+
+                }
+            }
+        ]
+    });
+
+
+           $(".humbergur-link").click(function () {
+        $("body").toggleClass("new-class"); 
+        $(".navigation").toggleClass("active");
+    });
+
+
+
         });
-        $(document).on('ready', function () {
-            $(".creative-carousel-container").slick({
-                autoplay:true,
-                autoplaySpeed:1000,
-                infinite: true,
-                slidesToShow: 2,
-                slidesToScroll: 2
-            });
-        });
+
+
+
+
+
+
+
   </script>
 
 
@@ -51,10 +108,16 @@
     <div class="languages">
         <button class="swap-button" data-lang="en" id="swap-btn">E/A</button>
     </div>
+
+
+    <div class="humbergur-link">
+        <a href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
 </header>
 
 
-    <!-- Image Carousel -->
 <section id="home" class="carousel">
     <div class="carousel-container">
         <div class="carousel-slide">
@@ -82,10 +145,14 @@
         <span class="indicator"></span> -->
     </div>
 </section>
+
+
+
 <!--Services page-->
 <section id="services" class="services-section">
-    <div class="services-container">
+    <div class="container">
         <!-- Left Container -->
+        <div class="service-wrap dis-flex align-center">
         <div class="services-left">
             <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
             <p data-en="Discover the comprehensive range of solutions we offer to meet your business needs" data-ar="اكتشف مجموعة الحلول الشاملة التي نقدمها لتلبية احتياجات عملك">
@@ -140,6 +207,7 @@
             </div>
         </div>
     </div>
+    </div>
 </section>
 
 
@@ -147,10 +215,14 @@
 <!--packages section -->
 
 <section id="packages" class="packages">
-    <h2 data-en="Our Packages" data-ar="باقاتنا">Our Packages</h2>
+    <div class="container">
+    <h2 data-en="Our-Packages"  class="text-center" data-ar="باقاتنا">Our Packages</h2>
     <h3 data-en="Choose the perfect package for your needs" data-ar="اختر الباقة المثالية لاحتياجاتك">Choose the perfect package for your needs</h3>
-    <div style="height: 30px;"></div>
-    <div class="packages-grid">
+   
+
+
+        
+            <div class="packing-wrap dis-flex">
         <div class="package-item">
             <img src="images/package.jpg" alt="Package 1">
             <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
@@ -175,6 +247,7 @@
             <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
             <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
+    </div>
     </div>
 </section>
 
@@ -293,7 +366,16 @@
                     <button type="submit" data-en="Send" data-ar="إرسال">Send</button>
                 </form>
             </div>
-        </div>  
+        </div> 
+    </div>
+    <div class="phone-number">
+        <i class="fas fa-phone-alt"></i>
+        +965 666666
+    </div>
+
+    <div class="email-id">
+        <i class="fas fa-envelope"></i>
+        info@precedence.com
     </div>
 </section>
 
