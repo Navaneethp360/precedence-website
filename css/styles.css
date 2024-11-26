@@ -504,7 +504,7 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,244,171,1) 14
 .clients .slick-slide > img
 {    border-radius: 10px;}
 .clients .slick-next {
-    right: 7px !important;
+    right: 3px !important;
 }
 .clients .slick-prev {
     right: 7px !important;
