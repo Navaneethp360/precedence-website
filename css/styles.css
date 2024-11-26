@@ -218,7 +218,8 @@ body.rtl .services-container {
 
 .services-section {
   
-    background-color: #055595;padding: 20px 0px;
+    background-color: #055595;
+    padding: 20px 0px;
 }
 
 .services-container {
@@ -312,14 +313,18 @@ body.rtl .packages h3 {
 }
 
 .packages {
- 
-    background-color: #c2d4ef;
+    background: linear-gradient(to right,#6f00d7,#006ac1, #006ac1, #6f00d7); 
     padding:30px 0px;
 }
 
 .packages > h2 {
     text-align: center;
     font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fffefe;
+}
+.packages h3 {
+    text-align: center;
     margin-bottom: 20px;
     color: #fffefe;
 }
@@ -338,6 +343,20 @@ body.rtl .packages h3 {
     margin: 0px 10px;
 }
 
+.package-item.p1.visible {
+    background: rgb(183, 255, 95);
+}
+.package-item.p2.visible {
+    background: rgb(255, 222, 35);
+}
+.package-item.p3.visible {
+    background: rgb(255, 159, 25);
+}
+.package-item.p4.visible {
+    background: rgb(255, 44, 44);
+}
+
+
 .package-item:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 15px rgba(0,0,0,0.15);
@@ -353,19 +372,19 @@ body.rtl .packages h3 {
 .package-item h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #333;
+    color: #000000;
 }
 
 .package-item p {
     flex-grow: 1;
     margin-bottom: 20px;
-    color: #666;
+    color: #000000;
 }
 
 .package-price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -401,21 +420,27 @@ body.rtl .creative-carousel {
 }
 
 #CreativeWorks {
-    background-color: #f6deb7;
+    background: linear-gradient(to right,#6f00d7,#006ac1, #006ac1, #6f00d7);
     position: relative; /* Add relative positioning to the container */
     padding: 50px 0px;
 }
 
 #CreativeWorks h2 {
+    color: white;
     margin: 0; /* Remove default margin */
     font-size: 24px; /* Set font size for heading */
     padding-left: 20px; /* Add left padding */
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 #CreativeWorks p {
     margin: 10px 0 0; /* Add margin above the paragraph */
-    font-size: 16px; /* Set font size for paragraph */
+    font-size: 21px; /* Set font size for paragraph */
     padding-left: 20px; /* Add left padding */
+    font-weight: 500;
+    color: white;
+    text-align: center;
 }
 
 /* Carousel Container */
@@ -813,12 +838,21 @@ body.new-class nav.navigation {
 @media(max-width: 767px) {
     .service-box {
     width: 100%;max-width: 100%;margin: 10px 0px;
+
+    header.header .logo img {
+    max-width: 100px;
+    }
 }
 
 
 .services-left h2 {
     margin-bottom: 10px;font-size: 20px;
 
+}
+
+
+header.header .logo img {
+    min-width: 100px;
 }
 
 .contact-form
