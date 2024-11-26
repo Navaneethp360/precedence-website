@@ -131,53 +131,7 @@ body.rtl .about-us {
     color: #007BFF; /* Change color on hover */
     transition: color 0.3s ease; /* Smooth transition */
 }
-
-
-
-
-/* Carousel Styles */
-/* .carousel {
-    position: relative;
-  
-    overflow: hidden;
-}
-
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.carousel-slide {
-    min-width: 100%;
-}
-
-.carousel-slide img {
-    width: 100%;
-    min-height: 500px;
-   
-    object-fit: cover;
-}
-
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-
-.indicator {
-    width: 10px;
-    height: 10px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-.indicator.active {
-    background: white;
-} */
+/* Carousel Section */
 
 .carousel {
     position: relative;
@@ -202,7 +156,7 @@ body.rtl .about-us {
 /* Image Style */
 .carousel-slide img {
     width: 100%;    
-    max-height: 650px;
+    max-height: 730px;
     object-fit: cover; /* Ensure image covers the box */
 }
 
@@ -656,13 +610,14 @@ body.rtl .contact-form textarea{
 
 .phone-number,
 .email-id {
-    color: #fff;
+    padding-left: 10px;
+    color: #000000;
 }
 
 .phone-number i,
 .email-id i {
-    color: #fff;
-    margin-right: 5px;
+    padding-left: 10px;
+    color: #000000;
 }
 /* footer*/
 /* General Footer Styles */
