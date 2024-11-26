@@ -18,6 +18,8 @@
            $(".clients-logos").slick({
     infinite: true,
     slidesToShow: 3,
+     centerMode: true, 
+     centerPadding: '0px', 
     slidesToScroll: 3,
     responsive: [
         {
@@ -89,6 +91,16 @@
   </script>
 
 <style>
+
+  body.rtl .language-wrap {
+    justify-content: flex-start;
+}
+
+
+
+body.rtl header.header .logo {
+    text-align: right;
+}
     header.header .logo {width:10%;}
     nav.navigation{
         width:80%;
@@ -107,6 +119,8 @@
             margin: 0px;
     }
     
+  
+    
     body.new-class header.header
     
     {
@@ -114,7 +128,9 @@
     }
     
     
-    
+    .services-grid {
+    justify-content: center;
+}
     
     .language-wrap {
        display: flex ; position: absolute; right: 2%; top: 32%;
@@ -126,11 +142,25 @@
     {
         width:100%;
     }
-    body.new-class .language-wrap {
-        top: 8%;
-    }
+   
     
+    /*.header nav.navigation ul li a {margin-left:10px;}*/
+    
+    .header nav.navigation ul li  {margin-left:10px;font-size: 12px;border-bottom: 1px solid #ffffff;line-height: 15px;margin-bottom: 10px;padding: 0px;margin: 0px;padding: 10px 0px;} 
     .header nav.navigation ul li a {margin-left:10px;}
+
+.carousel-slide img
+{
+    height:600px !important;object-fit:cover;
+}
+
+.service-wrap.dis-flex.align-center {
+    text-align: center;
+}
+    .package-item {width:80%;}
+.packing-wrap.dis-flex {
+    justify-content: center;
+}
     
         }
         
@@ -185,6 +215,18 @@
         <div class="carousel-slide">
             <img src="images/b3.jpg" alt="Slide 3">
         </div>
+        <div class="carousel-slide">
+            <img src="images/b4.jpg" alt="Slide 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/b5.jpg" alt="Slide 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/b6.jpg" alt="Slide 3">
+        </div>
+        <div class="carousel-slide">
+            <img src="images/b7.jpg" alt="Slide 3">
+        </div>
     </div>
 </section>
 
@@ -206,46 +248,63 @@
         <div class="services-right">
             <div class="services-grid">
                 <!-- Service Box 1 -->
-                <div class="service-box" style="background-image: url('images/ser1.jpeg'); background-size: cover; background-position: center;">
+                <div class="service-box" style="background-image: url('images/ser1.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3 data-en="Branding / Rebranding" data-ar="العلامة التجارية / إعادة العلامة التجارية">Branding / Rebranding</h3>
+                     <h3 data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 2 -->
-                <div class="service-box" style="background-image: url('images/ser2.jpeg'); background-size: cover; background-position: center;">
+                <div class="service-box" style="background-image: url('images/ser2.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3 data-en="Marketing Plan" data-ar="خطة التسويق">Marketing Plan</h3>
+                           <h3 data-en="Branding and Rebranding" data-ar="التسمية والتسمية التجارية">Branding and Rebranding</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 3 -->
-                <div class="service-box" style="background-image: url('images/ser3.jpeg'); background-size: cover; background-position: center;">
+                <div class="service-box" style="background-image: url('images/ser3.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3 data-en="Digital Marketing" data-ar="التسويق الرقمي">Digital Marketing</h3>
+                        <h3 data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 4 -->
-                <div class="service-box" style="background-image: url('images/ser4.jpeg'); background-size: cover; background-position: center;">
+                <div class="service-box" style="background-image: url('images/ser4.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3 data-en="Account Management" data-ar="إدارة الحسابات">Account Management</h3>
+                        <h3 data-en="Social Media" data-ar="وسائل التواصل الاجتماعي">Social Media</h3>
                     </div>
                 </div>
 
                 <!-- Service Box 5 -->
-                <div class="service-box" style="background-image: url('images/ser5.jpeg'); background-size: cover; background-position: center;">
+                <div class="service-box" style="background-image: url('images/ser5.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3 data-en="Media & Advertising" data-ar="الإعلام والإعلان">Media & Advertising</h3>
+                        <h3 data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</h3> 
                     </div>
                 </div>
 
                 <!-- Service Box 6 -->
-                <div class="service-box" style="background-image: url('images/ser6.jpeg'); background-size: cover; background-position: center;">
+                <div class="service-box" style="background-image: url('images/ser6.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3 data-en="Sponsored Ads" data-ar="الإعلانات المدفوعة">Sponsored Ads</h3>
+                      <h3 data-en="3D Production" data-ar="الإنتاج ثلاثي الأبعاد">3D Production</h3> 
                     </div>
                 </div>
+                
+                 <!-- Service Box 7 -->
+                <div class="service-box visible" style="background-image: url('images/ser7.jpg'); background-size: cover; background-position: center;">
+                    <div class="service-text">
+                        <h3 data-en="Ads" data-ar="الإعلانات">Ads</h3>
+                    </div>
+                </div>
+                
+                    <!-- Service Box 8 -->
+                <div class="service-box visible" style="background-image: url('images/ser8.jpg'); background-size: cover; background-position: center;">
+                    <div class="service-text">
+                          <h3 data-en="Marketing" data-ar="التسويق">Marketing</h3>
+                    </div>
+                </div>
+                
+             
+        </div>
             </div>
         </div>
     </div>
@@ -257,7 +316,7 @@
 <!--packages section -->
 
 <section id="packages" class="packages">
-    <div class="container">
+    
     <h2 data-en="Our-Packages"  class="text-center" data-ar="باقاتنا">Our Packages</h2>
     <h3 data-en="Choose the perfect package for your needs" data-ar="اختر الباقة المثالية لاحتياجاتك">Choose the perfect package for your needs</h3>
             <div class="packing-wrap dis-flex">
@@ -286,7 +345,7 @@
             <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
     </div>
-    </div>
+    
 </section>
 
 
@@ -315,8 +374,12 @@
 <!--Clients section -->
 
 <section id="clients" class="clients">
+    
+    
     <h2 class="center" data-en="Meet Our Clients" data-ar="تعرف على عملائنا">Meet Our Clients</h2>
     <p class="center" data-en="We have had the pleasure of working with some amazing clients. Here are a few of them." data-ar="لقد كان لدينا شرف العمل مع بعض العملاء الرائعين. إليكم بعض منهم.">We have had the pleasure of working with some amazing clients. Here are a few of them.</p>
+    
+    <div class="container">
     <div class="clients-logos">
         <div class="client-logo-container">
             <img src="images/client1.jpg" alt="Client 1" class="client-logo">
@@ -339,6 +402,8 @@
             <p data-en="Nine T Six" data-ar="ناين تي سيكس">Nine T Six</p>
         </div>
     </div>
+    </div>
+ 
 </section>
 
 
@@ -406,7 +471,12 @@
             </div>
         </div> 
     </div>
-<div class="phone-number">
+
+</section>
+<section class="contact-section-2">
+    <div class="container">
+        <div class="contact-wrap">
+    <div class="phone-number">
     <i class="fa-solid fa-phone"></i>
     +965 666666
 </div>
@@ -415,8 +485,10 @@
     <i class="fa-solid fa-envelope"></i>
     info@precedence.com
 </div>
+</div>
+</div>
+    
 </section>
-
 
 
     <!-- Footer -->

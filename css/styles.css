@@ -4,7 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+a 
+{
+    display:block;margin:0px;padding:0px;
+}
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -55,7 +58,7 @@ body.rtl nav.navigation {
 }
 .header nav.navigation ul li a { text-decoration: none; }
 
-.header .languages button { padding: 7px; border-radius: 9px; border: none;}
+.header .languages button { padding: 7px; border-radius: 9px; border: none;text-transform:uppercase;}
 .header {
     position: fixed;
     top: 0;
@@ -70,7 +73,7 @@ body.rtl nav.navigation {
 }
 
 .header img {
-    height: 60px; /* Set a fixed height for the logo */
+   
     margin-right: 10px;
     max-width:100px;width:100%;
 }
@@ -98,7 +101,7 @@ body.rtl nav.navigation {
     font-weight: 600;
 }
 
-.header .languages button {padding: 7px;border-radius: 3px;border: none;background-color:#A0D6E6;font-size:12px;margin-right: 10px;}
+.header .languages button {padding: 7px;border-radius: 3px;border: none;background-color:#246CDE;font-size:12px;margin-right: 10px;color:#ffffff;}
       
 .header nav.navigation ul li a { text-decoration: none; }
 .humbergur-link { display: none; }
@@ -155,8 +158,8 @@ body.rtl .about-us {
 
 /* Image Style */
 .carousel-slide img {
-    width: 100%;    
-    max-height: 730px;
+    width: 100%;   
+    height:99vh;
     object-fit: cover; /* Ensure image covers the box */
 }
 
@@ -172,8 +175,15 @@ body.rtl .services-container {
 
 .services-section {
   
-    background-color: #055595;
+    /*background-color: #c5dbe5;*/
+    
+        /*background: linear-gradient(90deg, rgb(87 89 103) 0%, rgb(202 207 233) 35%, rgba(115, 164, 173, 1) 100%);*/
     padding: 20px 0px;
+    
+        /*background: linear-gradient(90deg, rgba(0, 251, 244, 0.7120973389355743) 1%, rgba(255, 248, 248, 1) 100%);*/
+        
+            background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
 
 .services-container {
@@ -185,7 +195,7 @@ body.rtl .services-container {
 }
 
 .services-left {
-    width: 35%;
+    width: 30%;
    
    
     
@@ -204,7 +214,7 @@ body.rtl .services-container {
 }
 
 .services-right {
-    width: 65%;margin: 0px -10px;
+    width: 70%;margin: 0px -10px;
   }
 
 .services-grid {
@@ -225,7 +235,7 @@ body.rtl .services-container {
     position: relative;
     transform: translateY(0px);
     max-width: 300px;
-    height: 250px;width: calc(33.33% - 20px);
+    height: 250px;width: calc(25% - 20px);
     margin: 0px 10px 10px;
 }
 
@@ -267,8 +277,9 @@ body.rtl .packages h3 {
 }
 
 .packages {
-    background: linear-gradient(to right,#6f00d7,#006ac1, #006ac1, #6f00d7); 
     padding:30px 0px;
+    background: rgb(122,255,67);
+    background: linear-gradient(0deg, rgba(122,255,67,0.9080882352941176) 0%, rgba(36,193,194,1) 78%);
 }
 
 .packages > h2 {
@@ -358,7 +369,7 @@ body.rtl .packages h3 {
 
 
 .packing-wrap {
-    margin: 0px -10px;
+    margin: 0px 35px;
     padding-top:20px;
 }
 
@@ -374,7 +385,8 @@ body.rtl .creative-carousel {
 }
 
 #CreativeWorks {
-    background: linear-gradient(to right,#6f00d7,#006ac1, #006ac1, #6f00d7);
+    background: rgb(255,234,93);
+background: linear-gradient(0deg, rgba(255,234,93,1) 18%, rgba(133,254,85,1) 93%);
     position: relative; /* Add relative positioning to the container */
     padding: 50px 0px;
 }
@@ -436,7 +448,9 @@ body.rtl .clients {
     flex-direction: row-reverse;
 }
 .clients {
-    background-color: #005ca7;
+    background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,244,171,1) 14%, rgba(255,241,149,1) 28%, rgba(255,234,93,1) 52%);
+
     padding: 40px 20px; /* Padding around the section */
     text-align: center; /* Center-align text */
 }
@@ -636,7 +650,8 @@ body.rtl .footer-social {
     /* Remove the fixed positioning */
     position: relative; /* or you can omit this line */
     width: 100%;
-    background-color: #055595;
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 47%, rgba(9,9,121,1) 100%);
     background-size: cover;
     background-position: center;
   
@@ -792,7 +807,7 @@ body.new-class nav.navigation {
 
 @media(max-width: 767px) {
     .service-box {
-    width: 100%;max-width: 100%;margin: 10px 0px;
+    width: 80%;max-width: 100%;margin: 10px 0px;
 
     header.header .logo img {
     max-width: 100px;
@@ -822,7 +837,5 @@ header.header .logo img {
     .package-item {width: 100%;}
     .packages h2{font-size: 27px;}
 
-    header.header .logo img {
-    max-width: 237px;
-}
+
 }
