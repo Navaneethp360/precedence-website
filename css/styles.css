@@ -309,16 +309,16 @@ body.rtl .packages h3 {
 }
 
 .package-item.p1.visible {
-    background: rgb(183, 255, 95);
+    background: radial-gradient(circle, rgba(242,135,135,1) 0%, rgba(207,88,47,1) 100%);
 }
 .package-item.p2.visible {
-    background: rgb(255, 222, 35);
+    background: radial-gradient(circle, rgba(109,109,109,1) 0%, rgba(198,198,198,1) 100%);
 }
 .package-item.p3.visible {
-    background: rgb(255, 159, 25);
+    background: radial-gradient(circle, rgba(250,214,95,1) 0%, rgba(255,158,93,1) 100%);;
 }
 .package-item.p4.visible {
-    background: rgb(255, 44, 44);
+    background: radial-gradient(circle, rgba(185,85,199,1) 0%, rgba(131,93,255,1) 100%);;
 }
 
 
@@ -806,15 +806,7 @@ body.new-class nav.navigation {
     width:100%;
     margin: 10px;
 }
-
-
-
-
-/*new css here*/
-
-
-{
-           body.rtl .language-wrap .languages button#swap-btn {
+body.rtl .language-wrap .languages button#swap-btn {
     margin-left: 10px;
 }
 
