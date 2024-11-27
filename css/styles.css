@@ -806,7 +806,8 @@ body.new-class nav.navigation {
     width:100%;
     margin: 10px;
 }
-body.rtl .language-wrap .languages button#swap-btn {
+
+    body.rtl .language-wrap .languages button#swap-btn {
     margin-left: 10px;
 }
 

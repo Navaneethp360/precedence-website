@@ -14,7 +14,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
     <script type="text/javascript">
-
         $(document).on('ready', function () {
            $(".clients-logos").slick({
     infinite: true,
@@ -87,8 +86,9 @@
 
 
 
-});
-</script>
+        });
+
+  </script>
 
 <style>.contact-wrap {
     margin-left: 20px;
@@ -135,9 +135,9 @@ body.rtl header.header .logo {
     .language-wrap {
         display: flex;width:10%;justify-content:flex-end;
     }
-@media(max-width:991px)
-{
-    body.rtl .language-wrap .languages button#swap-btn {
+        @media(max-width:991px)
+        {
+           body.rtl .language-wrap .languages button#swap-btn {
     margin-left: 10px;
 }
 
@@ -225,11 +225,10 @@ padding:0px;
         }
         
         .packages{padding:0px;}
-}
         
   
-        
-@media(max-width:767px)
+        } 
+        @media(max-width:767px)
         {
             .phone-number, .email-id
             {
@@ -248,6 +247,13 @@ padding:0px;
             .phone-number, .email-id{width:100%;}
             .contact-wrap{margin-left:0px;}
             section#contact {padding: 15px 6px;}
+            .footer-social {
+    flex-direction: column;
+    padding: 6px 0px;
+}
+.footer-social .social-icon{padding:8px 4px;}
+        .footer-social .social-icon { margin: 0px 2px;padding:0px;}
+
 
 
         }
@@ -380,11 +386,11 @@ padding:0px;
                 </a>
 
                 <!-- Service Box 4 -->
-             <a href="https://precedencekw.com/social-media.html" class="service-box" style="background-image: url('images/ser3.jpg'); background-size: cover; background-position: center;">
+             <a href="https://precedencekw.com/social-media.html" class="service-box" style="background-image: url('images/ser4.jpg'); background-size: cover; background-position: center;">
 
                 <div>
                     <div class="service-text">
-                        <h3 data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</h3>
+                    <h3 data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</h3>
                     </div>
                 </div>
                 </a>
@@ -634,7 +640,10 @@ padding:0px;
                 &copy; 2024 Precedence. All Rights Reserved.
             </div>
                 <div class="footer-social">
+                    <div class="left">
                     <span class="folllow-class" data-en="Follow us" data-ar="تابعنا">Follow us</span>
+                    </div>
+                    <div class="right dis-flex">
                 <a href="#" class="social-icon">
                     <img src="icons and logos/fb-icon.png" alt="Facebook">
                 </a>
@@ -659,6 +668,7 @@ padding:0px;
                 <a href="#" class="social-icon">
                     <img src="icons and logos/wp-icon.png" alt="Whatsapp">
                 </a>
+                </div>
             </div>
         </div>
     </footer>
