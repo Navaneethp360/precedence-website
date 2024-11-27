@@ -90,7 +90,23 @@
 
   </script>
 
-<style>
+<style>.contact-wrap {
+    margin-left: 20px;
+}
+.contact-wrap {
+    display: flex;margin-left: 20px;
+    flex-wrap: wrap;
+}
+
+.phone-number {
+    width: 23%;
+    /* border: 1px solid; */
+    margin-right: 17px;
+}
+
+section.contact-section-2 {
+    padding: 10px 0px 29px 0px;
+}
 
   body.rtl .language-wrap {
     justify-content: flex-start;
@@ -121,6 +137,24 @@ body.rtl header.header .logo {
     }
         @media(max-width:991px)
         {
+           body.rtl .language-wrap .languages button#swap-btn {
+    margin-left: 10px;
+}
+
+.contact-wrap {
+    flex-direction: column;margin-left:10px;
+}
+
+.phone-number {
+    width: 61%;
+    margin-bottom: 9px;
+}
+.phone-number, .email-id{width:61%;margin-top:10px;}
+section.contact-section-2 .container{padding:0px 6px;}
+body.rtl header.header img {margin-right:0px;
+}
+            
+            body.rtl .language-wrap{left:7%;flex-direction:row-reverse;}
        header.header{padding:0px;}     
     body.new-class header.header .navigation ul {
         flex-direction: column;
@@ -154,7 +188,7 @@ body.rtl header.header .logo {
     }
    
     
-    /*.header nav.navigation ul li a {margin-left:10px;}*/
+    .header nav.navigation ul li a {margin-left:10px;}
     
     .header nav.navigation ul li  {margin-left:10px;font-size: 12px;border-bottom: 1px solid #ffffff;line-height: 15px;margin-bottom: 10px;padding: 0px;margin: 0px;padding: 10px 0px;} 
     .header nav.navigation ul li a {margin-left:10px;}
@@ -275,12 +309,14 @@ body.rtl header.header .logo {
         <div class="services-right">
             <div class="services-grid">
                 <!-- Service Box 1 -->
-                <div class="service-box" style="background-image: url('images/ser1.jpg'); background-size: cover; background-position: center;">
+                <a href="https://precedencekw.com/marketing-strategy.html" class="service-box" style="background-image: url('images/ser1.jpg'); background-size: cover; background-position: center;">
+              
+                <div class="" >
                     <div class="service-text">
                      <h3 data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</h3>
                     </div>
                 </div>
-
+                 </a>
                 <!-- Service Box 2 -->
                 <div class="service-box" style="background-image: url('images/ser2.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
@@ -298,7 +334,7 @@ body.rtl header.header .logo {
                 <!-- Service Box 4 -->
                 <div class="service-box" style="background-image: url('images/ser4.jpg'); background-size: cover; background-position: center;">
                     <div class="service-text">
-                        <h3 data-en="Social Media" data-ar="وسائل التواصل الاجتماعي">Social Media</h3>
+                        <h3 data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</h3> ia</h3>
                     </div>
                 </div>
 
@@ -348,26 +384,26 @@ body.rtl header.header .logo {
     <h3 data-en="Choose the perfect package for your needs" data-ar="اختر الباقة المثالية لاحتياجاتك">Choose the perfect package for your needs</h3>
             <div class="packing-wrap dis-flex">
         <div class="package-item p1">
-            <img src="images/package.jpg" alt="Package 1">
-            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <img src="images/p1.png" alt="Package 1">
+            <h3 data-en="Bronze" data-ar="برونزية">Bronze</h3>            
             <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
             <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
         <div class="package-item p2">
-            <img src="images/package.jpg" alt="Package 2">
-            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <img src="images/p2.png" alt="Package 2">
+            <h3 data-en="Silver" data-ar="فضة">Silver</h3>            
             <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
             <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
         <div class="package-item p3">
-            <img src="images/package.jpg" alt="Package 3">
-            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <img src="images/p3.png" alt="Package 3">
+            <h3 data-en="Gold" data-ar="ذهبية">Gold</h3>            
             <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
             <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
         <div class="package-item p4">
-            <img src="images/package.jpg" alt="Package 4">
-            <h3 data-en="Package Name" data-ar="اسم الباقة">Package Name</h3>
+            <img src="images/p4.png" alt="Package 4">
+            <h3 data-en="Diamond" data-ar="الماسية">Diamond</h3>            
             <p data-en="Package description" data-ar="وصف الباقة">Package description</p>
             <div class="package-price" data-en="$XX.XX" data-ar="$XX.XX">$XX.XX</div>
         </div>
@@ -512,6 +548,7 @@ body.rtl header.header .logo {
 
 <div class="email-id">
     <i class="fa-solid fa-envelope"></i>
+  
     contact@precedencekw.com
 </div>
 </div>
