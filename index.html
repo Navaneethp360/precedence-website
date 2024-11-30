@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript">
         $(document).on('ready', function () {
            $(".clients-logos").slick({
@@ -89,8 +90,33 @@
         });
 
   </script>
+<style type="text/css">
+.footer { background: #1F2232; display: flex; }
+.footer .footer-left { width: 10%; }
+.footer .footer-right { width: 80%; }
+.footer .inner-left { width: 40%; }
+.footer .logo-section a img { max-width: 119px; }
+.footer .social { text-align: center; margin: 15px 0px; }
+.footer .social a i { color: #ffffff; font-size: 18px; text-align: center; }
+.footer .location-right { color: #ffffff; font-size: 17px; font-weight: 500; margin-top: 18px; }
+.footer .location-left { width: 10%; text-align: center; color: #ffffff; }
+.footer .location { display: flex; align-items: center; }
+.footer .location-left i.fa.fa-map-marker { font-size: 24px; }
+.footer .email-id { color: #ffffff; }
+</style>
 
-<style>.contact-wrap {
+<style>
+.navigation li
+{
+    position:relative;
+}
+.header nav.navigation ul li a
+{
+    position:relative;
+}
+
+
+.contact-wrap {
     margin-left: 20px;
 }
 .contact-wrap {
@@ -275,15 +301,59 @@ padding:0px;
     <header class="header">
         
         <div class="logo">
+            <a href="https://precedencekw.com/">
             <img src="icons and logos/logo1.png" alt="Company Logo">
+            </a>
         </div>
         <nav class="navigation">
             <ul>
                 <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
+                <!--<li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>-->
+                
+                 <li class="services">
+                <a href="#services" data-en="Services" data-ar="خدمات">Services</a>
+                <div class="mega-menu">
+                    <ul>
+                        <li><a href="#">Marketing Strategy</a></li>
+                        <li><a href="#">Branding and Rebranding</a></li>
+                        <li><a href="#">Digital Solutions</a></li>
+                        <li><a href="#">Social Media Marketing</a></li>
+                        <li><a href="#">Media Production</a></li>
+                        <li><a href="#">3D Production</a></li>
+                        <li><a href="#">Ads</a></li>
+                        <li><a href="#">Marketing</a></li>
+                    </ul>
+                </div>
+            </li>
                 <li><a href="about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
                 <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
-                <li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a></li>
+                <!--<li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a>-->
+                <!--    <div class="mega-menu">-->
+                <!--     <ul>-->
+                <!--        <li><a href="#">Bronze</a></li>-->
+                <!--        <li><a href="#">Silver</a></li>-->
+                <!--        <li><a href="#">Gold</a></li>-->
+                <!--        <li><a href="#">Diamond</a></li>-->
+                       
+                <!--    </ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                
+                     <li class="services">
+               <a href="#packages" data-en="Packages" data-ar="باقات">Packags
+               </a>
+                <div class="mega-menu">
+                    <ul>
+                       <ul>
+                        <li><a href="#">Bronze</a></li>
+                        <li><a href="#">Silver</a></li>
+                        <li><a href="#">Gold</a></li>
+                        <li><a href="#">Diamond</a></li>
+                       
+                    </ul>
+                    </ul>
+                </div>
+            </li>
                 <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
             </ul>
         </nav>
@@ -552,32 +622,26 @@ padding:0px;
             <div class="contact-form">
                 <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
                 <h3 data-en="Do you have any questions?" data-ar="هل لديك أي أسئلة؟">Do you have any questions?</h3>
-                <form action="#" method="POST">
+                <form id="contactForm" onsubmit="sendEmail(event)">
                     <input 
                         type="text" 
                         name="first_name" 
                         placeholder="First Name" 
                         required 
-                        aria-label="First Name" 
-                        data-en-placeholder="First Name" 
-                        data-ar-placeholder="الاسم الأول"
+                        aria-label="First Name"
                     >
                     <input 
                         type="text" 
                         name="last_name" 
                         placeholder="Last Name" 
                         required 
-                        aria-label="Last Name" 
-                        data-en-placeholder="Last Name" 
-                        data-ar-placeholder="الاسم الأخير"
+                        aria-label="Last Name"
                     >
                     <input 
                         type="text" 
                         name="company" 
                         placeholder="Company" 
                         aria-label="Company"
-                        data-en-placeholder="Company" 
-                        data-ar-placeholder="الشركة"
                     >
                     <input 
                         type="email" 
@@ -585,26 +649,20 @@ padding:0px;
                         placeholder="Your Email" 
                         required 
                         aria-label="Email"
-                        data-en-placeholder="Your Email" 
-                        data-ar-placeholder="البريد الإلكتروني"
                     >
                     <textarea 
                         name="message" 
                         placeholder="Your Message" 
                         required 
                         aria-label="Message"
-                        data-en-placeholder="Your Message" 
-                        data-ar-placeholder="رسالتك"
                     ></textarea>
                     <input 
                         type="tel" 
                         name="phone" 
                         placeholder="Phone Number" 
                         aria-label="Phone Number"
-                        data-en-placeholder="Phone Number" 
-                        data-ar-placeholder="رقم الهاتف"
                     >
-                    <button type="submit" data-en="Send" data-ar="إرسال">Send</button>
+                    <button type="submit">Send</button>
                 </form>
             </div>
         </div> 
@@ -617,14 +675,13 @@ padding:0px;
     <div class="phone-number">
     <i class="fa-solid fa-phone"></i>
     <div class="phone">
-    <a href="tel:+96555515511">+96555515511</a>
+    <a href="tel:+96555515511">+965 5551 5511</a>
     </div>
 </div>
 
 <div class="email-id">
     <i class="fa-solid fa-envelope"></i>
-  
-    contact@precedencekw.com
+    <a href="mailto:contact@precedencekw.com">contact@precedencekw.com</a>
 </div>
 </div>
 </div>
@@ -680,6 +737,51 @@ padding:0px;
     </footer>
     
 
-    <script src="js/script.js"></script>
+
+    
+    <style>
+
+/* Mega Menu Styling */
+
+
+.services:hover .mega-menu {
+    display: block;
+}
+
+.mega-menu {
+  
+    position: absolute;display:none;
+    top: 93%;
+    left:0px;
+    background-color: #f9f9f9;
+    width: 300px;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.mega-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;flex-direction: column;
+}
+
+.mega-menu li {
+    margin-bottom: 10px;
+}
+
+.mega-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    padding: 5px 0;
+    display: block;
+}
+
+/* Hover Effect on Mega Menu */
+.mega-menu a:hover {
+    color: #007BFF;
+}
+</style>
 </body>
 </html>

@@ -175,15 +175,7 @@ body.rtl .services-container {
 
 .services-section {
   
-    /*background-color: #c5dbe5;*/
-    
-        /*background: linear-gradient(90deg, rgb(87 89 103) 0%, rgb(202 207 233) 35%, rgba(115, 164, 173, 1) 100%);*/
-    padding: 20px 0px;
-    
-        /*background: linear-gradient(90deg, rgba(0, 251, 244, 0.7120973389355743) 1%, rgba(255, 248, 248, 1) 100%);*/
-        
-            background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background-color: white;
 }
 
 .services-container {
@@ -195,21 +187,18 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
 }
 
 .services-left {
-    width: 30%;
-   
-   
-    
+    width: 30%; 
 }
 
 .services-left h2 {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 15px;
 }
 
 .services-left p {
     font-size: 1rem;
-    color: #ffffff;
+    color: #000000;
     line-height: 1.6;
 }
 
@@ -217,11 +206,12 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%
     width: 70%;margin: 0px -10px;
   }
 
-.services-grid {
-    display: flex;flex-wrap: wrap;
- 
- 
+  .services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 10px;
 }
+
 
 .service-box {
     background-color: white;
@@ -278,20 +268,15 @@ body.rtl .packages h3 {
 
 .packages {
     padding:30px 0px;
-    background: rgb(122,255,67);
-    background: linear-gradient(0deg, rgba(122,255,67,0.9080882352941176) 0%, rgba(36,193,194,1) 78%);
+    background: white;
 }
 
-.packages > h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #fffefe;
-}
+.packages h2 { color: #000000; font-weight: 700; font-size: 38px; line-height: 52px; } 
+
 .packages h3 {
     text-align: center;
     margin-bottom: 20px;
-    color: #fffefe;
+    color: #000000;
 }
 
 .package-item {
@@ -385,14 +370,13 @@ body.rtl .creative-carousel {
 }
 
 #CreativeWorks {
-    background: rgb(255,234,93);
-background: linear-gradient(0deg, rgba(255,234,93,1) 18%, rgba(133,254,85,1) 93%);
+    background: white;
     position: relative; /* Add relative positioning to the container */
     padding: 50px 0px;
 }
 
 #CreativeWorks h2 {
-    color: white;
+    color: rgb(0, 0, 0);
     margin: 0; /* Remove default margin */
     font-size: 24px; /* Set font size for heading */
     padding-left: 20px; /* Add left padding */
@@ -405,7 +389,7 @@ background: linear-gradient(0deg, rgba(255,234,93,1) 18%, rgba(133,254,85,1) 93%
     font-size: 21px; /* Set font size for paragraph */
     padding-left: 20px; /* Add left padding */
     font-weight: 500;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 
@@ -448,8 +432,7 @@ body.rtl .clients {
     flex-direction: row-reverse;
 }
 .clients {
-    background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,244,171,1) 14%, rgba(255,241,149,1) 28%, rgba(255,234,93,1) 52%);
+    background: white;
 
     padding: 40px 20px; /* Padding around the section */
     text-align: center; /* Center-align text */
@@ -458,13 +441,13 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,244,171,1) 14
 /* Paragraph Styles */
 .clients p {
     font-size: 1.2em; /* Font size for the paragraph */
-    color: #ffffff; /* Lighter text color */
+    color: #000000; /* Lighter text color */
     margin-bottom: 30px; /* Space below the paragraph */
     text-align: center;
 }
 
 .clients h2 {
-    color : white;
+    color : rgb(0, 0, 0);
 }
 
 /* Button Styles */
@@ -501,6 +484,13 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,244,171,1) 14
     margin: 0 auto;
     
 }
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 .clients .slick-slide > img
 {    border-radius: 10px;}
 .clients .slick-next {
@@ -519,7 +509,7 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,244,171,1) 14
 .client-logo-container p {
     align-items: center;
     margin-top: 5px; /* Space between logo and text */
-    color: #ffffff; /* Change color as needed */
+    color: #000000; /* Change color as needed */
     font-size: 1em; /* Adjust font size as needed */
 }
 .container { max-width: 1270px; width: 100%; margin: auto; padding: 0 20px; }
@@ -624,8 +614,10 @@ body.rtl .contact-form textarea{
 
 .phone-number,
 .email-id {
+    display: flex;
     padding-left: 10px;
     color: #000000;    box-shadow: 6px 6px 5px #CCC;width:23%;
+    align-items: center;
 }
 
 .phone-number i,
@@ -633,6 +625,17 @@ body.rtl .contact-form textarea{
     padding-left: 10px;
     color: #000000;
 }
+
+.email-id a{
+    padding-left: 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.phone-number a{
+   padding-left: 5px; 
+}
+
 /* footer*/
 /* General Footer Styles */
 body.rtl .footer {
@@ -747,16 +750,52 @@ body.rtl .footer-social {
 }
 
 
-
-
-
-
-/*new css add here*/
-.packages h2 { color: #ffffff; font-weight: 700; font-size: 38px; line-height: 52px; } 
-
-
 /*marketing strategy page css here*/
 .marketing-wrap { margin-top: 68px; }
+
+
+/*get-in-touch-page-css*/
+.contact-us-container {
+    display: flex; /* Use Flexbox for layout */
+    width: 100%; /* Full width of the section */
+    padding: 75px 75px;
+}
+.info-item {
+    height: 100%; /* Ensure the container takes full height */
+}
+
+.info-item iframe {
+    width: 100%; /* Make the iframe take full width */
+    height: 90%; /* Make the iframe take full height */
+}
+
+.contact-us-row {
+    display: flex; /* Use Flexbox for the row */
+    width: 100%; /* Full width */
+}
+
+.contact-us-left,
+.contact-us-right {
+    flex: 1; /* Each side takes equal space */
+    max-width: 50%; /* Limit each side to 50% of the container */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.contact-us-container .contact-form {
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-us-left h2 {
+    padding-left: 20px;
+}
+.contact-us-right h2, .contact-us-right h3 {
+    padding-left: 20px;
+}
 
 @media (min-width:1200px) and (max-width:1400px) { .container { max-width:1200px; } }
 @media (min-width:992px) and (max-width:1199px) { .container { max-width:960px; } }
@@ -877,6 +916,46 @@ body.rtl header.header img {margin-right:0px;
 }
       .carousel img.mobile { display: block; }
         .carousel img.desktop { display: none; }
+        
+            /*get in touch page*/
+        .contact-us-container {
+            display: flex;
+            width: 100%;
+            padding : 5px;
+            margin-top: 50px;
+        }
+        .contact-us-row {
+            display: flex;
+            flex-direction: column-reverse;
+            width: 100%;
+        }
+        .contact-us-left, .contact-us-right {
+            flex: 1;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .contact-us-left h2 {
+            padding-left: 20px;
+            text-align: center;
+        }
+        .info-item iframe {
+            width: 100%;
+            height: 90%;
+            padding: 25px;
+        }
+        .contact-us-left, .contact-us-right {
+            flex: 1;
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 1px;
+        }
+        .contact-us-left h2 {
+            text-align: center;
+        }
+        .contact-us-right h2, .contact-us-right h3 {
+            padding-top: 10px;
+            text-align: center;
+        }
 
 }
 
@@ -905,6 +984,7 @@ header.header .logo img {
 {
     width: 100%;
 }
+
 }
 
 @media(max-width:1024px)

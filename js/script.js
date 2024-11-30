@@ -99,6 +99,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize with English language
     switchLanguage('en');
 });
+
+// Mail sending script
  
+function sendEmail(event) {
+    event.preventDefault(); // Prevent form submission to the server
+
+    // Get form values
+    const firstName = document.querySelector('[name="first_name"]').value;
+    const lastName = document.querySelector('[name="last_name"]').value;
+    const company = document.querySelector('[name="company"]').value;
+    const userEmail = document.querySelector('[name="email"]').value;
+    const message = document.querySelector('[name="message"]').value;
+    const phone = document.querySelector('[name="phone"]').value;
+
+    // Construct the mailto link
+    const subject = `Message from ${firstName} ${lastName}`;
+    const body = `
+        Name: ${firstName} ${lastName}
+        Company: ${company}
+        Email: ${userEmail}
+        Phone: ${phone}
+        
+        Message:
+        ${message}
+    `;
+    
+    const mailtoLink = `mailto:contact@precedencekw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open the default email client with the pre-filled content
+    window.location.href = mailtoLink;
+}
 
 document.head.appendChild(style);

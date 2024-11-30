@@ -1,83 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Contact Us</title>
-    <link rel="stylesheet" href="css/contact.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Contact Us</h1>
-    <section id="contact" class="contact">
-        <div class="contact-container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="new-form">
-                        <div class="contact-form">
-                            <h2>Contact Us</h2>
-                            <h3>Do you have any questions?</h3>
-                            <form action="#" method="POST">
-                                <input 
-                                    type="text" 
-                                    name="first_name" 
-                                    placeholder="First Name" 
-                                    required 
-                                    aria-label="First Name"
-                                >
-                                <input 
-                                    type="text" 
-                                    name="last_name" 
-                                    placeholder="Last Name" 
-                                    required 
-                                    aria-label="Last Name"
-                                >
-                                <input 
-                                    type="text" 
-                                    name="company" 
-                                    placeholder="Company" 
-                                    aria-label="Company"
-                                >
-                                <input 
-                                    type="email" 
-                                    name="email" 
-                                    placeholder="Your Email" 
-                                    required 
-                                    aria-label="Email"
-                                >
-                                <textarea 
-                                    name="message" 
-                                    placeholder="Your Message" 
-                                    required 
-                                    aria-label="Message"
-                                ></textarea>
-                                <input 
-                                    type="tel" 
-                                    name="phone" 
-                                    placeholder="Phone Number" 
-                                    aria-label="Phone Number"
-                                >
-                                <button type="submit">Send</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="contact-image">
-                        <img src="images/map.png" alt="Contact Image" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                </div>
-            </div>
+    <!-- Header --> 
+          
+    <header class="header">
+        
+        <div class="logo">
+            <img src="icons and logos/logo1.png" alt="Company Logo">
         </div>
-    </section>
-    <div class="contact-section">
-        <div class="contact-info">
-            <div class="phone-number">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>+965 666666</span>
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
+                <li><a href="pages/about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+                <li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a></li>
+                <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="languages">
+            <button class="swap-button" data-lang="en" id="swap-btn">ع</button>
+        </div>
+    </header>
+
+<!-- Contact container with map -->
+
+
+<section id="contact-us" class="contact-us">
+    <div class="contact-us-container">
+        <div class="contact-us-row">
+            <div class="contact-us-left">
+                <div class="info-item" data-aos="fade" data-aos-delay="300">
+                    <h2>Our Location</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3478.71902162374!2d47.941063975526376!3d29.319916675296394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDE5JzExLjciTiA0N8KwNTYnMzcuMSJF!5e0!3m2!1sen!2skw!4v1728287833763!5m2!1sen!2skw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
-            <div class="email-id">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>info@precedence.com</span>
+            <div class="contact-us-right">
+                <h2>Contact Us</h2>
+                <h3>Do you have any questions?</h3>
+                <div class="new-form">
+                    <div class="contact-form">
+                        <form id="contactForm" onsubmit="sendEmail(event)">
+                            <input 
+                                type="text" 
+                                name="first_name" 
+                                placeholder="First Name" 
+                                required 
+                                aria-label="First Name"
+                            >
+                            <input 
+                                type="text" 
+                                name="last_name" 
+                                placeholder="Last Name" 
+                                required 
+                                aria-label="Last Name"
+                            >
+                            <input 
+                                type="text" 
+                                name="company" 
+                                placeholder="Company" 
+                                aria-label="Company"
+                            >
+                            <input 
+                                type="email" 
+                                name="email" 
+                                placeholder="Your Email" 
+                                required 
+                                aria-label="Email"
+                            >
+                            <textarea 
+                                name="message" 
+                                placeholder="Your Message" 
+                                required 
+                                aria-label="Message"
+                            ></textarea>
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                placeholder="Phone Number" 
+                                aria-label="Phone Number"
+                            >
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <h2 data-en="Marketing Agency" data-ar="وكالة التسويق">Marketing Agency</h2>
+                <a href="contact.html">
+                    <button class="get-in-touch" data-en="Get in Touch" data-ar="اتصل بنا">Get in Touch</button>
+                </a>
+                <div class="footer-links" style="display: block;">
+                    <a href="privacypolicy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
+                </div>
+                <div class="footer-copyright" data-en="&copy; 2024 Precedence. All Rights Reserved." data-ar="© 2024 بريسيادن. جميع الحقوق محفوظة.">
+                    &copy; 2024 Precedence. All Rights Reserved.
+                </div>
+                <div class="footer-social">
+                    <span data-en="Follow us" data-ar="تابعنا">Follow us</span>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/fb-icon.png" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/x-icon.png" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/ig-icon.png" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/lkd-icon.png" alt="LinkedIn">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/yt-icon.png" alt="Youtube">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/snap-icon.png" alt="Snapchat">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/tk-icon.png" alt="Tiktok">
+                    </a>
+                    <a href="#" class="social-icon">
+                        <img src="icons and logos/wp-icon.png" alt="Whatsapp">
+                    </a>
+                </div>
+            </div>
+        </footer>
+        
+
+
+<script src="js/script.js"></script>
 </body>
 </html>
