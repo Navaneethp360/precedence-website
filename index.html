@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript">
         $(document).on('ready', function () {
            $(".clients-logos").slick({
@@ -91,18 +90,7 @@
 
   </script>
 
-<style>
-.navigation li
-{
-    position:relative;
-}
-.header nav.navigation ul li a
-{
-    position:relative;
-}
-
-
-.contact-wrap {
+<style>.contact-wrap {
     margin-left: 20px;
 }
 .contact-wrap {
@@ -287,37 +275,16 @@ padding:0px;
     <header class="header">
         
         <div class="logo">
-            <a href="https://precedencekw.com/">
             <img src="icons and logos/logo1.png" alt="Company Logo">
-            </a>
         </div>
         <nav class="navigation">
             <ul>
                 <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                <!--<li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>-->
-                
-                 <li class="services">
-                <a href="#services" data-en="Services" data-ar="خدمات">Services</a>
-            </li>
+                <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
                 <li><a href="about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
                 <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
-                <!--<li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a>-->
-                <!--    <div class="mega-menu">-->
-                <!--     <ul>-->
-                <!--        <li><a href="#">Bronze</a></li>-->
-                <!--        <li><a href="#">Silver</a></li>-->
-                <!--        <li><a href="#">Gold</a></li>-->
-                <!--        <li><a href="#">Diamond</a></li>-->
-                       
-                <!--    </ul>-->
-                <!--</div>-->
-                <!--</li>-->
-                
-                     <li class="services">
-               <a href="#packages" data-en="Packages" data-ar="باقات">Packags
-               </a>
-            </li>
-                <li><a href="https://precedencekw.com/contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+                <li><a href="#packages" data-en="Packages" data-ar="باقات">Packages</a></li>
+                <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
             </ul>
         </nav>
         
@@ -577,91 +544,92 @@ padding:0px;
  
 </section>
 
+
     <!-- Contact Section -->
-<section id="contact" class="contact">
-    <div class="contact-container">
-        <div class="new-form">
-            <div class="contact-form">
-                <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-                <h3 data-en="Do you have any questions?" data-ar="هل لديك أي أسئلة؟">Do you have any questions?</h3>
-                <form id="contactForm" onsubmit="sendEmail(event)">
-                    <input 
-                        type="text" 
-                        name="first_name" 
-                        placeholder="First Name" 
-                        required 
-                        aria-label="First Name"
-                    >
-                    <input 
-                        type="text" 
-                        name="last_name" 
-                        placeholder="Last Name" 
-                        required 
-                        aria-label="Last Name"
-                    >
-                    <input 
-                        type="text" 
-                        name="company" 
-                        placeholder="Company" 
-                        aria-label="Company"
-                    >
-                    <input 
-                        type="email" 
-                        name="email" 
-                        placeholder="Your Email" 
-                        required 
-                        aria-label="Email"
-                    >
-                    <textarea 
-                        name="message" 
-                        placeholder="Your Message" 
-                        required 
-                        aria-label="Message"
-                    ></textarea>
-                    <input 
-                        type="tel" 
-                        name="phone" 
-                        placeholder="Phone Number" 
-                        aria-label="Phone Number"
-                    >
-                    <button type="submit">Send</button>
-                </form>
-            </div>
-        </div> 
-    </div>
-
-</section>
-<section class="contact-section-2">
-    <div class="container">
-        <div class="contact-wrap">
-    <div class="phone-number">
-    <i class="fa-solid fa-phone"></i>
-    <div class="phone">
-    <a href="tel:+96555515511">+965 5551 5511</a>
-    </div>
-</div>
-
-<div class="email-id">
-    <i class="fa-solid fa-envelope"></i>
-    <a href="mailto:contact@precedencekw.com">contact@precedencekw.com</a>
-</div>
-</div>
-</div>
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="new-form">
+                <div class="contact-form">
+                    <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
+                    <h3 data-en="Do you have any questions?" data-ar="هل لديك أي أسئلة؟">Do you have any questions?</h3>
+                    <form id="contactForm" onsubmit="sendEmail(event)">
+                        <input 
+                            type="text" 
+                            name="first_name" 
+                            placeholder="First Name" 
+                            required 
+                            aria-label="First Name"
+                        >
+                        <input 
+                            type="text" 
+                            name="last_name" 
+                            placeholder="Last Name" 
+                            required 
+                            aria-label="Last Name"
+                        >
+                        <input 
+                            type="text" 
+                            name="company" 
+                            placeholder="Company" 
+                            aria-label="Company"
+                        >
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Your Email" 
+                            required 
+                            aria-label="Email"
+                        >
+                        <textarea 
+                            name="message" 
+                            placeholder="Your Message" 
+                            required 
+                            aria-label="Message"
+                        ></textarea>
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            placeholder="Phone Number" 
+                            aria-label="Phone Number"
+                        >
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div> 
+        </div>
     
-</section>
+    </section>
+    <section class="contact-section-2">
+        <div class="container">
+            <div class="contact-wrap">
+        <div class="phone-number">
+        <i class="fa-solid fa-phone"></i>
+        <div class="phone">
+        <a href="tel:+96555515511">+965 5551 5511</a>
+        </div>
+    </div>
+    
+    <div class="email-id">
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:contact@precedencekw.com">contact@precedencekw.com</a>
+    </div>
+    </div>
+    </div>
+        
+    </section>
 
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <h2 data-en="Marketing Agency" data-ar="وكالة التسويق">Marketing Agency</h2>
+            <h2 data-en="Marketing Agency" data-ar="شركه تسويق">Marketing Agency</h2>
             <a href="contact.html">
                 <button class="get-in-touch" data-en="Get in Touch" data-ar="اتصل بنا">Get in Touch</button>
             </a>
             <div class="footer-links" style="display: block;">
                 <a href="privacypolicy.html" data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a>
             </div>
-            <div class="footer-copyright" data-en="&copy; 2024 Precedence. All Rights Reserved." data-ar="© 2024 بريسيادن. جميع الحقوق محفوظة.">
+            <div class="footer-copyright" data-en="&copy; 2024 Precedence. All Rights Reserved." data-ar="جميع الحقوق محفوظه لشركه بريسيدانس@2024">
                 &copy; 2024 Precedence. All Rights Reserved.
             </div>
                 <div class="footer-social">
@@ -697,50 +665,8 @@ padding:0px;
             </div>
         </div>
     </footer>
+    
 
-  <style>
-
-/* Mega Menu Styling */
-
-
-.services:hover .mega-menu {
-    display: block;
-}
-
-.mega-menu {
-  
-    position: absolute;display:none;
-    top: 93%;
-    left:0px;
-    background-color: #f9f9f9;
-    width: 300px;
-    padding: 20px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    z-index: 999;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.mega-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;flex-direction: column;
-}
-
-.mega-menu li {
-    margin-bottom: 10px;
-}
-
-.mega-menu a {
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    padding: 5px 0;
-    display: block;
-}
-
-/* Hover Effect on Mega Menu */
-.mega-menu a:hover {
-    color: #007BFF;
-}
-</style>
+    <script src="js/script.js"></script>
 </body>
 </html>
