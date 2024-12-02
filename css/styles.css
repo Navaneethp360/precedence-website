@@ -681,118 +681,94 @@ body.rtl .contact-form textarea{
 }
 
 /* footer*/
-/* General Footer Styles */
-body.rtl .footer {
-    flex-direction: row-reverse;
+.footer { background: #1F2232; display: flex; padding: 20px 0px;}
+
+.footer-left {
+    width: 5%;
 }
-body.rtl .footer-social {
-    margin: 0 20px;
+
+.footer-right {
+    width: 95%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row-reverse;
-    padding: 5px;
 }
-.footer {
-    /* Remove the fixed positioning */
-    position: relative; /* or you can omit this line */
-    width: 100%;
-    background: rgb(2,0,36);
-    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 47%, rgba(9,9,121,1) 100%);
-    background-size: cover;
-    background-position: center;
-  
+
+.inner-left {
+    width: 40%;color:#ffffff;
+}
+
+.details-section {
+    width: 20%;color: #ffffff;
+}
+
+
+
+.logo-section img {
+    max-width: 125px;
+}
+
+.social-media .social i {
+    color: #ffffff;
+    margin: 10px;
+}
+.location.dis-flex {
+    color: #ffffff;
+}
+
+.details-sectio ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
 }
 
-/* Footer Content */
-.footer-content {
-    max-width: 1200px;
-    width: 100%;
+.details-section ul li {
+    display: block;
+    color: #ffffff;margin-top: 18px;
 }
 
-/* Footer Heading */
-.footer-content h2 {
-    margin: 0;
-    font-size: 24px;
-}
-
-/* Get in Touch Button */
-.get-in-touch {
-    background-color: #0E91D0;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bold;
-
-}
-
-.get-in-touch:hover {
-    background-color: #A0D6E6;
-}
-
-/* Footer Links */
-.footer-links {
-    display: inline-block;
-    margin: 10px 0; /* Adjusted margin for spacing below the button */
-}
-
-.footer-links a {
-    color: #fff;
+.details-section ul li a {
+color: #ffffff;
     text-decoration: none;
+    margin-bottom: 13px;
+    font-size: 17px;
+    line-height: 20px;
+    margin-top: 10px;
+}
+.details-section ul {
+    padding: 0;
+    margin: 0px;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
+.footer-wrap {
+    background: #1F2232;padding: 10px 0px;position: relative;
 }
-
-/* Footer Copyright */
-.footer-copyright {
-    margin-top: 20px;
-    font-size: 14px;
+.details-section ul li a:hover {
+    color: #a18ad0;
 }
-
-/* Footer Social Links */
-.footer-social {
-    margin: 0 20px;
+.bottom-section {
+    color: #ffffff;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0px 5px;
+}
+
+    .right-side {
+    display: flex;
     align-items: center;
-    padding: 10px;
+    transform: rotate(90deg);
+    position: absolute;
+    bottom: 65px;
+    right: 0px;
+}
+.text {
+    margin-left:10px;
 }
 
-.footer-social span {
-    margin-right: 10px;
+.location
+{
+    margin: 10px 0px;
 }
-
-.footer-social a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
+.location.dis-flex span {
+    font-size: 16px;
+    line-height: 24px;
 }
-
-.footer-social a:hover {
-    color: #f0f0f0; /* Change color on hover */
-}
-
-.footer-social .social-icon img {
-    width: 24px;  /* Adjust the width as needed */
-    height: 24px; /* Adjust the height as needed */
-    object-fit: contain; /* Ensures the image maintains its aspect ratio */
-}
-
-.footer-social .social-icon {
-    margin: 0 5px; /* Adds some spacing between icons */
-}
-
 
 /*marketing strategy page css here*/
 .marketing-wrap { margin-top: 68px; }
