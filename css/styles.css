@@ -841,6 +841,26 @@ body.rtl .footer-social {
     padding-left: 20px;
 }
 
+.privacy-policy {
+    margin-top: 70px;
+}
+
+.privacy-policy-content h1 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 36px;
+}
+.privacy-policy-container {
+    margin-top: 20px;
+    margin-bottom:270px ;
+}
+.privacy-policy-content p {
+    text-align: center;
+    padding: 2px;
+    
+}
+
+
 @media (min-width:1200px) and (max-width:1400px) { .container { max-width:1200px; } }
 @media (min-width:992px) and (max-width:1199px) { .container { max-width:960px; } }
 @media (min-width:768px) and (max-width:991px) { .container { max-width:720px; } }
@@ -866,6 +886,12 @@ body.rtl .footer-social {
 
 }
 @media(max-width: 992px) {
+
+    .privacy-policy {
+        margin-top: 70px;
+        padding: 10px 100px;
+    }
+    
     .services-left {
         width: 100%;
         
