@@ -172,12 +172,6 @@ body.rtl .about-us {
     margin: 10px 0; /* Space above and below paragraphs */
     color: #555; /* Medium gray color for text */
 }
-
-/* Optional: Add a hover effect for paragraphs */
-.about-us-content p:hover {
-    color: #007BFF; /* Change color on hover */
-    transition: color 0.3s ease; /* Smooth transition */
-}
 /* Carousel Section */
 
 .carousel {
@@ -653,7 +647,6 @@ body.rtl .contact-form textarea{
 .contact-info {
     background-color: transparent;
     text-align: left;
-    padding-left: 20px;
 }
 
 .phone-number,
@@ -768,6 +761,17 @@ color: #ffffff;
 .location.dis-flex span {
     font-size: 16px;
     line-height: 24px;
+    padding-left: 10px;
+}
+.location.dis-flex i {
+    margin-top: 5px;
+}
+.footer-right .contact-info {
+    
+    padding-left: 0px;
+}
+.inner-left .contact-info {
+    padding-left: 0px;
 }
 
 /*marketing strategy page css here*/
@@ -852,7 +856,10 @@ color: #ffffff;
     margin: 10px;
 }
 
-
+.details-section ul
+{
+    display:block;
+}
 
 /*header css here*/
 
@@ -1007,6 +1014,41 @@ body.rtl header.header img {margin-right:0px;
 
 
 @media(max-width: 767px) {
+    
+    
+    
+    .footer-right {
+    flex-direction: column;
+}
+
+.footer {
+    flex-direction: column;
+    padding: 10px 15px;
+}
+
+
+.footer-left {
+    width: 100%;
+    display: flex;
+}
+
+.social-media {
+    display: flex;
+}
+
+.location.dis-flex i {
+    margin-top: 3px;
+}
+
+.location.dis-flex spann {
+    padding-left: 0px;
+}
+
+
+.bottom-section {
+    padding: 5px 13px;
+}
+
     .service-box {
     width: 80%;max-width: 100%;margin: 10px 0px;
 
@@ -1028,6 +1070,13 @@ header.header .logo img {
 
 .contact-form
 {
+    width: 100%;
+}
+.inner-left {
+    width: 100%;
+}
+
+.details-section {
     width: 100%;
 }
 
