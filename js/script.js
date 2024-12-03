@@ -112,6 +112,7 @@ function sendEmail(event) {
     const userEmail = document.querySelector('[name="email"]').value;
     const message = document.querySelector('[name="message"]').value;
     const phone = document.querySelector('[name="phone"]').value;
+    const dateTime = document.querySelector('[name="date_time"]').value;
 
     // Construct the mailto link
     const subject = `Message from ${firstName} ${lastName}`;
@@ -120,6 +121,8 @@ function sendEmail(event) {
         Company: ${company}
         Email: ${userEmail}
         Phone: ${phone}
+
+        Meeting: Scheduled on ${dateTime.split('T')[0]} at ${dateTime.split('T')[1].split('.')[0]}
         
         Message:
         ${message}
