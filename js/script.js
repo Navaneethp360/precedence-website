@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
  
 function sendEmail(event) {
     event.preventDefault(); // Prevent form submission to the server
-
+    
     // Get form values
     const firstName = document.querySelector('[name="first_name"]').value;
     const lastName = document.querySelector('[name="last_name"]').value;
@@ -113,6 +113,21 @@ function sendEmail(event) {
     const message = document.querySelector('[name="message"]').value;
     const phone = document.querySelector('[name="phone"]').value;
     const dateTime = document.querySelector('[name="date_time"]').value;
+
+    // Validate date and time
+    const selectedDate = new Date(dateTime);
+    const now = new Date();
+    const maxDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
+
+    // Check if the selected date is in the past or exceeds the allowed time frame
+    if (selectedDate < now) {
+        alert("Please select a future date and time.");
+        return;
+    }
+    if (selectedDate > maxDate) {
+        alert("Please select a date and time within the next 7 days.");
+        return;
+    }
 
     // Construct the mailto link
     const subject = `Message from ${firstName} ${lastName}`;
@@ -133,5 +148,80 @@ function sendEmail(event) {
     // Open the default email client with the pre-filled content
     window.location.href = mailtoLink;
 }
+
+$(document).on('ready', function () {
+    $(".clients-logos").slick({
+infinite: true,
+slidesToShow: 3,
+centerMode: true, 
+centerPadding: '0px', 
+slidesToScroll: 3,
+responsive: [
+ {
+     breakpoint: 1024, // For screens 1024px and below
+     settings: {
+         slidesToShow: 2, // Show 3 slides
+         slidesToScroll: 2 // Scroll 3 slides at a time
+     }
+ },
+ {
+     breakpoint: 768, // For screens 768px and below
+     settings: {
+         slidesToShow: 1, // Show 2 slides
+         slidesToScroll: 1 // Scroll 2 slides at a time
+     }
+ },
+ {
+     breakpoint: 480, // For screens 480px and below
+     settings: {
+         slidesToShow: 1, // Show 1 slide
+         slidesToScroll: 1 // Scroll 1 slide at a time
+     }
+ }   
+]
+})
+
+  $(".creative-carousel-container").slick({
+ autoplay: true,
+ autoplaySpeed: 1000,
+ infinite: true,
+ slidesToShow: 2,
+   arrows: false, // Disable navigation arrows
+ slidesToScroll: 2,
+
+ responsive: [
+     {
+         breakpoint: 480, // Screen width at which the settings will apply
+         settings: {
+             slidesToShow: 1, // Show only 1 slide
+         arrows: false, // Disable navigation arrows
+
+             slidesToScroll: 1 // Scroll 1 slide at a time
+             
+
+         }
+     }
+ ]
+});
+
+$(".carousel-container").slick({
+ autoplay: true,
+ autoplaySpeed: 1000,
+ infinite: true,
+ slidesToShow: 1,
+   arrows: false, // Disable navigation arrows
+ slidesToScroll: 1,
+});
+
+
+    $(".humbergur-link").click(function () {
+ $("body").toggleClass("new-class"); 
+ $(".navigation").toggleClass("active");
+});
+
+
+
+ });
+
 
 document.head.appendChild(style);

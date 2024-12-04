@@ -96,7 +96,11 @@ body.rtl header.header {
     flex-direction: row-reverse;
     justify-content: unset;
 }
+body.rtl nav.navigation ul {
+    flex-direction: row-reverse;
+}
 
+body.rtl nav.navigation ul .mega-menu ul {flex-direction: column;text-align: right;}
 
 body.rtl nav.navigation {
     justify-content: flex-end;
@@ -777,6 +781,51 @@ color: #ffffff;
     padding-left: 0px;
 }
 
+body.rtl .footer-wrap .footer {
+    flex-direction: row-reverse;
+}
+
+body.rtl .footer-wrap .footer-right {
+    flex-direction: row-reverse;
+}
+
+body.rtl .footer-wrap .footer .inner-left {
+    text-align: right;
+    margin-right: 18px;
+}
+
+body.rtl .footer-wrap .footer .inner-left .location.dis-flex {
+    flex-direction: row-reverse;
+}
+
+body.rtl .footer-wrap .footer .inner-left .contact-info {
+    flex-direction: row-reverse;
+    display: flex;
+    flex-direction: column;
+}
+
+body.rtl .footer-wrap .footer .inner-left .contact-info p {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+body.rtl .footer-wrap .footer .inner-left .contact-info p i {
+    margin-left: 10px;
+}
+
+body.rtl .footer-wrap .footer .inner-left .location.dis-flex i {
+    margin-left: 18px;
+}
+body.rtl .details-section {
+    text-align: right;
+}
+.right-side a {
+    display: flex;
+    text-decoration: none;
+    color: #ffffff;
+}
+
 /*marketing strategy page css here*/
 .marketing-wrap { margin-top: 68px; }
 
@@ -859,6 +908,10 @@ color: #ffffff;
     margin: 10px;
 }
 
+
+.navigation li:hover .mega-menu {
+    display: none;
+}
 .details-section ul
 {
     display:block;
@@ -872,6 +925,9 @@ color: #ffffff;
 
 }
 @media(max-width: 992px) {
+    .navigation li:hover .mega-menu {
+    display: none;
+}
 
     .privacy-policy {
         margin-top: 70px;
