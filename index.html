@@ -296,7 +296,7 @@ padding:0px;
                     </ul>
                 </div>
             </li>
-            <li><a href="about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+            <li><a href="https://www.precedencekw.com/about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
             <li><a href="https://www.precedencekw.com/#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
             <li><a href="https://www.precedencekw.com/#packages" data-en="Packages" data-ar="باقات">Packages</a>
                 <div class="mega-menu">
@@ -572,11 +572,24 @@ padding:0px;
 
 <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="contact-container">
+        <div class="container">
+            <div class="dis-flex">
+       <div class="contact-container-left">
+            <div class="left-section">
+        <h1>Do You<br><span class="ityped">An</span><span class="ityped-cursor"></span></h1>
+        <script src="https://unpkg.com/ityped@0.0.10"></script>
+        <script>
+            window.ityped.init(document.querySelector('.ityped'), {
+                strings: ['Any Questions?','Need a quote?'],
+                loop: true
+            });
+        </script>
+            </div>
+        </div>        
+        <div class="contact-container-right">
             <div class="new-form">
                 <div class="contact-form">
                     <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-                    <h3 data-en="Do you have any questions?" data-ar="هل لديك أي أسئلة؟">Do you have any questions?</h3>
                     <form id="contactForm" onsubmit="sendEmail(event)">
                         <input 
                             type="text" 
@@ -622,26 +635,10 @@ padding:0px;
                 </div>
             </div> 
         </div>
-    
+    </div>
+    </div>
     </section>
-    <section class="contact-section-2">
-        <div class="container">
-            <div class="contact-wrap">
-        <div class="phone-number">
-        <i class="fa-solid fa-phone"></i>
-        <div class="phone">
-        <a href="tel:+96555515511">+965 5551 5511</a>
-        </div>
-    </div>
-    
-    <div class="email-id">
-        <i class="fa-solid fa-envelope"></i>
-        <a href="mailto:contact@precedencekw.com">contact@precedencekw.com</a>
-    </div>
-    </div>
-    </div>
-        
-    </section>
+
 
 
 <!-- Footer -->
@@ -694,11 +691,11 @@ padding:0px;
             <div class="details-section">
                 <div class="title">Company</div>
                 <ul>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Clients</a></li>
-                    <li><a href="#">Packages</a></li>
-                                    <li><a href="#">Contact</a></li>
+                    <li><a href="https://www.precedencekw.com/#services">Service</a></li>
+                    <li><a href="https://www.precedencekw.com/about.html">About</a></li>
+                    <li><a href="https://www.precedencekw.com/#clients">Clients</a></li>
+                    <li><a href="https://www.precedencekw.com/#packages">Packages</a></li>
+                    <li><a href="https://www.precedencekw.com/contact.html">Contact</a></li>
     
                 </ul>
             </div>

@@ -561,6 +561,11 @@ body.rtl .clients {
 
 
 /* Contact Section */
+.contact-container-left {
+    width: calc(50%);
+    margin-left: 50px;
+    margin-top: 13px;
+}
 .contact {
     width: 100%;
     background-color: #ffffff;
