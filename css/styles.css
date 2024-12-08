@@ -561,11 +561,6 @@ body.rtl .clients {
 
 
 /* Contact Section */
-.contact-container-left {
-    width: calc(50%);
-    margin-left: 50px;
-    margin-top: 13px;
-}
 .contact {
     width: 100%;
     background-color: #ffffff;
@@ -637,6 +632,26 @@ body.rtl .contact-form textarea{
     text-align: left;
 }
 
+
+section#contact .container {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+
+
+section#contact .contact-container-left {
+    width: 30%;
+    padding-left: 46px;
+}
+section#contact .contact-container-left .left-section h1 {
+    font-size: 30px;
+    line-height: 36px;
+}
+section#contact .contact-container-right {
+    width: 70%;
+}
 .contact-form button {
     background-color: #0E91D0;
     color: white;
@@ -945,6 +960,13 @@ body.rtl .details-section {
 
 }
 @media(max-width: 992px) {
+    section#contact .contact-container-left {
+    width: 100%;
+}
+
+section#contact .contact-container-right {
+    width: 100%;
+}
      .marketing-wrap .marketing-left {
     width: 100%;
 }
