@@ -105,7 +105,19 @@ body.rtl nav.navigation ul .mega-menu ul {flex-direction: column;text-align: rig
 body.rtl nav.navigation {
     justify-content: flex-end;
 }
+body.rtl .mega-menu {
+    right: 0px;
+    left: auto;
+}
 
+body.rtl .bottom-section {
+    flex-direction: row-reverse;
+}
+body.rtl .right-side{right:91%;}
+
+body.rtl .bottom-section .left-side {
+    margin-right: 32px;
+}
 .header nav.navigation ul li a { text-decoration: none; }
 
 .header .languages button { padding: 7px; border-radius: 9px; border: none;text-transform:uppercase;}
@@ -310,6 +322,7 @@ body.rtl .packages h3 {
     flex-direction: row-reverse;
     text-align: right;
 }
+body.rtl .footer-right {flex-direction: row-reverse;}
 
 .packages {
     padding:30px 0px;
@@ -789,6 +802,7 @@ color: #ffffff;
     font-size: 16px;
     line-height: 24px;
     padding-left: 10px;
+    width:calc(100% - 20px);
 }
 .location.dis-flex i {
     margin-top: 5px;
@@ -805,8 +819,9 @@ body.rtl .footer-wrap .footer {
     flex-direction: row-reverse;
 }
 
-body.rtl .footer-wrap .footer-right {
-    flex-direction: row-reverse;
+body.rtl .footer-right
+{
+    flex-direction:row-reverse;
 }
 
 body.rtl .footer-wrap .footer .inner-left {
@@ -1134,7 +1149,7 @@ body.rtl header.header img {margin-right:0px;
            body.rtl .language-wrap .languages button#swap-btn {
     margin-left: 10px;
 }
- 
+ body.rtl .footer-right {flex-direction: column;}
 
 
 
@@ -1188,7 +1203,14 @@ body.rtl header.header img {margin-right:0px;
 
 @media(max-width: 767px) {
     
-    
+    .location.dis-flex span{width:calc(100% - 20px);}body.rtl .right-side
+    {
+        
+    }
+    body.rtl .footer-wrap .footer
+    {
+        flex-direction:column;
+    }
     
     .footer-right {
     flex-direction: column;
