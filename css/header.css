@@ -1,0 +1,199 @@
+.services:hover .mega-menu {
+    display: block;
+}
+
+.mega-menu {
+  
+    position: absolute;display:none;
+    top: 100%;
+    left:0px;
+    background-color: #f9f9f9;
+    width: 300px;
+    padding: 20px;
+    background:#000000;
+    z-index: 999;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.mega-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;flex-direction: column;
+}
+
+.mega-menu li {
+    margin-bottom: 10px;
+}
+
+.mega-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    padding: 5px 0;
+    display: block;
+}
+
+/* Hover Effect on Mega Menu */
+.mega-menu a:hover {
+    color: #007BFF;
+}
+.services:hover .mega-menu {display:block}
+.navigation li:hover .mega-menu {
+    display: block;
+}
+.header nav.navigation ul li a { text-decoration: none; }
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and navigation */
+    padding: 5px 3px; 
+  background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    height: 60px; /* Set a fixed height for the header */
+}
+
+.header img {
+   
+    margin-right: 10px;
+    max-width:100px;width:100%;
+}
+
+.navigation {
+    display: flex; /* Use flexbox for navigation */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Full width */
+}
+
+.navigation ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Aligns list items in a row */
+    margin-left: 40px;
+}
+
+.navigation li {
+    margin-right: 20px; /* Space between list items */
+    position: relative;
+}
+
+.navigation li a {
+    color: #ffffff;
+    font-weight: 600;
+}
+      
+.header nav.navigation ul li a { text-decoration: none; }
+.humbergur-link { display: none; }
+
+@media(max-width:1024px)
+{
+    .navigation li:hover .mega-menu {
+    display: none;
+}
+.humbergur-link { display: block; } ul {display: none;}
+.nav.navigation ul {display: none;}
+
+
+}
+@media(max-width: 992px) {
+    .navigation li:hover .mega-menu {
+        display: none;
+    }
+    nav.navigation {
+        display: none;
+    }   
+    
+    body.new-class nav.navigation {
+        display: block;
+    } 
+    body.rtl header.header img {margin-right:0px;
+    }
+       header.header{padding:0px;}     
+    body.new-class header.header .navigation ul {
+        flex-direction: column;
+            background: rgba(225, 225, 225, 0.711);
+            padding: 0;
+            margin: 0px;
+    }
+    
+  
+    
+    body.new-class header.header
+    
+    {
+           flex-direction: column; position: relative;
+    }
+    
+    
+    .services-grid {
+    justify-content: center;
+}
+    
+
+    
+        body.new-class nav.navigation {width:100%;
+    }
+    header.header .logo
+    {
+        width:100%;
+    }
+   
+    
+    /*.header nav.navigation ul li a {margin-left:10px;}*/
+    
+    .header nav.navigation ul li  {margin-left:10px;font-size: 12px;border-bottom: 1px solid #ffffff;line-height: 15px;margin-bottom: 10px;padding: 0px;margin: 0px;padding: 10px 0px;} 
+    .header nav.navigation ul li a {margin-left:10px;}
+}
+@media(max-width:991px)
+        {
+
+body.rtl header.header img {margin-right:0px;
+}
+            
+       header.header{padding:0px;}     
+    body.new-class header.header .navigation ul {
+        flex-direction: column;
+            background: rgba(225, 225, 225, 0.711);
+            padding: 0;
+            margin: 0px;
+    }
+    
+  
+    
+    body.new-class header.header
+    
+    {
+           flex-direction: column; position: relative;
+    }
+    
+    
+
+    
+
+    
+        body.new-class nav.navigation {width:100%;
+    }
+    header.header .logo
+    {
+        width:100%;
+    }
+   
+    
+    .header nav.navigation ul li a {margin-left:10px;}
+    
+    .header nav.navigation ul li  {margin-left:10px;font-size: 12px;border-bottom: 1px solid #ffffff;line-height: 15px;margin-bottom: 10px;padding: 0px;margin: 0px;padding: 10px 0px;} 
+    .header nav.navigation ul li a {margin-left:10px;}
+
+
+
+  
+
+}
+@media(max-width: 767px) {
+    header.header .logo img {
+        min-width: 100px;
+    }
+}    

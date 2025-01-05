@@ -1,64 +1,148 @@
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-  }
-  .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  .heading {
-    font-size: 48px;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-  .subtitle {
-    font-size: 24px;
-    color: #007bff;
-  }
-  .animate {
-    animation: animate 2s infinite;
-  }
-  @keyframes animate {
-    0% {
-      text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/header.css">
+  <title>Landing Page</title>
+  <style>
+    .wrap-page {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('image/banner-image.jpg'); /* Add your image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-align: center;
+      position: relative;
     }
-    50% {
-      text-shadow: 0 0 20px rgba(0, 123, 255, 1);
-    }
-    100% {
-      text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    }
-  }
-  .wave {
-    animation: wave 10s infinite;
-  }
-  @keyframes wave {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-</style>
 
-<div class="container">
-  <h1 class="heading animate wave">We are PRECEDENCE</h1>
-  <p class="subtitle animate wave">Coming soon...</p>
-</div>
+    /* Left and right side setup */
+    .side {
+      position: absolute;display: flex;align-items: center;justify-content: center;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50%;
+      font-size: 34px;
+      font-weight: bold;
+      color: transparent;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8); /* Default overlay */
+      text-align: center;
+      transition: all 0.3s ease;
+      z-index: 5;
+      overflow: hidden;
+      height: 100%;
+    }
 
-<script>
-  const heading = document.querySelector('.heading');
-  const subtitle = document.querySelector('.subtitle');
+    .left-side {
+      left: 0;
+    }
 
-  heading.style.textShadow = '0 0 10px rgba(0, 123, 255, 0.5)';
-  subtitle.style.textShadow = '0 0 10px rgba(0, 123, 255, 0.5)';
-</script>
+    .right-side {
+      right: 0;
+    }
+
+    /* Hover effect */
+    .side:hover {
+      color: #ffffff;
+      background-color: transparent; /* Remove overlay on hover */
+    }
+
+    /* Text animation on hover */
+    .side .text {
+      opacity: 1; /* Default text visible */
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .side:hover .text {
+      transform: translateY(0);
+    }
+
+    /* Hidden text */
+    .hidden-text {
+      display: inline-block;
+      font-size: 16px;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+
+    /* Hovered text reveal effect */
+    .side:hover .visible-text {
+      display: inline-block;
+    }
+
+    .visible-text {
+      display: none;
+      font-size: 20px;
+      color: #ffffff;
+      margin-top: 10px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Here -->
+  <header class="header">
+        
+    <div class="logo">
+        <a href="#">
+        <img src="icons and logos/logo1.png" alt="Company Logo"></a>
+    </div>
+    <nav class="navigation">
+        <ul>
+            <li><a href="https://www.precedencekw.com#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="https://www.precedencekw.com/#services" data-en="Services" data-ar="خدمات">Services</a>
+                <div class="mega-menu">
+                    <ul>
+                        <li><a href="https://precedencekw.com/marketing-strategy.html" data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</a></li>
+                        <li><a href="https://precedencekw.com/branding.html" data-en="Branding and Rebranding" data-ar="التسمية والتسمية التجارية">Branding and Rebranding</a></li>
+                        <li><a href="https://precedencekw.com/digital.html" data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</a></li>
+                        <li><a href="https://precedencekw.com/social-media.html" data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</a></li>
+                        <li><a href="https://precedencekw.com/media-prod.html" data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</a></li>
+                        <li><a href="https://precedencekw.com/3d-prod.html" data-en="3D Production" data-ar="الإنتاج ثلاثي الأبعاد">3D Production</a></li>
+                        <li><a href="https://precedencekw.com/ads.html" data-en="Ads" data-ar="الإعلانات">Ads</a></li>
+                        <li><a href="https://precedencekw.com/marketing.html" data-en="Marketing" data-ar="التسويق">Marketing</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="https://www.precedencekw.com/about.html" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+            <li><a href="https://www.precedencekw.com/#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
+            <li><a href="https://www.precedencekw.com/contact.html" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+        </ul>
+    </nav>
+    
+
+
+    <div class="humbergur-link">
+        <a href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+</header>
+
+  <!-- Banner section -->
+
+  <div class="wrap-page">
+    <div class="left-side side">
+      <div class="text">
+        Digital Marketing
+      </div>
+    </div>
+    <a href="https://test.precedencekw.com/media-prod.html" rel="">
+    <div class="right-side side">
+      <div class="text">
+        Media Production
+      </div>
+    </div>
+    </a>
+  </div>
+
+</body>
+</html>
