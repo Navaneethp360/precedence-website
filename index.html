@@ -29,8 +29,8 @@
       font-size: 34px;
       font-weight: bold;
       color: transparent;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.8); /* Default overlay */
+      
+      background-color: rgba(0, 0, 0, 0.4); /* Default overlay */
       text-align: center;
       transition: all 0.3s ease;
       z-index: 5;
@@ -83,6 +83,21 @@
       margin-top: 10px;
       font-weight: normal;
     }
+    @media(max-width:767px)
+    {
+        .side
+        {
+            color:#ffffff;
+        }
+        .side .text
+        {
+            font-size:16px;
+        }
+        .left-side.side
+        {
+            background:none;
+        }
+    }
   </style>
 </head>
 <body>
@@ -105,6 +120,8 @@
       <div class="text">
         Digital Marketing
       </div>
+      
+      <div class"for-mobile"></div>
     </div>
     </a>
     <a href="https://test.precedencekw.com/media-prod.html" rel="">

@@ -14,9 +14,82 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 	<title>Media Producation</title>
+	
+		<script>
+	    $(document).ready(function(){
+
+        $(".humbergur-link").click(function () {
+        $("body").toggleClass("new-class"); 
+        $(".navigation").toggleClass("active");
+        
+        
+    });
+	    });
+
+	</script>
+	<style>
+	.mobile-2
+{
+    display:none;
+}
+	    @media(max-width:991px)
+	    {
+	        .humbergur-link
+	        {
+	            display:block;position:absolute;right:10px;top:10px;
+	        }
+	        .navigation
+	        {
+	            display:none;
+	        }
+	       .studio-logo { position: absolute; text-align: center; right: 0; top: 3px; left: 0; }
+	        body.new-class nav.navigation.active {
+    display: block;position:absolute;top:59px;
+}
+
+body.new-class nav.navigation.active ul {
+    display: block;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0px;
+    margin: 0px;
+}
+
+body.new-class header.header {
+    flex-direction: column;
+    align-items: flex-start;
+     background:#000000;
+    
+}
+	    }
+	    @media(max-width:767px)
+	    {
+	        img.dektop {
+    display: none;
+}
+
+img.mobile {
+    display: block;
+}
+	    }
+	    
+	     @media(max-width:350px)
+	    {
+	        img.mobile {
+    display: none;
+}
+
+img.mobile-2 {
+    display: block;
+}
+
+.contact-form input, .contact-form textarea {
+    font-size:14px;padding:12px;
+}
+	    }
+	</style>
 </head>
 <body>
 <div class="wrapper">
@@ -66,7 +139,10 @@
         <source src="video/movie2.mp4" type="video/mp4">
     </video>
     <div class="overlay">
-        <img src="image/overlay.png" alt="Overlay Image">
+        <img src="image/overlay.png" alt="Overlay Image" class="dektop">
+        <img src="image/digi-2.png" alt="Overlay Image" class="mobile">
+        <img src="image/digi-2.png" alt="Overlay Image" class="mobile-2">
+        
     </div>
 </div>
 
@@ -80,27 +156,27 @@
             <div class="service-section">
                 <div class="service-title">Marketing Strategy</div>
                 <div class="service-image">
-                    <img src="image/ser1.png" alt="service-image">
+                    <img src="image/Mstrategy.jpg" alt="service-image">
                 </div>
                 <div class="service-text">
-                    <p>The digital marketing plan for the website is designed to enhance reach to the target audience, increase organic traffic, and achieve conversions through integrated strategies aligned with search engine optimization (SEO) standards. Our primary goals are to boost the website’s presence on search engines like Google and build a strong brand in the field of digital marketing.</p>
+                    <p>A successful marketing strategy: A comprehensive guide to enhancing your digital presence and attracting customers through search engines.</p>
                 </div>
                 <div class="service-btn">
-                    <a>Read More</a>
+                    <a href="https://test.precedencekw.com/marketing_strategy.html">Read More</a>
                 </div>
             </div>
 
             <!-- Branding and Rebranding -->
             <div class="service-section">
-                <div class="service-title">Branding and Rebranding</div>
+                <div class="service-title">Branding & Rebranding</div>
                 <div class="service-image">
-                    <img src="image/ser2.png" alt="service-image">
+                    <img src="image/ser1.png" alt="Motion Graphics">
                 </div>
                 <div class="service-text">
-                    <p>Create your brand with confidence and professionalism through our specialized platform for building business identities. We offer comprehensive solutions, including logo design, visual identity development, digital marketing strategies, and online reputation management. Whether you're a startup or an established brand, we help you stand out in the market and build a strong image that leaves a lasting impression on your customers. Explore our services and consult our experts to achieve your business goals with maximum efficiency</p>
+                    <p>How to Build and Renew a Strong Identity for Lasting Success</p>
                 </div>
                 <div class="service-btn">
-                    <a>Read More</a>
+                    <a href="https://test.precedencekw.com/branding.html">Read More</a>
                 </div>
             </div>
 
@@ -108,17 +184,13 @@
             <div class="service-section">
                 <div class="service-title">Digital Solutions</div>
                 <div class="service-image">
-                    <img src="image/ser3.png" alt="service-image">
+                    <img src="image/socialmedia.jpg" alt="service-image">
                 </div>
                 <div class="service-text">
-                    <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>The best integrated digital solutions for achieving success in the digital age.</p>
                 </div>
                 <div class="service-btn">
-                    <a>Read More</a>
+                    <a href="https://test.precedencekw.com/digitalsolutions.html">Read More</a>
                 </div>
             </div>
 
@@ -126,17 +198,13 @@
             <div class="service-section">
                 <div class="service-title">Social Media Marketing</div>
                 <div class="service-image">
-                    <img src="image/ser4.png" alt="service-image">
+                    <img src="image/SMM2.jpg" alt="service-image">
                 </div>
                 <div class="service-text">
-                    <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>Effective Media Marketing Strategies: How to Achieve Success on Social Media Platforms in 2025</p>
                 </div>
                 <div class="service-btn">
-                    <a>Read More</a>
+                    <a href="https://test.precedencekw.com/ssm.html">Read More</a>
                 </div>
             </div>
 
@@ -144,17 +212,13 @@
             <div class="service-section">
                 <div class="service-title">3D Production</div>
                 <div class="service-image">
-                    <img src="image/ser6.png" alt="service-image">
+                    <img src="image/3D.jpg" alt="service-image">
                 </div>
                 <div class="service-text">
-                    <p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>3D Production: Unlimited Creativity in the World of Three-Dimensional Graphics.</p>
                 </div>
                 <div class="service-btn">
-                    <a>Read More</a>
+                    <a href="https://test.precedencekw.com/3d.html">Read More</a>
                 </div>
             </div>
 
@@ -162,15 +226,13 @@
             <div class="service-section">
                 <div class="service-title">Ads</div>
                 <div class="service-image">
-                    <img src="image/ser7.png" alt="service-image">
+                    <img src="image/strategy.jpg" alt="service-image">
                 </div>
                 <div class="service-text">
-                    <p>Social media campaigns are considered one of the most powerful tools in the realm of digital marketing to enhance brand visibility and increase engagement with the target audience. In an era dominated by technological advancements, platforms such as Facebook, Instagram, Twitter, LinkedIn, and TikTok have become essential channels for reaching potential customers and building strong relationships with them.
-                        We offer customized social media marketing campaigns, specifically designed to achieve your business goals. Whether you aim to boost sales, improve brand awareness, or enhance audience engagement, our team of digital marketing experts utilizes the latest strategies and analytical tools to ensure optimal results.
-                        </p>
+                    <p>Enhance your brand presence and increase engagement with tailored marketing campaigns on social media platforms.</p>
                 </div>
                 <div class="service-btn">
-                    <a>Read More</a>
+                    <a href="https://test.precedencekw.com/ads.html">Read More</a>
                 </div>
             </div>
 
