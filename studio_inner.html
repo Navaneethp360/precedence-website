@@ -11,87 +11,41 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
   <style>
-/* General Dark Mode Styles */
-body {
-  background-color: #121212; /* Dark background */
-  color: #ffffff; /* Light text */
-  font-family: Arial, sans-serif; /* Optional: Set a default font */
+  
+  .studio-inner-service-card .studio-inner-service-image video
+  {
+      height:300px;
+  }
+  
+  @media(max-width:991px)
+  {
+      .studio-inner-service-card
+      {
+          width:50%;
+          margin:10px 0px;
+      }
+  }
+      @media(max-width:767px)
+      {
+      .studio-inner-service-card
+      {
+          width:100%;
+          margin:10px 0px;
+      }
+      .studio-inner-service-card .studio-inner-service-image video
+      {
+          height:200px;
+      }
+      
+      .banner.studio-inner-section .overlay img {
+    max-width: 179px;
 }
-
-/* Banner Section */
-.banner {
-  position: relative;
-  background-color: #000; /* Dark background for banner */
-}
-
-.banner .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-}
-
-.banner .overlay img {
-  max-width: 200px; /* Adjust logo size */
-}
-
-/* Slider Container */
-.studio-inner-slider-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.studio-inner-slider-container h2 {
-  color: #ffffff; /* Light text for headings */
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Slider and Cards */
-.studio-inner-slider {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.studio-inner-service-card {
-  flex: 1 1 calc(25% - 20px);
-  box-sizing: border-box;
-  text-align: center;
-  background-color: #1e1e1e; /* Dark background for cards */
-  border: 1px solid #333; /* Dark border */
-  padding: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.studio-inner-service-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Light shadow for dark mode */
-}
-
-.studio-inner-service-title {
-  color: #ffffff; /* Light text for titles */
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.studio-inner-service-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-}
+      }
   </style>
 </head>
 <body>
 	<!-- banner section here -->
-	<div class="banner">
+	<div class="banner studio-inner-section">
     <video width="1280" height="720" autoplay loop muted>
         <source src="video/studio.mp4" type="video/mp4">
     </video>
@@ -103,64 +57,77 @@ body {
 	<!-- content section here -->
 <div class="studio-inner-service-section-wrapper">
   <div class="studio-inner-slider-container">
+       <div class="container">
     <h2>Our Works</h2>
-    <div class="studio-inner-slider">
+    <div class="studio-inner-slider dis-flex">
+       
       <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 1</div>
+        
         <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Photography">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+        
+        <div class="studio-inner-service-image">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+       
+        <div class="studio-inner-service-image">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+        
+        <div class="studio-inner-service-image">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+       
+        <div class="studio-inner-service-image">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+        
+        <div class="studio-inner-service-image">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+       
+        <div class="studio-inner-service-image">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+       
+        <div class="studio-inner-service-image">
+           <video width="270" height="270" autoplay loop muted>
+        <source src="video/studio.mp4" type="video/mp4">
+    </video>
         </div>
       </div>
 
-      <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 2</div>
-        <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Motion Graphics">
-        </div>
-      </div>
-
-      <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 3</div>
-        <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Photography">
-        </div>
-      </div>
-
-      <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 4</div>
-        <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Photography">
-        </div>
-      </div>
-
-      <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 5</div>
-        <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Photography">
-        </div>
-      </div>
-
-      <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 6</div>
-        <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Photography">
-        </div>
-      </div>
-
-      <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 7</div>
-        <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Photography">
-        </div>
-      </div>
-
-      <div class="studio-inner-service-card">
-        <div class="studio-inner-service-title">work 8</div>
-        <div class="studio-inner-service-image">
-          <img src="image/client.jpg" alt="Photography">
-        </div>
-      </div>
-    </div>
+      
+    </div></div>
   </div>
 </div>
 

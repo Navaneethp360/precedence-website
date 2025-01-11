@@ -1,3 +1,7 @@
+
+  html {
+      scroll-behavior: smooth;
+    }
 /** -- Font Weight -- **/
 .font-100{ font-weight:100; }
 .font-200{ font-weight:200; }
@@ -629,6 +633,11 @@ h6, .h6 {
     height: 100%;
     object-fit: cover; /* Ensures the video covers the entire area */
 }
+.mobile
+{
+    display:none;
+}
+
 
 /* Style the overlay to center the text */
 .overlay {
@@ -659,9 +668,16 @@ h6, .h6 {
 
 .service-section-wrapper .service-section {
     width: calc(33.33% - 30px);
-    margin: 0px 15px;
+    margin: 0px 15px 10px;display: flex;
+    flex-direction: column;
+        transition: all .4s ease-in-out;
 }
-
+.service-section-wrapper .service-section:hover {
+    transform: scale(1.04);
+}
+.service-btn {
+    margin-top: auto;
+}
 .service-section-wrapper .service {
     margin: 0px -15px;
 }
@@ -683,7 +699,6 @@ h6, .h6 {
 
 .service-section-wrapper .service-text p {
     margin-top: 10px;
-    text-align: justify;
     color: #000000; /* Dark text color */
 }
 
@@ -976,4 +991,148 @@ h6, .h6 {
 }
 .social a i {
     font-size: 23px;
+}
+
+
+/*use for media screen*/
+
+@media(max-width:991px)
+{
+    /*service section css here*/
+    .service-section-wrapper .service
+    {
+        margin:0 auto;display:flex;justify-content:center;
+    }
+    .service-section-wrapper .service-section {
+    width: calc(50% - 30px);
+}
+/*contact section css here*/
+
+.contact-container-left {
+    width: 100%;
+}
+.let-talk .left-side
+{
+    width:100%;
+}
+.right-side
+{
+    width:100%;
+}
+}
+
+
+
+@media(max-width:767px)
+{
+    .service-section-wrapper .service-section
+    {
+        width:90%;padding:10px 0px;margin:0px;
+    }
+    .service-section-wrapper-965 .slider
+    {
+        flex-direction:column;
+    }
+    .service-section-wrapper .service-section .service-title {
+    
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 16px;
+}
+.service-section-wrapper .service
+{
+    justify-content:center;
+}
+.service-section-wrapper .title h2 {
+    font-size: 20px;
+}
+.service-section-wrapper .title {
+    text-align: center;
+    font-size: 20px;
+}
+
+/*studio section css here*/
+.studio-slider-container h2 {
+    font-size: 26px;
+}
+.studio-service-image {text-align: center;display: flex;align-items: center;justify-content: center;}
+.client:nth-child(even) img
+{
+    width:250px;height:250px;
+}
+.client:nth-child(odd) img
+{
+    width:250px;height:250px;
+}
+
+.contact-container-left .contact-info {
+    font-size: 12px;
+    gap: 0;
+}
+
+
+.info-text
+{
+    font-size:16px;
+}
+.contact {
+    padding: 14px 0px;
+}
+
+.info-text i {
+    font-size: 3px;
+}
+
+.contact-info
+{
+    gap:0px;
+}
+.info-row  span.info-text
+{
+font-size:16px;
+}
+
+.contact h2 {
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+
+
+/*banner section here*/
+.let-talk-section
+{
+    padding:0px 10px;
+}
+
+.new-form
+{
+    padding:0px;
+}
+
+.footer-right {
+    align-items: flex-start;
+    text-align: start;
+}
+
+.footer-column p {
+    text-align: start;
+}
+
+.contact-form input {
+    font-size: 16px;
+    border-bottom: 1px solid;
+    padding: 7px 0px;
+}
+
+
+}
+
+@media(max-width:480px)
+{
+    .large-text
+    {
+        font-size:38px;
+    }
+    }
 }

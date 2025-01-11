@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/min.js"></script>
+
+    <title>Media Production</title>
+
+    <style>
+        .language-switcher {
+            display: flex;
+            align-items: center;
+        }
+
+        .language-switcher button {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .language-switcher button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="logo">
+            <a href="#">
+                <img src="icons and logos/logo1.png" alt="Company Logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a></li>
+                <li><a href="#about" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+                <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
+                <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button class="active" id="englishBtn">English</button>
+            <button id="arabicBtn">Arabic</button>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <video width="1280" height="720" autoplay loop muted>
+            <source src="video/movie.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <h1 data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</h1>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="service-section-wrapper">
+        <div class="container">
+            <div class="title"><h2 data-en="OUR SERVICES" data-ar="خدماتنا">OUR SERVICES</h2></div>
+            <div class="service dis-flex">
+                <div class="service-section">
+                    <div class="service-title" data-en="Photography" data-ar="التصوير الفوتوغرافي">Photography</div>
+                    <div class="service-image">
+                        <img src="image/WhatsApp Image 2025-01-05 at 1.20.40 PM (1).jpeg" alt="service-image">
+                    </div>
+                    <div class="service-text" data-en="Professional Photography: Capturing Moments, Elevating Your Brand" data-ar="التصوير الفوتوغرافي المحترف: التقاط اللحظات، رفع علامتك التجارية">
+                        Professional Photography: Capturing Moments, Elevating Your Brand
+                    </div>
+                    <div class="service-btn">
+                        <a href="https://test.precedencekw.com/test-2.html" data-en="Read More" data-ar="اقرأ المزيد">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Language Switcher Functionality
+    document.getElementById('englishBtn').addEventListener('click', function () {
+        setLanguage('en');
+    });
+
+    document.getElementById('arabicBtn').addEventListener('click', function () {
+        setLanguage('ar');
+    });
+
+    function setLanguage(language) {
+        // Store the selected language in localStorage
+        localStorage.setItem('language', language);
+
+        // Toggle button active class
+        document.getElementById('englishBtn').classList.toggle('active', language === 'en');
+        document.getElementById('arabicBtn').classList.toggle('active', language === 'ar');
+
+        // Update text based on selected language
+        const elements = document.querySelectorAll('[data-en], [data-ar]');
+        elements.forEach(element => {
+            element.textContent = element.getAttribute(`data-${language}`);
+        });
+
+        // Adjust text direction for Arabic
+        document.body.style.direction = language === 'ar' ? 'rtl' : 'ltr';
+    }
+
+    // On page load, retrieve the stored language preference and apply it
+    window.onload = function() {
+        const storedLanguage = localStorage.getItem('language') || 'en';
+        setLanguage(storedLanguage);
+    }
+</script>
+
+</body>
+</html>
