@@ -1,85 +1,106 @@
 <?php
+// Start the session to track login status
 session_start();
 
-// Admin credentials (ensure security in production)
-$adminUsername = 'admin';
-$adminPassword = 'adminpassword';
-
-// Check if admin is logged in
-if (!isset($_SESSION['admin_logged_in'])) {
-    header('Location: login.php');
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // If not logged in, redirect to login page
+    header("Location: login.php");
     exit;
 }
 
-// Database connection
+// Enable error reporting for debugging (optional)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Database connection details
 $host = 'localhost';
-$dbname = 'ashtiric_precedence_test';
-$username = 'ashtiric_precedence';
-$password = 'Precedence@2024';
+$dbname = 'ashtiric_precedence';
+$username = 'ashtiric_pre_user';
+$password = 'Precedence@2025';
 
 try {
+    // Connect to database using PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
 
-// Fetch meeting data
-$stmt = $pdo->query("SELECT * FROM meetings");
-$meetings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// Fetch all meetings and their corresponding time slots
+$meetingsStmt = $pdo->query("SELECT meetings.*, time_slots.slot_time 
+                             FROM meetings 
+                             JOIN time_slots ON meetings.slot_id = time_slots.id 
+                             ORDER BY meetings.created_at DESC");
+$meetings = $meetingsStmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Send email after status update
-function sendStatusUpdateEmail($meetingDetails, $newStatus) {
-    $to = 'u.godharwala@precedencekw.com, umargodharwala1996@gmail.com';
-    $subject = 'Meeting Status Update';
-    $message = "
-    <html>
-    <head>
-        <title>Meeting Status Update</title>
-    </head>
-    <body>
-        <p>The status of a meeting has been updated:</p>
-        <table>
-            <tr><th>First Name</th><td>{$meetingDetails['first_name']}</td></tr>
-            <tr><th>Last Name</th><td>{$meetingDetails['last_name']}</td></tr>
-            <tr><th>Email</th><td>{$meetingDetails['email']}</td></tr>
-            <tr><th>Company</th><td>{$meetingDetails['company']}</td></tr>
-            <tr><th>Topic</th><td>{$meetingDetails['topic']}</td></tr>
-            <tr><th>Date</th><td>{$meetingDetails['date']}</td></tr>
-            <tr><th>Time Slot</th><td>{$meetingDetails['time_slot']}</td></tr>
-            <tr><th>Status</th><td>{$newStatus}</td></tr>
-        </table>
-    </body>
-    </html>
-    ";
+// Handle accept/reject functionality
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
+    $meetingId = intval($_POST['meeting_id']);
+    $action = $_POST['action']; // Either 'accept' or 'reject'
 
-    // Headers for email
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
-    $headers .= "From: admin@precedencekw.com" . "\r\n"; // Use a valid from email address
+    // Start a transaction for accepting or rejecting the booking
+    try {
+        $pdo->beginTransaction();
 
-    mail($to, $subject, $message, $headers);
+        if ($action === 'accept') {
+            // If accepted, ensure slot is "Booked"
+            $updateSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Booked' WHERE id = (SELECT slot_id FROM meetings WHERE id = ?)");
+            $updateSlotStmt->execute([$meetingId]);
+        } else {
+            // If rejected, reset slot to "Available"
+            $updateSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Available' WHERE id = (SELECT slot_id FROM meetings WHERE id = ?)");
+            $updateSlotStmt->execute([$meetingId]);
+        }
+
+        // Mark the meeting as accepted or rejected
+        $updateMeetingStmt = $pdo->prepare("UPDATE meetings SET status = ? WHERE id = ?");
+        $updateMeetingStmt->execute([$action, $meetingId]);
+
+        // Commit the transaction
+        $pdo->commit();
+
+        // Redirect to avoid resubmitting the form on page reload
+        header("Location: admin.php");
+        exit;
+    } catch (Exception $e) {
+        // Rollback in case of error
+        $pdo->rollBack();
+        echo "<p class='error-message'>Error processing request: " . $e->getMessage() . "</p>";
+    }
 }
 
-// Update meeting status
-if (isset($_POST['update_status'])) {
-    $meetingId = $_POST['meeting_id'];
-    $status = $_POST['status'];
+// Handle individual delete functionality
+if (isset($_POST['delete_meeting'])) {
+    $meetingId = intval($_POST['meeting_id']);
 
-    if (!empty($status)) {
-        $updateStmt = $pdo->prepare("UPDATE meetings SET status = ? WHERE id = ?");
-        $updateStmt->execute([$status, $meetingId]);
+    try {
+        // Start a transaction
+        $pdo->beginTransaction();
 
-        // Fetch updated meeting details
-        $stmt = $pdo->prepare("SELECT * FROM meetings WHERE id = ?");
-        $stmt->execute([$meetingId]);
-        $updatedMeeting = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Get the slot ID associated with the meeting
+        $getSlotStmt = $pdo->prepare("SELECT slot_id FROM meetings WHERE id = ?");
+        $getSlotStmt->execute([$meetingId]);
+        $slotId = $getSlotStmt->fetchColumn();
 
-        // Send email after status update
-        sendStatusUpdateEmail($updatedMeeting, $status);
+        // Delete the meeting
+        $deleteMeetingStmt = $pdo->prepare("DELETE FROM meetings WHERE id = ?");
+        $deleteMeetingStmt->execute([$meetingId]);
 
-        header('Location: admin.php');
+        // Reset the slot status to 'Available'
+        $resetSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Available' WHERE id = ?");
+        $resetSlotStmt->execute([$slotId]);
+
+        // Commit the transaction
+        $pdo->commit();
+
+        // Redirect to avoid resubmitting the form on page reload
+        header("Location: admin.php");
         exit;
+    } catch (Exception $e) {
+        // Rollback in case of error
+        $pdo->rollBack();
+        echo "<p class='error-message'>Error deleting meeting: " . $e->getMessage() . "</p>";
     }
 }
 ?>
@@ -89,55 +110,152 @@ if (isset($_POST['update_status'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Meeting Management</title>
+    <title>Admin - Manage Bookings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 10px; text-align: left; border: 1px solid #ddd; }
-        th { background-color: #4CAF50; color: white; }
-        .btn { padding: 5px 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
-        form { display: inline; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+
+        table td {
+            background-color: #fafafa;
+        }
+
+        .button {
+            padding: 8px 16px;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .accept-btn {
+            background-color: #2ecc71;
+        }
+
+        .accept-btn:hover {
+            background-color: #27ae60;
+        }
+
+        .reject-btn {
+            background-color: #e74c3c;
+        }
+
+        .reject-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .delete-btn {
+            background-color: #FF5722;
+        }
+
+        .delete-btn:hover {
+            background-color: #D45A24;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions form {
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
-    <h1>Admin Dashboard - Meeting Management</h1>
-    <table>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Company</th>
-            <th>Topic</th>
-            <th>Date</th>
-            <th>Time Slot</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-        <?php foreach ($meetings as $meeting): ?>
-            <tr>
-                <td><?= htmlspecialchars($meeting['first_name']) ?></td>
-                <td><?= htmlspecialchars($meeting['last_name']) ?></td>
-                <td><?= htmlspecialchars($meeting['email']) ?></td>
-                <td><?= htmlspecialchars($meeting['company']) ?></td>
-                <td><?= htmlspecialchars($meeting['topic']) ?></td>
-                <td><?= htmlspecialchars($meeting['date']) ?></td>
-                <td><?= htmlspecialchars($meeting['time_slot']) ?></td>
-                <td><?= htmlspecialchars($meeting['status']) ?></td>
-                <td>
-                    <form method="POST">
-                        <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
-                        
-                        <select name="status">
-                            <option value="Pending" <?= $meeting['status'] === 'Pending' ? 'selected' : '' ?>>Pending</option>
-                            <option value="Approved" <?= $meeting['status'] === 'Approved' ? 'selected' : '' ?>>Approved</option>
-                        
-                            <option value="Rejected" <?= $meeting['status'] === 'Rejected' ? 'selected' : '' ?>>Rejected</option>
-                        </select>
-                        <button type="submit" name="update_status" class="btn">Update Status</button>
-                    </form>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
+
+<div class="container">
+    <h1>Admin - Manage Bookings</h1>
+
+    <?php if (empty($meetings)): ?>
+        <p>No bookings yet.</p>
+    <?php else: ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Company</th>
+                    <th>Topic</th>
+                    <th>Date</th>
+                    <th>Slot Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($meetings as $meeting): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($meeting['first_name']) ?></td>
+                        <td><?= htmlspecialchars($meeting['last_name']) ?></td>
+                        <td><?= htmlspecialchars($meeting['email']) ?></td>
+                        <td><?= htmlspecialchars($meeting['company']) ?></td>
+                        <td><?= htmlspecialchars($meeting['topic']) ?></td>
+                        <td><?= htmlspecialchars($meeting['date']) ?></td>
+                        <td><?= htmlspecialchars($meeting['slot_time']) ?></td>
+                        <td><?= ucfirst($meeting['status']) ?></td>
+                        <td>
+                            <div class="actions">
+                                <?php if ($meeting['status'] == 'pending'): ?>
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
+                                        <button type="submit" name="action" value="accept" class="button accept-btn">Accept</button>
+                                        <button type="submit" name="action" value="reject" class="button reject-btn">Reject</button>
+                                    </form>
+                                <?php else: ?>
+                                    <span>Action taken</span>
+                                <?php endif; ?>
+                                <form method="POST" action="">
+                                    <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
+                                    <button type="submit" name="delete_meeting" class="button delete-btn" onclick="return confirm('Are you sure you want to delete this meeting and reset the slot?')">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+</div>
+
 </body>
 </html>

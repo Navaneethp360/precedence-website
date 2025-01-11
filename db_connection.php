@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';  // MySQL host (typically localhost)
-$dbname = 'ashtiric_precedence_test';  // Your database name
-$username = 'ashtiric_precedence';  // MySQL username
-$password = 'Precedence@2024';  // MySQL password
+$host = 'localhost';
+$dbname = 'ashtiric_precedence_test';
+$username = 'ashtiric_precedence';
+$password = 'Precedence@2024';
 
 try {
     // Establish a PDO connection to MySQL
