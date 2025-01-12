@@ -56,29 +56,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
     $meetingId = intval($_POST['meeting_id']);
     $action = $_POST['action']; // Either 'accept' or 'reject'
 
+    // Ensure valid action value (only accept or reject)
+    if (!in_array($action, ['accept', 'reject'])) {
+        echo "<p class='error-message'>Invalid action</p>";
+        exit;
+    }
+
     // Start a transaction for accepting or rejecting the booking
     try {
         $pdo->beginTransaction();
 
+        // Update the slot status based on the action (accept or reject)
         if ($action === 'accept') {
-            // If accepted, ensure slot is "Booked"
             $updateSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Booked' WHERE id = (SELECT slot_id FROM meetings WHERE id = ?)");
             $updateSlotStmt->execute([$meetingId]);
         } else {
-            // If rejected, reset slot to "Available"
             $updateSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Available' WHERE id = (SELECT slot_id FROM meetings WHERE id = ?)");
             $updateSlotStmt->execute([$meetingId]);
         }
 
-        // Mark the meeting as accepted or rejected
-        $updateMeetingStmt = $pdo->prepare("UPDATE meetings SET status = ? WHERE id = ?");
-        $updateMeetingStmt->execute([$action, $meetingId]);
+        // Update the meeting status
+        $updateMeetingStmt = $pdo->prepare("UPDATE meetings SET status = :status WHERE id = :meeting_id");
+        $updateMeetingStmt->bindParam(':status', $action);
+        $updateMeetingStmt->bindParam(':meeting_id', $meetingId);
+        $updateMeetingStmt->execute();
 
         // Commit the transaction
         $pdo->commit();
 
-        // Redirect to avoid resubmitting the form on page reload
-        header("Location: admin.php");
+        // Redirect to avoid form resubmission on page reload
+        header("Location: admin.php" . ($selectedDate ? "?date=$selectedDate" : ""));
         exit;
     } catch (Exception $e) {
         // Rollback in case of error
@@ -282,24 +289,22 @@ if (isset($_POST['delete_meeting'])) {
                             <td><?= htmlspecialchars($meeting['slot_time']) ?></td>
                             <td><?= ucfirst($meeting['status']) ?></td>
                             <td>
-    <div class="actions">
-        <?php if ($meeting['status'] == 'pending'): ?>
-            <form method="POST" action="">
-                <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
-                <button type="submit" name="action" value="accept" class="button accept-btn">Accept</button>
-                <button type="submit" name="action" value="reject" class="button reject-btn">Reject</button>
-            </form>
-        <?php else: ?>
-            <span><?= ucfirst($meeting['status']) ?></span> <!-- Display either "Accepted" or "Rejected" -->
-        <?php endif; ?>
-        <form method="POST" action="">
-            <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
-            <button type="submit" name="delete_meeting" class="button delete-btn" onclick="return confirm('Are you sure you want to delete this meeting and reset the slot?')">Delete</button>
-        </form>
-    </div>
-</td>
-
-
+                                <div class="actions">
+                                    <?php if ($meeting['status'] == 'pending'): ?>
+                                        <form method="POST" action="">
+                                            <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
+                                            <button type="submit" name="action" value="accept" class="button accept-btn">Accept</button>
+                                            <button type="submit" name="action" value="reject" class="button reject-btn">Reject</button>
+                                        </form>
+                                    <?php else: ?>
+                                        <span><?= ucfirst($meeting['status']) ?></span>
+                                    <?php endif; ?>
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
+                                        <button type="submit" name="delete_meeting" class="button delete-btn" onclick="return confirm('Are you sure you want to delete this meeting and reset the slot?')">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

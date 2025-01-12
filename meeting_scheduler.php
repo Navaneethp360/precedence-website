@@ -138,6 +138,13 @@ if (isset($_POST['book_meeting'])) {
             font-weight: bold;
         }
 
+        /* Disable Fridays visually */
+        .calendar-day.disabled {
+            background-color: #e0e0e0;
+            color: #b0b0b0;
+            cursor: not-allowed;
+        }
+
         /* Time Slot Slider */
         .slider-container {
             display: flex;
@@ -458,17 +465,26 @@ if (isset($_POST['book_meeting'])) {
                 const dayCell = document.createElement('div');
                 dayCell.classList.add('calendar-day');
                 dayCell.textContent = day;
-                dayCell.onclick = () => {
-                    // Clear previously selected date
-                    const previouslySelected = document.querySelector('.calendar-day.selected');
-                    if (previouslySelected) {
-                        previouslySelected.classList.remove('selected');
-                    }
 
-                    // Set the new selected date
-                    dayCell.classList.add('selected');
-                    document.getElementById('date').value = `${currentYear}-${currentMonth + 1}-${day}`;
-                };
+                // Check if the current day is a Friday (getDay() returns 5 for Friday)
+                const date = new Date(currentYear, currentMonth, day);
+                if (date.getDay() === 5) {  // Disable Fridays
+                    dayCell.classList.add('disabled');
+                    dayCell.style.pointerEvents = 'none';  // Prevent clicks on Fridays
+                } else {
+                    dayCell.onclick = () => {
+                        // Clear previously selected date
+                        const previouslySelected = document.querySelector('.calendar-day.selected');
+                        if (previouslySelected) {
+                            previouslySelected.classList.remove('selected');
+                        }
+
+                        // Set the new selected date
+                        dayCell.classList.add('selected');
+                        document.getElementById('date').value = `${currentYear}-${currentMonth + 1}-${day}`;
+                    };
+                }
+
                 calendarDays.appendChild(dayCell);
             }
         }
