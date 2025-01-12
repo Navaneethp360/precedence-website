@@ -130,19 +130,26 @@ if (isset($_POST['book_meeting'])) {
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
+        /* Block Fridays */
+        .calendar-day.disabled {
+            background-color: #e74c3c; /* Red background for disabled Fridays */
+            color: #fff; /* White text color for better contrast */
+            cursor: not-allowed;
+        }
+
+        /* Block past dates visually */
+        .calendar-day.past {
+            background-color: #bdc3c7; /* Gray background for past dates */
+            color: #7f8c8d; /* Gray text */
+            cursor: not-allowed;
+        }
+
         /* Highlight the selected date */
         .calendar-day.selected {
             background-color: #27ae60;
             color: white;
             border-radius: 50%;
             font-weight: bold;
-        }
-
-        /* Disable Fridays visually */
-        .calendar-day.disabled {
-            background-color: #e0e0e0;
-            color: #b0b0b0;
-            cursor: not-allowed;
         }
 
         /* Time Slot Slider */
@@ -317,53 +324,42 @@ if (isset($_POST['book_meeting'])) {
             background-color: #d4edda;
         }
 
-        /* Location Selector (Dropdown) */
+        /* Location Dropdown Styles */
         .select-container {
             width: 100%;
-            margin-bottom: 20px;
+            position: relative;
         }
 
-        select#topic {
+        select {
             width: 100%;
             padding: 16px;
-            margin-bottom: 20px;
             border-radius: 8px;
             border: 2px solid #ddd;
             font-size: 16px;
             box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
             transition: border-color 0.3s ease;
-            background-color: #ffffff;
         }
 
-        select#topic:focus {
+        select:focus {
             border-color: #27ae60;
             outline: none;
         }
 
-        select#topic option {
+        /* Custom arrow for the dropdown */
+        select::-ms-expand {
+            display: none;
+        }
+
+        select option {
             padding: 10px;
-            font-size: 16px;
+            background-color: #fff;
             color: #333;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-
-            .time-slot {
-                min-width: 180px;
-            }
-
-            .form-container {
-                padding: 25px;
-                max-width: 90%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
+        select:hover {
+            border-color: #2ecc71;
         }
     </style>
 </head>
@@ -374,7 +370,6 @@ if (isset($_POST['book_meeting'])) {
 
         <!-- Calendar -->
         <div class="calendar-container">
-            <!-- This will be populated dynamically -->
             <div id="calendarDays" class="calendar-days"></div>
         </div>
 
@@ -415,9 +410,7 @@ if (isset($_POST['book_meeting'])) {
                         </select>
                     </div>
                     
-                    <!-- Date is set by calendar -->
                     <input type="hidden" id="date" name="date" required>
-                    
                     <input type="hidden" id="slot_id" name="slot_id" required>
 
                     <button type="submit" name="book_meeting">Book Meeting</button>
@@ -466,24 +459,34 @@ if (isset($_POST['book_meeting'])) {
                 dayCell.classList.add('calendar-day');
                 dayCell.textContent = day;
 
-                // Check if the current day is a Friday (getDay() returns 5 for Friday)
-                const date = new Date(currentYear, currentMonth, day);
-                if (date.getDay() === 5) {  // Disable Fridays
-                    dayCell.classList.add('disabled');
-                    dayCell.style.pointerEvents = 'none';  // Prevent clicks on Fridays
-                } else {
-                    dayCell.onclick = () => {
-                        // Clear previously selected date
-                        const previouslySelected = document.querySelector('.calendar-day.selected');
-                        if (previouslySelected) {
-                            previouslySelected.classList.remove('selected');
-                        }
+                const currentDate = new Date(currentYear, currentMonth, day);
+                const currentDay = currentDate.getDay();
 
-                        // Set the new selected date
-                        dayCell.classList.add('selected');
-                        document.getElementById('date').value = `${currentYear}-${currentMonth + 1}-${day}`;
-                    };
+                // Block Fridays
+                if (currentDay === 5) {
+                    dayCell.classList.add('disabled');
                 }
+
+                // Block past dates
+                if (currentDate < today) {
+                    dayCell.classList.add('past');
+                }
+
+                dayCell.onclick = () => {
+                    if (dayCell.classList.contains('past') || dayCell.classList.contains('disabled')) {
+                        return; // Prevent selecting past dates or Fridays
+                    }
+
+                    // Clear previously selected date
+                    const previouslySelected = document.querySelector('.calendar-day.selected');
+                    if (previouslySelected) {
+                        previouslySelected.classList.remove('selected');
+                    }
+
+                    // Set the new selected date
+                    dayCell.classList.add('selected');
+                    document.getElementById('date').value = `${currentYear}-${currentMonth + 1}-${day}`;
+                };
 
                 calendarDays.appendChild(dayCell);
             }
