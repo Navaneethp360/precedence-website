@@ -12,9 +12,29 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-// Fetch all time slots
-$slotsStmt = $pdo->query("SELECT * FROM time_slots");
-$timeSlots = $slotsStmt->fetchAll(PDO::FETCH_ASSOC);
+// Fetch all time slots for the initial load (for current date or a default date)
+function fetchSlots($date) {
+    global $pdo;
+
+    // Query available slots for the selected date
+    $stmt = $pdo->prepare("
+        SELECT ts.id, ts.slot_time, ts.status
+        FROM time_slots ts
+        LEFT JOIN meetings m ON ts.id = m.slot_id AND m.date = ?
+        WHERE ts.status = 'Available' OR (ts.status = 'Booked' AND m.date = ?)
+    ");
+    $stmt->execute([$date, $date]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Handle the AJAX request for fetching slots
+if (isset($_GET['fetch_slots'])) {
+    $date = $_GET['date']; // Date selected from the calendar
+    $slots = fetchSlots($date);
+
+    echo json_encode(['success' => true, 'slots' => $slots]);
+    exit;
+}
 
 // Handle meeting booking
 if (isset($_POST['book_meeting'])) {
@@ -76,7 +96,6 @@ if (isset($_POST['book_meeting'])) {
     <title>Meeting Scheduler</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Global Styles */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f5f5f5;
@@ -84,7 +103,6 @@ if (isset($_POST['book_meeting'])) {
             padding: 0;
             color: #333;
         }
-
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -101,7 +119,7 @@ if (isset($_POST['book_meeting'])) {
             margin-bottom: 30px;
         }
 
-        /* Calendar Container */
+        /* Calendar Styles */
         .calendar-container {
             display: flex;
             flex-direction: column;
@@ -130,86 +148,56 @@ if (isset($_POST['book_meeting'])) {
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Block Fridays */
-        .calendar-day.disabled {
-            background-color: #e74c3c; /* Red background for disabled Fridays */
-            color: #fff; /* White text color for better contrast */
-            cursor: not-allowed;
-        }
-
-        /* Block past dates visually */
-        .calendar-day.past {
-            background-color: #bdc3c7; /* Gray background for past dates */
-            color: #7f8c8d; /* Gray text */
-            cursor: not-allowed;
-        }
-
-        /* Highlight the selected date */
         .calendar-day.selected {
             background-color: #27ae60;
             color: white;
-            border-radius: 50%;
             font-weight: bold;
         }
 
-        /* Time Slot Slider */
-        .slider-container {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-            justify-content: center;
-        }
-
-        .time-slot {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid #ddd;
-            width: 200px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .time-slot.available {
-            border-color: #27ae60;
-            color: #27ae60;
-        }
-
-        .time-slot.booked {
-            border-color: #e74c3c;
-            color: #e74c3c;
+        .calendar-day.past {
+            background-color: #bdc3c7;
+            color: #7f8c8d;
             cursor: not-allowed;
         }
 
-        .time-slot:hover {
+        /* Slot Picker */
+        .slot-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .slot-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 180px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .slot-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .time-slot.booked:hover {
-            transform: none;
-            box-shadow: none;
+        .slot-item.booked {
+            background-color: #e74c3c;
+            color: white;
+            cursor: not-allowed;
         }
 
-        .time-slot strong {
-            font-size: 1.3rem;
-            font-weight: 500;
-        }
-
-        .time-slot small {
-            font-size: 0.9rem;
-            color: #7f8c8d;
+        .slot-item.available {
+            background-color: #2ecc71;
+            color: white;
         }
 
         /* Popup Form */
         .form-popup {
-            display: none;
+            display: none; /* Initially hidden */
             position: fixed;
             top: 0;
             left: 0;
@@ -219,12 +207,6 @@ if (isset($_POST['book_meeting'])) {
             justify-content: center;
             align-items: center;
             z-index: 1000;
-            transition: opacity 0.3s ease;
-        }
-
-        .form-popup.show {
-            display: flex;
-            opacity: 1;
         }
 
         .form-container {
@@ -232,17 +214,19 @@ if (isset($_POST['book_meeting'])) {
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-            position: relative;
+            width: 400px;
+        }
+
+        /* Ensure form is visible when 'show' class is added */
+        .form-popup.show {
+            display: flex;
         }
 
         .form-container h2 {
-            color: #2c3e50;
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 30px;
             text-align: center;
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
         }
 
         .form-container label {
@@ -253,33 +237,25 @@ if (isset($_POST['book_meeting'])) {
             color: #2c3e50;
         }
 
-        .form-container input {
+        .form-container input,
+        .form-container select {
             width: 100%;
-            padding: 16px;
+            padding: 10px;
             margin-bottom: 20px;
             border-radius: 8px;
             border: 2px solid #ddd;
             font-size: 16px;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-container input:focus {
-            border-color: #27ae60;
-            outline: none;
         }
 
         .form-container button {
             width: 100%;
-            padding: 16px;
+            padding: 12px;
             background-color: #27ae60;
             color: white;
-            font-size: 16px;
-            font-weight: 500;
             border: none;
-            cursor: pointer;
             border-radius: 8px;
-            transition: background-color 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
         }
 
         .form-container button:hover {
@@ -298,68 +274,10 @@ if (isset($_POST['book_meeting'])) {
             right: 15px;
             padding: 5px 10px;
             border-radius: 50%;
-            transition: background-color 0.3s ease;
         }
 
         .close-btn:hover {
             background-color: rgba(231, 76, 60, 0.1);
-        }
-
-        /* Success & Error Messages */
-        .error-message, .success-message {
-            text-align: center;
-            padding: 15px;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .error-message {
-            color: #e74c3c;
-            background-color: #f8d7da;
-        }
-
-        .success-message {
-            color: #27ae60;
-            background-color: #d4edda;
-        }
-
-        /* Location Dropdown Styles */
-        .select-container {
-            width: 100%;
-            position: relative;
-        }
-
-        select {
-            width: 100%;
-            padding: 16px;
-            border-radius: 8px;
-            border: 2px solid #ddd;
-            font-size: 16px;
-            box-sizing: border-box;
-            background-color: #fff;
-            color: #333;
-            transition: border-color 0.3s ease;
-        }
-
-        select:focus {
-            border-color: #27ae60;
-            outline: none;
-        }
-
-        /* Custom arrow for the dropdown */
-        select::-ms-expand {
-            display: none;
-        }
-
-        select option {
-            padding: 10px;
-            background-color: #fff;
-            color: #333;
-        }
-
-        select:hover {
-            border-color: #2ecc71;
         }
     </style>
 </head>
@@ -373,18 +291,12 @@ if (isset($_POST['book_meeting'])) {
             <div id="calendarDays" class="calendar-days"></div>
         </div>
 
-        <!-- Time Slot Slider -->
-        <div class="slider-container">
-            <?php foreach ($timeSlots as $slot): ?>
-                <div class="time-slot <?= $slot['status'] === 'Available' ? 'available' : 'booked' ?>" 
-                     data-id="<?= $slot['id'] ?>" onclick="selectSlot(<?= $slot['id'] ?>)">
-                    <strong><?= $slot['slot_time'] ?></strong>
-                    <small><?= $slot['status'] ?></small>
-                </div>
-            <?php endforeach; ?>
+        <!-- Slot Picker -->
+        <div class="slot-container" id="slotContainer">
+            <!-- Available slots will be dynamically loaded here -->
         </div>
 
-        <!-- Popup Form -->
+        <!-- Booking Form Popup -->
         <div id="formPopup" class="form-popup">
             <div class="form-container">
                 <button class="close-btn" onclick="closeForm()">×</button>
@@ -403,12 +315,10 @@ if (isset($_POST['book_meeting'])) {
                     <input type="text" id="company" name="company">
                     
                     <label for="topic">Location:</label>
-                    <div class="select-container">
-                        <select id="topic" name="topic" required>
-                            <option value="Precedence Office">Precedence Office</option>
-                            <option value="Client Office">Client Office</option>
-                        </select>
-                    </div>
+                    <select id="topic" name="topic" required>
+                        <option value="Precedence Office">Precedence Office</option>
+                        <option value="Client Office">Client Office</option>
+                    </select>
                     
                     <input type="hidden" id="date" name="date" required>
                     <input type="hidden" id="slot_id" name="slot_id" required>
@@ -420,27 +330,61 @@ if (isset($_POST['book_meeting'])) {
     </div>
 
     <script>
-        let selectedSlot = null;
+        let selectedDate = null;
 
-        // Show the form popup
+        // Function to select a date from calendar
+        function selectDate(date) {
+            selectedDate = date;
+            document.getElementById('date').value = selectedDate;
+            document.querySelectorAll('.calendar-day').forEach(day => {
+                day.classList.remove('selected');
+            });
+            document.querySelector(`[data-date="${selectedDate}"]`).classList.add('selected');
+            
+            // Fetch available time slots for the selected date
+            fetchTimeSlots(selectedDate);
+        }
+
+        // Function to fetch time slots for the selected date
+        function fetchTimeSlots(date) {
+            const slotContainer = document.getElementById('slotContainer');
+            slotContainer.innerHTML = ''; // Clear previous slots
+
+            // Send AJAX request to fetch slots for the selected date
+            fetch('?fetch_slots=1&date=' + date)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        data.slots.forEach(slot => {
+                            const slotDiv = document.createElement('div');
+                            slotDiv.classList.add('slot-item');
+                            slotDiv.classList.add(slot.status === 'Available' ? 'available' : 'booked');
+                            slotDiv.dataset.id = slot.id;
+                            slotDiv.innerHTML = `<strong>${slot.slot_time}</strong><small>${slot.status}</small>`;
+                            slotDiv.addEventListener('click', () => selectSlot(slot.id));
+                            slotContainer.appendChild(slotDiv);
+                        });
+                    } else {
+                        slotContainer.innerHTML = '<p>No available slots for this date.</p>';
+                    }
+                })
+                .catch(error => console.error('Error fetching slots:', error));
+        }
+
+        // Function to select a time slot and show the booking form
         function selectSlot(slotId) {
             document.getElementById('slot_id').value = slotId;
-
-            const selected = document.querySelector(`.time-slot[data-id='${slotId}']`);
-            if (selected.classList.contains('booked')) {
-                alert("This slot is already booked.");
-                return;
-            }
-
+            
+            // Show the booking form popup
             document.getElementById('formPopup').classList.add('show');
         }
 
-        // Close the form popup
+        // Close the booking form popup
         function closeForm() {
             document.getElementById('formPopup').classList.remove('show');
         }
 
-        // Initialize calendar and select date
+        // Initialize the calendar and handle date selection
         function initCalendar() {
             const calendarDays = document.getElementById('calendarDays');
             const today = new Date();
@@ -458,36 +402,14 @@ if (isset($_POST['book_meeting'])) {
                 const dayCell = document.createElement('div');
                 dayCell.classList.add('calendar-day');
                 dayCell.textContent = day;
-
                 const currentDate = new Date(currentYear, currentMonth, day);
-                const currentDay = currentDate.getDay();
+                dayCell.dataset.date = `${currentYear}-${currentMonth + 1}-${day}`;
 
-                // Block Fridays
-                if (currentDay === 5) {
-                    dayCell.classList.add('disabled');
-                }
-
-                // Block past dates
                 if (currentDate < today) {
                     dayCell.classList.add('past');
                 }
 
-                dayCell.onclick = () => {
-                    if (dayCell.classList.contains('past') || dayCell.classList.contains('disabled')) {
-                        return; // Prevent selecting past dates or Fridays
-                    }
-
-                    // Clear previously selected date
-                    const previouslySelected = document.querySelector('.calendar-day.selected');
-                    if (previouslySelected) {
-                        previouslySelected.classList.remove('selected');
-                    }
-
-                    // Set the new selected date
-                    dayCell.classList.add('selected');
-                    document.getElementById('date').value = `${currentYear}-${currentMonth + 1}-${day}`;
-                };
-
+                dayCell.onclick = () => selectDate(dayCell.dataset.date);
                 calendarDays.appendChild(dayCell);
             }
         }

@@ -1,125 +1,92 @@
 <?php
-// Start the session to track login status
-session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    // If not logged in, redirect to login page
-    header("Location: login.php");
-    exit;
-}
-
-// Enable error reporting for debugging (optional)
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Database connection details
+// Database connection
 $host = 'localhost';
 $dbname = 'ashtiric_precedence';
 $username = 'ashtiric_pre_user';
 $password = 'Precedence@2025';
 
 try {
-    // Connect to database using PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
 
-// Check if a date is selected from the date picker
-$selectedDate = isset($_GET['date']) ? $_GET['date'] : '';
+// Fetch all time slots for the initial load (for current date or a default date)
+function fetchSlots($date) {
+    global $pdo;
 
-// Modify the query to filter by the selected date if it's set
-$sql = "SELECT meetings.*, time_slots.slot_time 
-        FROM meetings 
-        JOIN time_slots ON meetings.slot_id = time_slots.id";
-
-if ($selectedDate) {
-    // Add the condition to filter by date
-    $sql .= " WHERE meetings.date = :selectedDate";
+    // Query available slots for the selected date
+    $stmt = $pdo->prepare("
+        SELECT ts.id, ts.slot_time, ts.status
+        FROM time_slots ts
+        LEFT JOIN meetings m ON ts.id = m.slot_id AND m.date = ?
+        WHERE ts.status = 'Available' OR (ts.status = 'Booked' AND m.date = ?)
+    ");
+    $stmt->execute([$date, $date]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-$sql .= " ORDER BY meetings.created_at DESC";
+// Handle the AJAX request for fetching slots
+if (isset($_GET['fetch_slots'])) {
+    $date = $_GET['date']; // Date selected from the calendar
+    $slots = fetchSlots($date);
 
-$meetingsStmt = $pdo->prepare($sql);
-
-if ($selectedDate) {
-    $meetingsStmt->bindParam(':selectedDate', $selectedDate);
+    echo json_encode(['success' => true, 'slots' => $slots]);
+    exit;
 }
 
-$meetingsStmt->execute();
-$meetings = $meetingsStmt->fetchAll(PDO::FETCH_ASSOC);
+// Handle meeting booking
+if (isset($_POST['book_meeting'])) {
+    $firstName = htmlspecialchars($_POST['first_name']);
+    $lastName = htmlspecialchars($_POST['last_name']);
+    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $company = htmlspecialchars($_POST['company']);
+    $topic = htmlspecialchars($_POST['topic']);
+    $date = $_POST['date'];
+    $slotId = intval($_POST['slot_id']);
 
-// Handle accept/reject functionality
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
-    $meetingId = intval($_POST['meeting_id']);
-    $action = $_POST['action']; // Either 'accept' or 'reject'
+    // Validate date (ensure it is in the future)
+    $currentDate = date('Y-m-d');
+    if ($date < $currentDate) {
+        die("<p class='error-message'>Please select a future date.</p>");
+    }
 
-    // Start a transaction for accepting or rejecting the booking
-    try {
-        $pdo->beginTransaction();
+    // Check if slot is available
+    $slotCheckStmt = $pdo->prepare("SELECT status FROM time_slots WHERE id = ?");
+    $slotCheckStmt->execute([$slotId]);
+    $slotStatus = $slotCheckStmt->fetch(PDO::FETCH_ASSOC)['status'];
 
-        if ($action === 'accept') {
-            // If accepted, ensure slot is "Booked"
-            $updateSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Booked' WHERE id = (SELECT slot_id FROM meetings WHERE id = ?)");
-            $updateSlotStmt->execute([$meetingId]);
-        } else {
-            // If rejected, reset slot to "Available"
-            $updateSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Available' WHERE id = (SELECT slot_id FROM meetings WHERE id = ?)");
-            $updateSlotStmt->execute([$meetingId]);
+    if ($slotStatus === 'Available') {
+        try {
+            // Start a transaction
+            $pdo->beginTransaction();
+
+            // Book meeting
+            $insertStmt = $pdo->prepare("
+                INSERT INTO meetings (first_name, last_name, email, company, topic, date, slot_id) 
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            ");
+            $insertStmt->execute([$firstName, $lastName, $email, $company, $topic, $date, $slotId]);
+
+            // Update slot status
+            $updateSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Booked' WHERE id = ?");
+            $updateSlotStmt->execute([$slotId]);
+
+            // Commit the transaction
+            $pdo->commit();
+
+            echo "<p class='success-message'>Meeting booked successfully!</p>";
+        } catch (Exception $e) {
+            // Rollback the transaction in case of error
+            $pdo->rollBack();
+            echo "<p class='error-message'>Error booking meeting: " . $e->getMessage() . "</p>";
         }
-
-        // Mark the meeting as accepted or rejected
-        $updateMeetingStmt = $pdo->prepare("UPDATE meetings SET status = ? WHERE id = ?");
-        $updateMeetingStmt->execute([$action, $meetingId]);
-
-        // Commit the transaction
-        $pdo->commit();
-
-        // Redirect to avoid resubmitting the form on page reload
-        header("Location: admin.php");
-        exit;
-    } catch (Exception $e) {
-        // Rollback in case of error
-        $pdo->rollBack();
-        echo "<p class='error-message'>Error processing request: " . $e->getMessage() . "</p>";
+    } else {
+        echo "<p class='error-message'>Selected slot is no longer available.</p>";
     }
 }
 
-// Handle individual delete functionality
-if (isset($_POST['delete_meeting'])) {
-    $meetingId = intval($_POST['meeting_id']);
-
-    try {
-        // Start a transaction
-        $pdo->beginTransaction();
-
-        // Get the slot ID associated with the meeting
-        $getSlotStmt = $pdo->prepare("SELECT slot_id FROM meetings WHERE id = ?");
-        $getSlotStmt->execute([$meetingId]);
-        $slotId = $getSlotStmt->fetchColumn();
-
-        // Delete the meeting
-        $deleteMeetingStmt = $pdo->prepare("DELETE FROM meetings WHERE id = ?");
-        $deleteMeetingStmt->execute([$meetingId]);
-
-        // Reset the slot status to 'Available'
-        $resetSlotStmt = $pdo->prepare("UPDATE time_slots SET status = 'Available' WHERE id = ?");
-        $resetSlotStmt->execute([$slotId]);
-
-        // Commit the transaction
-        $pdo->commit();
-
-        // Redirect to avoid resubmitting the form on page reload
-        header("Location: admin.php");
-        exit;
-    } catch (Exception $e) {
-        // Rollback in case of error
-        $pdo->rollBack();
-        echo "<p class='error-message'>Error deleting meeting: " . $e->getMessage() . "</p>";
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -127,186 +94,142 @@ if (isset($_POST['delete_meeting'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Manage Bookings</title>
+    <title>Meeting Scheduler</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table th, table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        table th {
-            background-color: #3498db;
-            color: white;
-            font-weight: 600;
-        }
-
-        table td {
-            background-color: #fafafa;
-        }
-
-        .button {
-            padding: 8px 16px;
-            border-radius: 5px;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        .accept-btn {
-            background-color: #2ecc71;
-        }
-
-        .accept-btn:hover {
-            background-color: #27ae60;
-        }
-
-        .reject-btn {
-            background-color: #e74c3c;
-        }
-
-        .reject-btn:hover {
-            background-color: #c0392b;
-        }
-
-        .delete-btn {
-            background-color: #FF5722;
-        }
-
-        .delete-btn:hover {
-            background-color: #D45A24;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .actions form {
-            display: inline-block;
-        }
-
-        /* Styling the date filter form */
-        form {
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: 600;
-            margin-right: 10px;
-        }
-
-        input[type="date"] {
-            padding: 5px;
-            font-size: 16px;
-        }
-
-        /* Hide the table if no date is selected */
-        .table-container {
-            display: none;
-        }
-
-        .table-container.show {
-            display: block;
-        }
+        /* Add your styles here */
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Admin - Manage Bookings</h1>
+    <div class="container">
+        <h1>Book a Meeting</h1>
 
-    <!-- Date Picker Form -->
-    <form method="GET" action="" id="date-form">
-        <label for="appointment_date">Select Date:</label>
-        <input type="date" id="appointment_date" name="date" value="<?= htmlspecialchars($selectedDate) ?>" onchange="this.form.submit()">
-    </form>
+        <!-- Calendar -->
+        <div class="calendar-container">
+            <div id="calendarDays" class="calendar-days"></div>
+        </div>
 
-    <div class="table-container <?php echo $selectedDate ? 'show' : ''; ?>">
-        <?php if (empty($meetings)): ?>
-            <p>No bookings for the selected date.</p>
-        <?php else: ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Company</th>
-                        <th>Topic</th>
-                        <th>Date</th>
-                        <th>Slot Time</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($meetings as $meeting): ?>
-                        <tr>
-                            <td><?= htmlspecialchars($meeting['first_name']) ?></td>
-                            <td><?= htmlspecialchars($meeting['last_name']) ?></td>
-                            <td><?= htmlspecialchars($meeting['email']) ?></td>
-                            <td><?= htmlspecialchars($meeting['company']) ?></td>
-                            <td><?= htmlspecialchars($meeting['topic']) ?></td>
-                            <td><?= htmlspecialchars($meeting['date']) ?></td>
-                            <td><?= htmlspecialchars($meeting['slot_time']) ?></td>
-                            <td><?= ucfirst($meeting['status']) ?></td>
-                            <td>
-    <div class="actions">
-        <?php if ($meeting['status'] == 'pending'): ?>
-            <form method="POST" action="">
-                <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
-                <button type="submit" name="action" value="accept" class="button accept-btn">Accept</button>
-                <button type="submit" name="action" value="reject" class="button reject-btn">Reject</button>
-            </form>
-        <?php else: ?>
-            <span><?= ucfirst($meeting['status']) ?></span> <!-- Display either "Accepted" or "Rejected" -->
-        <?php endif; ?>
-        <form method="POST" action="">
-            <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>">
-            <button type="submit" name="delete_meeting" class="button delete-btn" onclick="return confirm('Are you sure you want to delete this meeting and reset the slot?')">Delete</button>
-        </form>
+        <!-- Time Slot Slider -->
+        <div class="slider-container" id="slotContainer">
+            <!-- Available slots will be dynamically loaded here -->
+        </div>
+
+        <!-- Popup Form -->
+        <div id="formPopup" class="form-popup">
+            <div class="form-container">
+                <button class="close-btn" onclick="closeForm()">×</button>
+                <h2>Book a Meeting</h2>
+                <form method="POST" action="">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name" required>
+                    
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="company">Company:</label>
+                    <input type="text" id="company" name="company">
+                    
+                    <label for="topic">Location:</label>
+                    <div class="select-container">
+                        <select id="topic" name="topic" required>
+                            <option value="Precedence Office">Precedence Office</option>
+                            <option value="Client Office">Client Office</option>
+                        </select>
+                    </div>
+                    
+                    <input type="hidden" id="date" name="date" required>
+                    <input type="hidden" id="slot_id" name="slot_id" required>
+
+                    <button type="submit" name="book_meeting">Book Meeting</button>
+                </form>
+            </div>
+        </div>
     </div>
-</td>
 
+    <script>
+        let selectedDate = null;
 
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
-    </div>
-</div>
+        // Function to select a date from calendar
+        function selectDate(date) {
+            selectedDate = date;
+            document.getElementById('date').value = selectedDate;
+
+            // Fetch available time slots for the selected date
+            fetchTimeSlots(selectedDate);
+        }
+
+        // Function to fetch time slots for the selected date
+        function fetchTimeSlots(date) {
+            const slotContainer = document.getElementById('slotContainer');
+            slotContainer.innerHTML = ''; // Clear the previous slots
+
+            // Send AJAX request to fetch slots for the selected date
+            fetch('?fetch_slots=1&date=' + date)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        data.slots.forEach(slot => {
+                            const slotDiv = document.createElement('div');
+                            slotDiv.classList.add('time-slot');
+                            slotDiv.classList.add(slot.status === 'Available' ? 'available' : 'booked');
+                            slotDiv.dataset.id = slot.id;
+                            slotDiv.innerHTML = `<strong>${slot.slot_time}</strong><small>${slot.status}</small>`;
+                            slotDiv.addEventListener('click', () => selectSlot(slot.id));
+                            slotContainer.appendChild(slotDiv);
+                        });
+                    } else {
+                        slotContainer.innerHTML = '<p>No available slots for this date.</p>';
+                    }
+                })
+                .catch(error => console.error('Error fetching slots:', error));
+        }
+
+        // Function to select a time slot and show the booking form
+        function selectSlot(slotId) {
+            document.getElementById('slot_id').value = slotId;
+
+            // Show the booking form popup
+            document.getElementById('formPopup').classList.add('show');
+        }
+
+        // Close the booking form popup
+        function closeForm() {
+            document.getElementById('formPopup').classList.remove('show');
+        }
+
+        // Initialize the calendar and handle date selection
+        function initCalendar() {
+            const calendarDays = document.getElementById('calendarDays');
+            const today = new Date();
+            const currentMonth = today.getMonth();
+            const currentYear = today.getFullYear();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                calendarDays.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.classList.add('calendar-day');
+                dayCell.textContent = day;
+                const currentDate = new Date(currentYear, currentMonth, day);
+                dayCell.dataset.date = `${currentYear}-${currentMonth + 1}-${day}`;
+
+                dayCell.onclick = () => selectDate(dayCell.dataset.date);
+
+                calendarDays.appendChild(dayCell);
+            }
+        }
+
+        initCalendar();
+    </script>
 
 </body>
 </html>
