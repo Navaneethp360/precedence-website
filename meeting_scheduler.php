@@ -160,6 +160,13 @@ if (isset($_POST['book_meeting'])) {
             cursor: not-allowed;
         }
 
+        .calendar-day.holiday {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+            cursor: not-allowed;
+        }
+
         /* Slot Picker */
         .slot-container {
             display: flex;
@@ -217,7 +224,6 @@ if (isset($_POST['book_meeting'])) {
             width: 400px;
         }
 
-        /* Ensure form is visible when 'show' class is added */
         .form-popup.show {
             display: flex;
         }
@@ -405,11 +411,20 @@ if (isset($_POST['book_meeting'])) {
                 const currentDate = new Date(currentYear, currentMonth, day);
                 dayCell.dataset.date = `${currentYear}-${currentMonth + 1}-${day}`;
 
-                if (currentDate < today) {
-                    dayCell.classList.add('past');
+                // Check if it's a Friday (Day 5 of the week)
+                if (currentDate.getDay() === 5) {
+                    dayCell.textContent = 'Holiday';  // Display "Holiday" for Fridays
+                    dayCell.classList.add('holiday');
+                    dayCell.style.cursor = 'not-allowed';  // Disable click on Fridays
+                    dayCell.onclick = () => {};  // No action for Fridays
+                } else {
+                    // Normal behavior for other days
+                    if (currentDate < today) {
+                        dayCell.classList.add('past');
+                    }
+                    dayCell.onclick = () => selectDate(dayCell.dataset.date);
                 }
 
-                dayCell.onclick = () => selectDate(dayCell.dataset.date);
                 calendarDays.appendChild(dayCell);
             }
         }
