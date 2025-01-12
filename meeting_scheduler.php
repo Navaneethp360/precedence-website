@@ -101,6 +101,43 @@ if (isset($_POST['book_meeting'])) {
             margin-bottom: 30px;
         }
 
+        /* Calendar Container */
+        .calendar-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .calendar-day {
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .calendar-day:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Highlight the selected date */
+        .calendar-day.selected {
+            background-color: #27ae60;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
         /* Time Slot Slider */
         .slider-container {
             display: flex;
@@ -236,24 +273,23 @@ if (isset($_POST['book_meeting'])) {
         }
 
         .close-btn {
-    background-color: transparent;
-    border: none;
-    color: #e74c3c;
-    font-size: 20px; /* Reduced size */
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute;
-    top: 15px; /* Positioned slightly down from the top */
-    right: 15px; /* Positioned slightly in from the right edge */
-    padding: 5px 10px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
+            background-color: transparent;
+            border: none;
+            color: #e74c3c;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
 
-.close-btn:hover {
-    background-color: rgba(231, 76, 60, 0.1);
-}
-
+        .close-btn:hover {
+            background-color: rgba(231, 76, 60, 0.1);
+        }
 
         /* Success & Error Messages */
         .error-message, .success-message {
@@ -272,6 +308,35 @@ if (isset($_POST['book_meeting'])) {
         .success-message {
             color: #27ae60;
             background-color: #d4edda;
+        }
+
+        /* Location Selector (Dropdown) */
+        .select-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        select#topic {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            background-color: #ffffff;
+        }
+
+        select#topic:focus {
+            border-color: #27ae60;
+            outline: none;
+        }
+
+        select#topic option {
+            padding: 10px;
+            font-size: 16px;
+            color: #333;
         }
 
         /* Responsive Styles */
@@ -299,6 +364,12 @@ if (isset($_POST['book_meeting'])) {
 
     <div class="container">
         <h1>Book a Meeting</h1>
+
+        <!-- Calendar -->
+        <div class="calendar-container">
+            <!-- This will be populated dynamically -->
+            <div id="calendarDays" class="calendar-days"></div>
+        </div>
 
         <!-- Time Slot Slider -->
         <div class="slider-container">
@@ -329,11 +400,16 @@ if (isset($_POST['book_meeting'])) {
                     <label for="company">Company:</label>
                     <input type="text" id="company" name="company">
                     
-                    <label for="topic">Topic:</label>
-                    <input type="text" id="topic" name="topic">
+                    <label for="topic">Location:</label>
+                    <div class="select-container">
+                        <select id="topic" name="topic" required>
+                            <option value="Precedence Office">Precedence Office</option>
+                            <option value="Client Office">Client Office</option>
+                        </select>
+                    </div>
                     
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required>
+                    <!-- Date is set by calendar -->
+                    <input type="hidden" id="date" name="date" required>
                     
                     <input type="hidden" id="slot_id" name="slot_id" required>
 
@@ -363,6 +439,41 @@ if (isset($_POST['book_meeting'])) {
         function closeForm() {
             document.getElementById('formPopup').classList.remove('show');
         }
+
+        // Initialize calendar and select date
+        function initCalendar() {
+            const calendarDays = document.getElementById('calendarDays');
+            const today = new Date();
+            const currentMonth = today.getMonth();
+            const currentYear = today.getFullYear();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                calendarDays.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.classList.add('calendar-day');
+                dayCell.textContent = day;
+                dayCell.onclick = () => {
+                    // Clear previously selected date
+                    const previouslySelected = document.querySelector('.calendar-day.selected');
+                    if (previouslySelected) {
+                        previouslySelected.classList.remove('selected');
+                    }
+
+                    // Set the new selected date
+                    dayCell.classList.add('selected');
+                    document.getElementById('date').value = `${currentYear}-${currentMonth + 1}-${day}`;
+                };
+                calendarDays.appendChild(dayCell);
+            }
+        }
+
+        initCalendar();
     </script>
 
 </body>
