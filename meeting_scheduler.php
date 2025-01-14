@@ -76,7 +76,29 @@ if (isset($_POST['book_meeting'])) {
             // Commit the transaction
             $pdo->commit();
 
-            echo "<p class='success-message'>Meeting booked successfully!</p>";
+            // Send email notification
+            $to = "contact@precedencekw.com";
+            $subject = "Meeting Requested: $firstName $lastName";
+            $body = "
+            <html>
+            <body>
+                <h2>Meeting Requested</h2>
+                <p><b>Name:</b> $firstName $lastName</p>
+                <p><b>Company:</b> $company</p>
+                <p><b>Email:</b> $email</p>
+                <p><b>Topic:</b> $topic</p>
+                <p><b>Meeting Date:</b> $date</p>
+                <p><b>Time Slot:</b> {$slotStatus}</p>
+            </body>
+            </html>
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
+            $headers .= "From: $email" . "\r\n";
+            $headers .= "Reply-To: $email" . "\r\n";
+            mail($to, $subject, $body, $headers);
+
+            echo "<p class='success-message'>Meeting booked successfully and email sent!</p>";
         } catch (Exception $e) {
             // Rollback the transaction in case of error
             $pdo->rollBack();
@@ -94,53 +116,50 @@ if (isset($_POST['book_meeting'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-	 <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <title>Meeting Scheduler</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-       
         .meeting-wrap {
             max-width: 100%;
-           display:flex;
+            display: flex;
             padding: 40px;
             background-color: #000000;
-            
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
         }
         
         p.success-message {
-    position: absolute;
-    color: #ffffff;
-    top: 142px;
-    font-size: 20px;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    text-align: center;
-}
+            position: absolute;
+            color: #ffffff;
+            top: 142px;
+            font-size: 20px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            text-align: center;
+        }
 
         .tittel {
-    padding-top: 75px;
-    background: #000000;
-}
+            padding-top: 75px;
+            background: #000000;
+        }
 
-.tittel h1 {
-    margin: 0px;
-    padding: 0px;
-    text-align: center;
-    color: #ffffff;
-}
-
+        .tittel h1 {
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+            color: #ffffff;
+        }
 
         /* Calendar Styles */
         .calendar-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width:calc(50% - 20px);margin:0px -10px;
+            width: calc(50% - 20px);
+            margin: 0px -10px;
             margin-bottom: 40px;
         }
 
@@ -189,16 +208,18 @@ if (isset($_POST['book_meeting'])) {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            width:calc(50% - 20px);
-            margin:0px 10px;
+            width: calc(50% - 20px);
+            margin: 0px 10px;
             margin-top: 20px;
         }
-.slot-item {
-    width: calc(33.33% - 20px);
-    margin: 0px 10px 10px;
-    padding: 0px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
-}
-        
+
+        .slot-item {
+            width: calc(33.33% - 20px);
+            margin: 0px 10px 10px;
+            padding: 0px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
 
         .slot-item:hover {
             transform: translateY(-5px);
@@ -211,30 +232,18 @@ if (isset($_POST['book_meeting'])) {
             cursor: not-allowed;
         }
 
-       
-       
-.form-container button.close-btn {
-    width: 39px;
-    /* right: -44%; */
-    left: 40%;
-    top: 10px;
-    margin: 0 auto;
-}
-
-        
         .slot-item.available {
-    /* background-color: #2ecc71; */
-    color: white;
-    display: flex;
-    flex-direction: column;
-    JUSTIFY-CONTENT: CENTER;
-    ALIGN-ITEMS: CENTER;
-    border: 1px solid;
-    }
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid;
+        }
 
         /* Popup Form */
         .form-popup {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -318,175 +327,50 @@ if (isset($_POST['book_meeting'])) {
     </style>
 </head>
 <body>
-<header class="header">
-        
-    <div class="logo">
-        <a href="#">
-        <img src="icons and logos/logo1.png" alt="Company Logo"></a>
-    </div>
-    <nav class="navigation">
-    <ul>
-        <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
-        <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a>
-            <div class="mega-menu">
-                <ul>
-                    <li><a href="#" data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</a></li>
-                    <li><a href="#" data-en="Branding and Rebranding" data-ar="التسمية والتسمية التجارية">Branding and Rebranding</a></li>
-                    <li><a href="#" data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</a></li>
-                    <li><a href="#" data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</a></li>
-                    <li><a href="#" data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</a></li>
-                    <li><a href="#" data-en="3D Production" data-ar="الإنتاج ثلاثي الأبعاد">3D Production</a></li>
-                    <li><a href="#" data-en="Ads" data-ar="الإعلانات">Ads</a></li>
-                    <li><a href="#" data-en="Marketing" data-ar="التسويق">Marketing</a></li>
-                </ul>
-            </div>
-        </li>
-        <li><a href="#about" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
-        <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
-        <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
-    </ul>
-</nav>
-
-    <!--<div class="studio-logo">-->
-    <!--    <a href="https://test.precedencekw.com/965.html">-->
-    <!--    <img src="image/logo-Stu.png" alt="Company Logo"></a>-->
-        
-    <!--</div>-->
-    
-
-
-    <div class="humbergur-link">
-        <a href="#">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
-    </div>
-</header>
 <div class="tittel">
-      <h1>Book a Meeting</h1>
+    <h1>Book a Meeting</h1>
 </div>
-    <div class="meeting-wrap ">
-      
-
-        <!-- Calendar -->
-        <div class="calendar-container">
-            <div id="calendarDays" class="calendar-days"></div>
-        </div>
-
-        <!-- Slot Picker -->
-        <div class="slot-container" id="slotContainer">
-            <!-- Available slots will be dynamically loaded here -->
-        </div>
-
-        <!-- Booking Form Popup -->
-        <div id="formPopup" class="form-popup">
-            <div class="form-container">
-                <button class="close-btn" onclick="closeForm()">×</button>
-                <h2>Book a Meeting</h2>
-                <form method="POST" action="">
-                    <label for="first_name">First Name:</label>
-                    <input type="text" id="first_name" name="first_name" required>
-                    
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" id="last_name" name="last_name" required>
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="company">Company:</label>
-                    <input type="text" id="company" name="company">
-                    
-                    <label for="topic">Location:</label>
-                    <select id="topic" name="topic" required>
-                        <option value="Precedence Office">Precedence Office</option>
-                        <option value="Client Office">Client Office</option>
-                    </select>
-                    
-                    <input type="hidden" id="date" name="date" required>
-                    <input type="hidden" id="slot_id" name="slot_id" required>
-
-                    <button type="submit" name="book_meeting">Book Meeting</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="footer-wrap">
-    <div class="footer">
-        <div class="footer-left">
-            <!-- Large Text -->
-            <div class="large-text">
-                Let's Talk
-            </div>
-        
-            <!-- Two Smaller Texts -->
-            <div class="top dis-flex">
-            
-            <div class="email-icone">
-                <i class="fa fa-envelope"></i>
-            </div>
-            <div class="small-text">
-                contact@precedencekw.com
-            </div>
-            </div>
-              <div class="bottom dis-flex">
-            <div class="email-icone">
-                <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="small-text">
-                Shuwaikh industrial area, Street 26, Kuwait City 32000
-            </div>
-        </div>
-            <!-- One Row of 3 Small Texts -->
-            <div class="row-small-texts">
-                <span>Privacy</span>
-                <span>Terms</span>
-                <span>SiteMap</span>
-            </div>
-        </div>
-<div class="footer-right">
-    <!-- Column with 3 texts -->
-    <div class="footer-column dis-flex">
-        <ul>
-            <li><a href="#services">Services</a></li>
-             <li><a href="#client">Clients</a></li>
-              <li><a href="#about">About</a></li>
-        </ul>
-       
-        
-        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank" "="" id="whatsapp-icon" title="Chat with us on WhatsApp" class="show">
-    <i class="fa fa-whatsapp" aria-hidden="true"></i>
-</a>
+<div class="meeting-wrap ">
+    <!-- Calendar -->
+    <div class="calendar-container">
+        <div id="calendarDays" class="calendar-days"></div>
     </div>
 
-    <!-- Row of social media icons with links -->
-    <div class="social-media">
-        <div class="social" style="display: inline-block; margin-right: 10px;">
-            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        </div>
-        <div class="social" style="display: inline-block; margin-right: 10px;">
-            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-        </div>
-        <div class="social" style="display: inline-block; margin-right: 10px;">
-            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-        </div>
-        <div class="social" style="display: inline-block; margin-right: 10px;">
-            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-        </div>
-        <div class="social" style="display: inline-block; margin-right: 10px;">
-            <a href="#"><i class="fa fa-whatsapp"></i></a>
-        </div>
-        <div class="social" style="display: inline-block; margin-right: 10px;">
-            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-        </div>
+    <!-- Slot Picker -->
+    <div class="slot-container" id="slotContainer">
+        <!-- Available slots will be dynamically loaded here -->
     </div>
 
-    <!-- Small text -->
-    <div class="small-text">
-        <p> 2025 Precedence. All rights reserved.</p>
-    </div>
-</div>
+    <!-- Booking Form Popup -->
+    <div id="formPopup" class="form-popup">
+        <div class="form-container">
+            <button class="close-btn" onclick="closeForm()">×</button>
+            <h2>Book a Meeting</h2>
+            <form method="POST" action="">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+                
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="company">Company:</label>
+                <input type="text" id="company" name="company">
+                
+                <label for="topic">Location:</label>
+                <select id="topic" name="topic" required>
+                    <option value="Precedence Office">Precedence Office</option>
+                    <option value="Client Office">Client Office</option>
+                </select>
+                
+                <input type="hidden" id="date" name="date" required>
+                <input type="hidden" id="slot_id" name="slot_id" required>
+
+                <button type="submit" name="book_meeting">Book Meeting</button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -578,24 +462,17 @@ if (isset($_POST['book_meeting'])) {
                     dayCell.classList.add('past');
                     dayCell.onclick = () => {};  // Disable click on past days
                 } else {
-                    dayCell.onclick = () => selectDate(dayCell.dataset.date);
+                    dayCell.addEventListener('click', () => selectDate(`${currentYear}-${currentMonth + 1}-${day}`));
                 }
             }
-
             calendarDays.appendChild(dayCell);
         }
     }
 
-    initCalendar();
+    // Initialize the calendar when the page loads
+    window.onload = function() {
+        initCalendar();
+    };
 </script>
-
-    
-    
-    
-   
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
 </body>
 </html>
