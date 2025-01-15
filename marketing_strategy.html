@@ -6,6 +6,8 @@
 	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 	 <link rel="stylesheet" href="css/style.css">
+	 	
+
 	 <link rel="stylesheet" type="text/css" href="css/header.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -15,8 +17,39 @@
 	             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="js/min.js"></script>
+	<script>
+	    $(document).ready(function(){
 
+        $(".humbergur-link").click(function () {
+        $("body").toggleClass("new-class"); 
+        $(".navigation").toggleClass("active");
+        
+        
+    });
+	    });
+	    
+	  
+
+	</script>
+	
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const whatsappIcon = document.getElementById("whatsapp-icon");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) { // Show after 200px of scrolling
+                whatsappIcon.classList.add("show");
+                whatsappIcon.classList.remove("hide");
+            } else {
+                whatsappIcon.classList.add("hide");
+                whatsappIcon.classList.remove("show");
+            }
+        });
+    });
+</script>
+
+
+	
 
 	<title>Media Producation</title>
 </head>
@@ -99,16 +132,89 @@
     </div>
     </div>
 </header>
+	<!-- banner section here -->
+    <div class="banner">
+        <video width="1280" height="720" autoplay loop muted>
+            <source src="video/movie2.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <img src="image/msd.png" alt="Overlay Image" class="dektop">
+            <img src="image/msm.png" alt="Overlay Image" class="mobile">
+            <img src="image/msm.png" alt="Overlay Image" class="mobile-2">
+            
+        </div>
+    </div>
 
-<div class="inner-banner white">
-    <div class="container">
-    <div class="content">
-    <h1>
-        Marketing Strategy
-    </h1>
-    <p>Our rich design and technology expertise delivers top brands and digital experiences.</p>
-    </div>
-    </div>
+
+<!--our services section-->
+<!--<div class="our-inner-service">-->
+<!--    <div class="container">-->
+        
+<!--        <div class="dis-flex wrap-services">-->
+<!--            <div class="inner-services-section">-->
+<!--                <div class="image">-->
+<!--                    <img src="image/brand-new.jpg" alt="brand-image">-->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    <h5>Marketing Plan</h5>-->
+<!--                </div>-->
+<!--                <div class="services-button">-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inner-services-section">-->
+<!--                <div class="image">-->
+<!--                    <img src="image/brand-new.jpg" alt="brand-image">-->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    <h5>Content Creation</h5>-->
+<!--                </div>-->
+<!--                <div class="services-button">-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inner-services-section">-->
+<!--                <div class="image">-->
+<!--                    <img src="image/brand-new.jpg" alt="brand-image">-->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    <h5>Analysis</h5>-->
+<!--                </div>-->
+<!--                <div class="services-button">-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inner-services-section">-->
+<!--                <div class="image">-->
+<!--                    <img src="image/brand-new.jpg" alt="brand-image">-->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    <h5>Scheduled</h5>-->
+<!--                </div>-->
+<!--                <div class="services-button">-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="inner-services-section">-->
+<!--                <div class="image">-->
+<!--                    <img src="image/brand-new.jpg" alt="brand-image">-->
+<!--                </div>-->
+<!--                <div class="content">-->
+<!--                    <h5>Marketing Calendar</h5>-->
+<!--                </div>-->
+<!--                <div class="services-button">-->
+<!--                    <a href="#">Read More</a>-->
+<!--                </div>-->
+<!--            </div>-->
+           
+<!--        </div>-->
+<!--    </div>-->
+    
+<!--</div>-->
+
+
+
+
     
 </div>
 
@@ -200,7 +306,7 @@
 
 
 </div>
-<div class="client-section-wrap">
+<div class="client-section-wrap white-mode">
     <div class="container">
       <div class="title"><h2>Our works</h2></div>
       <div class="content">
@@ -234,13 +340,23 @@
             </div>
         
             <!-- Two Smaller Texts -->
+            <div class="top dis-flex">
+            
+            <div class="email-icone">
+                <i class="fa fa-envelope"></i>
+            </div>
             <div class="small-text">
                 contact@precedencekw.com
+            </div>
+            </div>
+              <div class="bottom dis-flex">
+            <div class="email-icone">
+                <i class="fas fa-map-marker-alt"></i>
             </div>
             <div class="small-text">
                 Shuwaikh industrial area, Street 26, Kuwait City 32000
             </div>
-        
+        </div>
             <!-- One Row of 3 Small Texts -->
             <div class="row-small-texts">
                 <span>Privacy</span>
@@ -251,9 +367,16 @@
 <div class="footer-right">
     <!-- Column with 3 texts -->
     <div class="footer-column">
-        <p>Services</p>
-        <p>Clients</p>
-        <p>About</p>
+         <ul>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#client">Clients</a></li>
+              <li><a href="#about">About</a></li>
+        </ul>
+       
+        
+        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank" "="" id="whatsapp-icon" title="Chat with us on WhatsApp" class="show">
+    <i class="fa fa-whatsapp color-orange" aria-hidden="true"></i>
+</a>
     </div>
 
     <!-- Row of social media icons with links -->

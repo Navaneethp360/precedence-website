@@ -110,6 +110,8 @@ if (isset($_POST['book_meeting'])) {
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,44 +124,53 @@ if (isset($_POST['book_meeting'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .meeting-wrap {
+         .meeting-wrap {
             max-width: 100%;
-            display: flex;
+           display:flex;
             padding: 40px;
             background-color: #000000;
+            
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
         }
         
         p.success-message {
-            position: absolute;
-            color: #ffffff;
-            top: 142px;
-            font-size: 20px;
-            right: 0;
-            left: 0;
-            margin: 0 auto;
-            text-align: center;
-        }
+    position: absolute;
+    color: #ffffff;
+    top: 142px;
+    font-size: 20px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+}
 
         .tittel {
-            padding-top: 75px;
-            background: #000000;
-        }
+    padding-top: 75px;
+    background: #000000;
+}
 
-        .tittel h1 {
-            margin: 0px;
-            padding: 0px;
-            text-align: center;
-            color: #ffffff;
-        }
+.tittel h1 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #ffffff;
+}
+body {
+    background-color: black;
+}
+.slot-item.selected {
+    background-color: #27ae60; /* color for selected slot */
+    color: white; /* White text color */
+    border: 1px solid #1d8147; /* Darker border for selected slot */
+}
+
 
         /* Calendar Styles */
         .calendar-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: calc(50% - 20px);
-            margin: 0px -10px;
+            width:calc(50% - 20px);margin:0px -10px;
             margin-bottom: 40px;
         }
 
@@ -208,18 +219,16 @@ if (isset($_POST['book_meeting'])) {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            width: calc(50% - 20px);
-            margin: 0px 10px;
+            width:calc(50% - 20px);
+            margin:0px 10px;
             margin-top: 20px;
         }
-
-        .slot-item {
-            width: calc(33.33% - 20px);
-            margin: 0px 10px 10px;
-            padding: 0px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+.slot-item {
+    width:100%;
+    margin: 0px 10px 10px;
+    padding: 0px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
+}
+        
 
         .slot-item:hover {
             transform: translateY(-5px);
@@ -229,22 +238,35 @@ if (isset($_POST['book_meeting'])) {
         .slot-item.booked {
             background-color: #e74c3c;
             color: white;
+            border:1px solid #ffffff;padding:;
+            text-align:center;
             cursor: not-allowed;
         }
 
+       
+       
+.form-container button.close-btn {
+    width: 39px;
+    right:5%;
+    top: 10px;
+    margin: 0 auto;
+}
+
+        
         .slot-item.available {
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid;
-        }
+    /* background-color: #2ecc71; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    JUSTIFY-CONTENT: CENTER;
+    ALIGN-ITEMS: CENTER;
+    border: 1px solid;
+    }
 
         /* Popup Form */
         .form-popup {
-            display: none;
-            position: fixed;
+            display: none; /* Initially hidden */
+          
             top: 0;
             left: 0;
             right: 0;
@@ -252,7 +274,7 @@ if (isset($_POST['book_meeting'])) {
             background-color: rgba(0, 0, 0, 0.4);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+        
         }
 
         .form-container {
@@ -261,6 +283,7 @@ if (isset($_POST['book_meeting'])) {
             border-radius: 12px;
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
             width: 400px;
+            position:relative;
         }
 
         .form-popup.show {
@@ -281,12 +304,18 @@ if (isset($_POST['book_meeting'])) {
             font-size: 16px;
             color: #2c3e50;
         }
+        
+        form
+        {
+            display:flex;
+            flex-wrap:wrap;
+        }
 
         .form-container input,
         .form-container select {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom:10px;
             border-radius: 8px;
             border: 2px solid #ddd;
             font-size: 16px;
@@ -323,6 +352,21 @@ if (isset($_POST['book_meeting'])) {
 
         .close-btn:hover {
             background-color: rgba(231, 76, 60, 0.1);
+        }
+        
+        .calendar-container {
+    width: 100%;
+}
+
+div#slotContainer {
+    width: 100%;
+}
+            @media(max-width:991px)
+        {
+            .meeting-wrap
+            {
+                flex-direction:column;
+            }
         }
     </style>
 </head>
@@ -416,13 +460,23 @@ if (isset($_POST['book_meeting'])) {
             .catch(error => console.error('Error fetching slots:', error));
     }
 
-    // Function to select a time slot and show the booking form
-    function selectSlot(slotId) {
-        document.getElementById('slot_id').value = slotId;
-        
-        // Show the booking form popup
-        document.getElementById('formPopup').classList.add('show');
-    }
+// Function to select a time slot and show the booking form
+function selectSlot(slotId) {
+    // Remove 'selected' class from any previously selected slot
+    document.querySelectorAll('.slot-item').forEach(slot => {
+        slot.classList.remove('selected');
+    });
+
+    // Add the 'selected' class to the clicked slot
+    const selectedSlot = document.querySelector(`.slot-item[data-id="${slotId}"]`);
+    selectedSlot.classList.add('selected');
+    
+    document.getElementById('slot_id').value = slotId;
+    
+    // Show the booking form popup
+    document.getElementById('formPopup').classList.add('show');
+}
+
 
     // Close the booking form popup
     function closeForm() {

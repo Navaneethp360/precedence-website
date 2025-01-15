@@ -1,170 +1,601 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="css/style.css">
+	 <link rel="stylesheet" type="text/css" href="css/header.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	    <!-- Slick Slider CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	             	 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="js/min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/min.js"></script>
+	<title>Media Producation</title>
 
-    <title>Media Production</title>
+<style>
+    .studio-slider-container button.slick-prev.slick-arrow {
+    left: 0;top:32%;
+}
+.service-description {
+    display: none; /* Ensure descriptions are hidden by default */
+}
 
-    <style>
-        .studio-slider-container button.slick-prev.slick-arrow {
-            left: 0; top: 32%;
-        }
 
-        .studio-slider-container button.slick-next.slick-arrow {
-            right: 0;
-            top: 32%;
-        }
+/*.let-talk-section .title h2 {*/
+/*    text-align: center;*/
+/*    color: #ffffff;*/
+/*}*/
 
-        /* Language switcher styles */
-        .language-switcher {
-            display: flex;
-            align-items: center;
-        }
 
-        .language-switcher button {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+/*.contact-left-side {*/
+/*    width: calc(50% - 10px);*/
+/*    margin: 0px 5px;*/
+/*    color: #ffffff;*/
+/*}*/
+/*.contacct-title {*/
+/*    font-size: 26px;*/
+/*    line-height: 32px;*/
+/*    font-weight: 700;*/
+/*}*/
 
-        .language-switcher button.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
+/*.studio-slider-container button.slick-next.slick-arrow {*/
+/*    right: 0;*/
+/*    top:32%;*/
+/*}*/
+
+/*.contact-left-side .content h3 span {*/
+/*    color: #F79227;*/
+/*}*/
+
+/*.contact-button {*/
+/*    padding: 10px 22px;*/
+/*    color: #ffffff;*/
+/*    border: 1px solid;*/
+/*    font-size: 16px;*/
+/*    font-weight: 700;*/
+/*    display: inline-block;*/
+/*    margin-top: 22px;*/
+/*}*/
+/*.contact-left-side .content h3 {*/
+/*    color: #ffffff;*/
+/*}*/
+/*.contact-form button*/
+/*{*/
+/*    background:none;border:1px solid;*/
+/*}*/
+
+@media(max-width:991px)
+{
+    .contact-left-side
+    {
+        
+    }
+}
+
+</style>
+
 </head>
 <body>
 <div class="wrapper">
-    <header class="header">
-        <div class="logo">
-            <a href="#">
-                <img src="icons and logos/logo1.png" alt="Company Logo">
-            </a>
-        </div>
-        <nav class="navigation">
-            <ul>
-                <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a>
-                    <div class="mega-menu">
-                        <ul>
-                            <li><a href="#" data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</a></li>
-                            <li><a href="#" data-en="Branding and Rebranding" data-ar="التسمية والتسمية التجارية">Branding and Rebranding</a></li>
-                            <li><a href="#" data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</a></li>
-                            <li><a href="#" data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</a></li>
-                            <li><a href="#" data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</a></li>
-                            <li><a href="#" data-en="3D Production" data-ar="الإنتاج ثلاثي الأبعاد">3D Production</a></li>
-                            <li><a href="#" data-en="Ads" data-ar="الإعلانات">Ads</a></li>
-                            <li><a href="#" data-en="Marketing" data-ar="التسويق">Marketing</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#about" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
-                <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
-                <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
-            </ul>
-        </nav>
 
-        <div class="studio-logo">
-            <a href="https://test.precedencekw.com/965.html">
-                <img src="image/logo-Stu.png" alt="Company Logo">
-            </a>
-        </div>
-
-        <div class="humbergur-link">
-            <a href="#">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-
-        <!-- Language Switcher -->
-        <div class="language-switcher">
-            <button class="active" id="englishBtn">English</button>
-            <button id="arabicBtn">Arabic</button>
-        </div>
-    </header>
-
-    <!-- banner section here -->
-    <div class="banner">
-        <video width="1280" height="720" autoplay loop muted>
-            <source src="video/movie.mp4" type="video/mp4">
-        </video>
-        <div class="overlay">
-            <h1>Media Production</h1>
-        </div>
+	<header class="header">
+    <div class="logo">
+        <a href="#">
+            <img src="icons and logos/logo1.png" alt="Company Logo">
+        </a>
     </div>
 
-    <!-- services section here -->
-    <div class="service-section-wrapper">
-        <div class="container">
-            <div class="title"><h2 data-en="OUR SERVICES" data-ar="خدماتنا">OUR SERVICES</h2></div>
-            <div class="service dis-flex">
-                <div class="service-section">
-                    <div class="service-title" data-en="Photography" data-ar="التصوير الفوتوغرافي">Photography</div>
-                    <div class="service-image">
-                        <img src="image/WhatsApp Image 2025-01-05 at 1.20.40 PM (1).jpeg" alt="service-image">
+    <nav class="navigation">
+        <ul>
+            <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a>
+                <div class="mega-menu">
+                    <ul>
+                        <li><a href="#" data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</a></li>
+                        <li><a href="#" data-en="Branding and Rebranding" data-ar="التسمية والتسمية التجارية">Branding and Rebranding</a></li>
+                        <li><a href="#" data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</a></li>
+                        <li><a href="#" data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</a></li>
+                        <li><a href="#" data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</a></li>
+                        <li><a href="#" data-en="3D Production" data-ar="الإنتاج ثلاثي الأبعاد">3D Production</a></li>
+                        <li><a href="#" data-en="Ads" data-ar="الإعلانات">Ads</a></li>
+                        <li><a href="#" data-en="Marketing" data-ar="التسويق">Marketing</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#about" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+            <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
+            <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="studio-logo">
+        <a href="https://precedencekw.com/965.html">
+            <img src="image/logo-Stu.png" alt="Studio Logo">
+        </a>
+    </div>
+
+    <div class="humbergur-link">
+        <a href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</header>
+
+	<!-- banner section here -->
+	<div class="banner">
+    <video width="1280" height="720" autoplay loop muted>
+        <source src="video/movie.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+        <h1>Media Production</h1>
+    </div>
+    
+    
+</div>
+
+
+  <!-- services section here -->
+  <div class="service-section-wrapper" id="services">
+  	<div class="container">
+  		<div class="title"><h2>OUR SERVICES</h2></div>
+  		<div class="service dis-flex">
+  		    <a href="https://precedencekw.com/photography.html">
+  			<div class="service-section">
+  				<div class="service-title">Photography</div>
+  				<div class="service-image">
+  					<img src="image/photo.png" alt="service-image">
+  				</div>
+  				<div class="service-text">
+                    <p class="service-description">Professional Photography: Capturing Moments, Elevating Your Brand Stunning Visuals Tailored to Your Creative and Marketing Needs</p>
+                    <button class="read-more-btn">Read More</button>
+  				</div>
+  				<div class="service-btn">
+  					<a href="https://precedencekw.com/photography.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+ <a href="https://precedencekw.com/motiongraphics.html">
+  			<div class="service-section">
+  				<div class="service-title">Motion graphics</div>
+  				<div class="service-image">
+  					<img src="image/m-graphics.png" alt="service-image">
+  				</div>
+<div class="service-text">
+    <p class="service-description">Captivating Motion Graphics : Elevate Your Media with Limitless Creativity</p>
+    <button class="read-more-btn">Read More</button>
+</div>
+  				<div class="service-btn">
+                    <a href="https://precedencekw.com/motiongraphics.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+ <a href="https://precedencekw.com/broadcasters.html">
+  			<div class="service-section">
+  				<div class="service-title">Broadcasters & bloggers
+</div>
+  				<div class="service-image">
+  					<img src="image/brodcasters.jpg
+" alt="service-image">
+  				</div>
+  				<div class="service-text">
+    <p class="service-description">Discover Top Broadcasters & Bloggers: Elevate Your Media Content with Expert Talent and Engaging Storytelling</p>
+    <button class="read-more-btn">Read More</button>
+</div>
+  				<div class="service-btn">
+                    <a href="https://precedencekw.com/broadcasters.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+  			
+  			<a href="https://precedencekw.com/broadcasting.html">
+  				<div class="service-section">
+  				<div class="service-title">Podcasts</div>
+  				<div class="service-image">
+  					<img src="image/podcast.jpg">
+  				</div>
+  				<div class="service-text">
+    <p class="service-description">Seamless Media Production & Live Podcasts Solutions High-Quality Content Tailored to Your Needs</p>
+    <button class="read-more-btn">Read More</button>
+</div>
+  				<div class="service-btn">
+                    <a href="https://precedencekw.com/broadcasting.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+  				<a href="https://precedencekw.com/studio.html">
+  				<div class="service-section">
+  				<div class="service-title">Studio</div>
+  				<div class="service-image">
+  					<img src="image/studio.jpg">
+  				</div>
+  				<div class="service-text">
+    <p class="service-description">Bring Your Vision to Life with Creative Media Solutions High-Quality Video, Audio, and Animation Tailored to Your Brand</p>
+    <button class="read-more-btn">Read More</button>
+</div>
+  				<div class="service-btn">
+                    <a href="https://precedencekw.com/studio.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+  			
+  			<a href="https://precedencekw.com/Infographic.html">
+  			<div class="service-section">
+  				<div class="service-title">Infographic</div>
+  				<div class="service-image">
+  					<img src="image/info.png">
+  				</div>
+  				<div class="service-text">
+    <p class="service-description">Transform Data into Insights with Stunning Infographics Simplify Complex Information with Engaging Visuals</p>
+    <button class="read-more-btn">Read More</button>
+</div>
+  				<div class="service-btn">
+                    <a href="https://precedencekw.com/Infographic.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+  			<a href="https://precedencekw.com/video.html">
+  			<div class="service-section">
+  				<div class="service-title">Video</div>
+  				<div class="service-image">
+  					<img src="image/video.png" alt="service-image">
+  				</div>
+  				<div class="service-text">
+    <p class="service-description">Bringing Your Vision to Life: Creative Media & Production Solutions Innovative Visual Content to Captivate & Achieve Your Goals</p>
+    <button class="read-more-btn">Read More</button>
+</div>
+  				<div class="service-btn">
+                    <a href="https://precedencekw.com/video.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+  			<a href="https://precedencekw.com/voiceover.html">
+  			<div class="service-section">
+  				<div class="service-title">Voiceover</div>
+  				<div class="service-image">
+  					<img src="image/voice over.png" alt="service-image">
+  				</div>
+  				<div class="service-text">
+    <p class="service-description">Elevate Your Projects with Premium Voice-Over Services – Unmatched Quality, Professional Talent, and Cutting-Edge Technology for Unforgettable Audio Experiences!</p>
+    <button class="read-more-btn">Read More</button>
+</div>
+  				<div class="service-btn">
+                    <a href="https://precedencekw.com/voiceover.html">Read More</a>
+  				</div>
+  			</div>
+  			</a>
+  		</div>
+  	</div>
+  </div>
+
+  <!-- studio 965 section -->
+
+  <div class="studio--965">
+    <div class="studio-slider-container">
+      <h2>Studio 965</h2>
+      <div class="studio-slider dis-flex">
+        
+        <div class="studio-service-card">
+          <div class="studio-service-title">ADS</div>
+          <div class="studio-service-image">
+            <img src="image/ser.png" alt="Photography">
+          </div>
+          
+          
+        </div>
+  
+   
+        <div class="studio-service-card">
+          <div class="studio-service-title">podcast 1</div>
+          <div class="studio-service-image">
+            <img src="image/ser1.png" alt="Motion Graphics">
+          </div>
+         
+         
+        </div>
+        
+         
+  
+        <div class="studio-service-card">
+          <div class="studio-service-title">podcast 2</div>
+          <div class="studio-service-image">
+            <img src="image/ser2.png" alt="Broadcasters & Bloggers">
+          </div>
+         
+          
+        </div>
+    
+  
+       
+      </div>
+    </div>
+  </div>
+
+<!-- client section here -->
+
+  <div class="client-section-wrap" id="client">
+  	<div class="container">
+  	  <div class="title"><h2>Our Clients</h2></div>
+  	
+  	</div>
+
+
+ <div class="client-section-all">
+        <!-- Slick Slider -->
+        <div class="client-slider">
+            <div class="client"><img src="image/client1.jpg" alt="Image 1"></div>
+            <div class="client"><img src="image/client2.jpg" alt="Image 2"></div>
+            <div class="client"><img src="image/client3.jpg" alt="Image 3"></div>
+            <div class="client"><img src="image/client4.jpg" alt="Image 4"></div>
+            <div class="client"><img src="image/client5.jpg" alt="Image 5"></div>
+             <div class="client"><img src="image/client1.jpg" alt="Image 1"></div>
+            <div class="client"><img src="image/client2.jpg" alt="Image 2"></div>
+            <div class="client"><img src="image/client3.jpg" alt="Image 3"></div>
+            <div class="client"><img src="image/client4.jpg" alt="Image 4"></div>
+            <div class="client"><img src="image/client5.jpg" alt="Image 5"></div>
+           
+        </div>
+    </div>
+       
+    
+
+  	
+  </div>
+
+  <!-- let's talk section here -->
+  <div class="let-talk-section">
+      <div class="title"><h2>
+          Reach Us
+      </h2></div>
+      
+  	<div class="container">
+  	   
+  		<div class="let-talk dis-flex">
+  		    
+  		    <div class="contact-container-left">
+                <div class="contact-info">
+                    
+                   
+            
+                    
+                    <div class="info-row">
+                        <span class="info-text"> +965 55 3535 33</span>
+                        <i class="fas fa-phone"></i>
                     </div>
-                    <div class="service-text" data-en="Professional Photography: Capturing Moments, Elevating Your Brand" data-ar="التصوير الفوتوغرافي المحترف: التقاط اللحظات، رفع علامتك التجارية">
-                        Professional Photography: Capturing Moments, Elevating Your Brand
+            
+                     
+                    <div class="info-row">
+                        <span class="info-text">Shuwaikh industrial area, Street 26, Kuwait City 32000</span>
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <div class="service-btn">
-                        <a href="https://test.precedencekw.com/test-2.html" data-en="Read More" data-ar="اقرأ المزيد">Read More</a>
+            
+                    
+                    <div class="info-row">
+                        <span class="info-text">contact@precedencekw.com</span>
+                        <i class="fas fa-envelope"></i>
                     </div>
                 </div>
+            </div>
+  	
+  			<div class="right-side" style="background-color: black; padding: 10px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3478.71902162374!2d47.941063975526376!3d29.319916675296394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDE5JzExLjciTiA0N8KwNTYnMzcuMSJF!5e0!3m2!1sen!2skw!4v1728287833763!5m2!1sen!2skw" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+  		</div>
+  		
+  		
+  	</div>
 
-                <!-- More services sections go here -->
+  </div>
 
+  <!-- Contact section -->
+
+  <!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <!-- Moved the h2 outside the contact containers -->
+        <h2 data-en="Contact Us">
+            Let's Talk
+            </h2>
+        <div class="dis-flex align-center">
+            <!--<div class="contact-container-left">-->
+            <!--    <div class="contact-info">-->
+                    <!-- Phone Row -->
+            <!--        <div class="info-row">-->
+            <!--            <span class="info-text">Phone: +965 55 3535 33</span>-->
+            <!--            <i class="fas fa-phone"></i>-->
+            <!--        </div>-->
+            
+                    <!-- Address Row -->
+            <!--        <div class="info-row">-->
+            <!--            <span class="info-text">Precedence, Shuwaikh industrial area, Street 26, Kuwait City 32000</span>-->
+            <!--            <i class="fas fa-map-marker-alt"></i>-->
+            <!--        </div>-->
+            
+                    <!-- Email Row -->
+            <!--        <div class="info-row">-->
+            <!--            <span class="info-text">Email:  contact@precedencekw.com</span>-->
+            <!--            <i class="fas fa-envelope"></i>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>   -->
+            
+            <div class="contact-left-side">
+                <div class="content">
+							<h3>Let’s <span>Work Together!</span></h3>
+				
+						</div>
+                <div class="content">
+                    Through collaboration and mutual synergy, we aim to create impactful and successful partnerships, driving collective growth and prosperity for all involved.
+
+                </div>
+                <a href="https://precedencekw.com/meeting_scheduler.php" class="contact-button" target="_blank">
+  Book Appointment
+</a>
+            </div>
+            <div class="contact-container-right">
+                <div class="new-form">
+                    <div class="contact-form">
+                        <form id="contactForm" onsubmit="sendEmail(event)">
+                            <input type="text" name="first_name" placeholder="First Name" required="" aria-label="First Name">
+                            <input type="text" name="last_name" placeholder="Last Name" required="" aria-label="Last Name">
+                            <input type="text" name="company" placeholder="Company" aria-label="Company">
+                            <input type="email" name="email" placeholder="Your Email" required="" aria-label="Email">
+                            <textarea name="message" placeholder="Your Message" required="" aria-label="Message"></textarea>
+                            <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number">
+                            <button type="submit">Send</button>
+                        </form>
+                    </div>
+                </div> 
             </div>
         </div>
     </div>
+</section>
+
+<!-- footer here -->
+
+<div class="footer-wrap">
+    <div class="footer">
+        <div class="footer-left">
+            <!-- Large Text -->
+            <div class="large-text">
+                Let's Talk
+            </div>
+        
+            <!-- Two Smaller Texts -->
+            <div class="top dis-flex">
+            
+            <div class="email-icone">
+                <i class="fa fa-envelope"></i>
+            </div>
+            <div class="small-text">
+                contact@precedencekw.com
+            </div>
+            </div>
+              <div class="bottom dis-flex">
+            <div class="email-icone">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="small-text">
+                Shuwaikh industrial area, Street 26, Kuwait City 32000
+            </div>
+        </div>
+            <!-- One Row of 3 Small Texts -->
+            <div class="row-small-texts">
+                <span>Privacy</span>
+                <span>Terms</span>
+                <span>SiteMap</span>
+            </div>
+        </div>
+<div class="footer-right">
+    <!-- Column with 3 texts -->
+    <div class="footer-column dis-flex">
+        <ul>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#client">Clients</a></li>
+              <li><a href="#about">About</a></li>
+        </ul>
+       
+        
+        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank"" id="whatsapp-icon" target="_blank" title="Chat with us on WhatsApp">
+    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+</a>
+    </div>
+
+    <!-- Row of social media icons with links -->
+    <div class="social-media">
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="https://www.instagram.com/precedence.kw/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <!-- Small text -->
+    <div class="small-text">
+        <p> 2025 Precedence. All rights reserved.</p>
+    </div>
+</div>
+    </div>
+</div>
 </div>
 
-<script>
-    // Switch Language functionality
-    document.getElementById('englishBtn').addEventListener('click', function () {
-        setLanguage('en');
-    });
 
-    document.getElementById('arabicBtn').addEventListener('click', function () {
-        setLanguage('ar');
-    });
 
-    function setLanguage(language) {
-        // Store the selected language in localStorage
-        localStorage.setItem('language', language);
 
-            // Toggle button active class
-        document.getElementById('englishBtn').classList.toggle('active', language === 'en');
-        document.getElementById('arabicBtn').classList.toggle('active', language === 'ar');
-        do
+  <!-- Include jQuery and Slick Slider JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
-        // Update text based on selected language
-        const elements = document.querySelectorAll('[data-en], [data-ar]');
-        elements.forEach(element => {
-            element.textContent = element.getAttribute(`data-${language}`);
+    <script>
+       
+        $(document).ready(function(){
+            $('.client-slider').slick({
+                slidesToShow: 5,            
+                slidesToScroll: 1,         
+                autoplay: true,             
+                autoplaySpeed: 500,        
+                dots: false,                 
+                arrows: true,               
+                centerMode: true,           
+                focusOnSelect: true,        
+                stagePadding: 30,           
+                responsive: [
+                    {
+                        breakpoint: 1024, // For tablet view
+                        settings: {
+                            slidesToShow: 3,
+                            stagePadding: 20
+                        }
+                    },
+                    {
+                        breakpoint: 768, // For mobile view
+                        settings: {
+                            slidesToShow: 1,
+                            stagePadding: 10
+                        }
+                    }
+                ]
+            });
         });
- 
-        // Adjust text direction for Arabic
-        document.body.style.direction = language === 'ar' ? 'rtl' : 'ltr';
-    }
+      
+// <!-- JavaScript to toggle service descriptions -->
 
-    // On page load, retrieve the stored language preference and apply it
-    window.onload = function() {
-        const storedLanguage = localStorage.getItem('language') || 'en';
-        setLanguage(storedLanguage);
-    }
-</script>
-
+document.addEventListener("DOMContentLoaded", function () {
+    var readMoreButtons = document.querySelectorAll('.read-more-btn');
+    
+    readMoreButtons.forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            var serviceDesc = this.previousElementSibling;
+            if (serviceDesc.style.display === "none" || serviceDesc.style.display === "") {
+                serviceDesc.style.display = "block"; // Show description
+                this.textContent = "Read Less";
+            } else {
+                serviceDesc.style.display = "none"; // Hide description
+                this.textContent = "Read More";
+            }
+        });
+    });
+});
+    
+    </script>
 </body>
 </html>

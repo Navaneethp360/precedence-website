@@ -15,7 +15,51 @@
 	             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="js/min.js"></script>
+<script>
+	    $(document).ready(function(){
+
+        $(".humbergur-link").click(function () {
+        $("body").toggleClass("new-class"); 
+        $(".navigation").toggleClass("active");
+        
+        
+    });
+    
+     $(".accordion-item").click(function() {
+                // Close all other accordions
+                $(".accordion-item").not(this).removeClass("active").next(".accordion-content").slideUp();
+                $(".accordion-item .accordion-arrow").not($(this).find(".accordion-arrow")).removeClass("up");
+
+                // Toggle the clicked accordion
+                $(this).toggleClass("active");
+                $(this).next(".accordion-content").slideToggle();
+                $(this).find(".accordion-arrow").toggleClass("up");
+            });
+
+     
+            
+	    });
+	    
+	  
+
+	</script>
+	
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const whatsappIcon = document.getElementById("whatsapp-icon");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) { // Show after 200px of scrolling
+                whatsappIcon.classList.add("show");
+                whatsappIcon.classList.remove("hide");
+            } else {
+                whatsappIcon.classList.add("hide");
+                whatsappIcon.classList.remove("show");
+            }
+        });
+    });
+</script>
+
 
 
 	<title>Media Producation</title>
@@ -51,6 +95,90 @@
 {
     color:#333;
 }
+
+/*accordian css here*/
+   .accordion-container {
+            width: 80%;
+            max-width: 900px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .accordion-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .accordion-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: -70px;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease;
+        }
+
+        .accordion-item:hover .accordion-image {
+            display: block;
+            opacity: 1;
+        }
+
+        .accordion-title {
+            flex: 1;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        .accordion-arrow {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-arrow.up {
+            transform: rotate(180deg);
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+
+        .accordion-item.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+      
+        
+        .our-inner-service {
+    display: none;
+}
+
+
 </style>
 <body>
 <div class="wrapper">
@@ -99,15 +227,171 @@
     </div>
     </div>
 </header>
-
-<div class="inner-banner white">
-    <div class="container">
-    <div class="content">
-    <h1>
-        Social Media Management
-    </h1>
-    <p>Our rich design and technology expertise delivers top brands and digital experiences.</p>
+	<!-- banner section here -->
+    <div class="banner">
+        <video width="1280" height="720" autoplay loop muted>
+            <source src="video/movie2.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <img src="image/smmd.png" alt="Overlay Image" class="dektop">
+            <img src="image/smmm.png" alt="Overlay Image" class="mobile">
+            <img src="image/smmm.png" alt="Overlay Image" class="mobile-2">
+            
+        </div>
     </div>
+
+
+
+
+<!--accordian section here-->
+
+ <div class="accordion-container">
+        <div class="accordion-item">
+            <img src="image/brand-new.jpg" alt="brand-image" class="accordion-image">
+            <div class="accordion-title">Publishing and Planning Services</div>
+            <div class="accordion-arrow">&#9660;</div>
+        </div>
+        <div class="accordion-content">
+            <p>
+                We provide comprehensive solutions for managing your social media accounts, focusing on professional publishing services and strategic planning. Whether you're looking for daily content posting, scheduling posts, or improving audience engagement, our team ensures you get the most out of your social media platforms.
+            </p>
+        </div>
+
+        <div class="accordion-item">
+            <img src="image/brand-new.jpg" alt="brand-image" class="accordion-image">
+            <div class="accordion-title">Content Creation</div>
+            <div class="accordion-arrow">&#9660;</div>
+        </div>
+        <div class="accordion-content">
+            <p>
+                At Precedence, we provide integrated solutions for managing social media and creating engaging, effective content. Whether you're looking to enhance your digital presence or increase engagement with your audience, we guarantee tailored strategies that align with your goals.
+            </p>
+        </div>
+
+        <div class="accordion-item">
+            <img src="image/brand-new.jpg" alt="brand-image" class="accordion-image">
+            <div class="accordion-title">Optimize Posting Schedules to Boost Engagement</div>
+            <div class="accordion-arrow">&#9660;</div>
+        </div>
+        <div class="accordion-content">
+            <p>
+                Discover the best strategies to effectively manage your social media accounts. We provide you with tools and tips to optimize posting schedules, ensuring your content reaches the right audience at the perfect time.
+            </p>
+        </div>
+        
+        <div class="accordion-item">
+            <img src="image/brand-new.jpg" alt="brand-image" class="accordion-image">
+            <div class="accordion-title">Creation and Execution of Engaging Short Videos (Reels)</div>
+            <div class="accordion-arrow">&#9660;</div>
+        </div>
+        <div class="accordion-content">
+            <p>We offer specialized services in social media management, with a focus on creating and designing professional short videos (Reels). We help you produce engaging visual content that enhances your digital presence and attracts audience interaction. From planning to execution, we ensure you reach the largest number of followers and achieve your marketing goals across social media platforms.
+
+</p>
+                
+        </div>
+         <div class="accordion-item">
+            <img src="image/brand-new.jpg" alt="brand-image" class="accordion-image">
+            <div class="accordion-title">Are you looking for professional management of Stories on social media?
+</div>
+            <div class="accordion-arrow">&#9660;</div>
+        </div>
+        <div class="accordion-content">
+            <p>
+            We offer comprehensive solutions for creating, organizing, and publishing engaging Stories on platforms like Instagram, Facebook, and Snapchat. Whether you want to increase engagement, boost brand awareness, or convert followers into customers, our team ensures you achieve your goals effectively. Discover how we can help you enhance your Stories strategy today!
+
+</p>
+
+ <div class="accordion-item">
+            <img src="image/brand-new.jpg" alt="brand-image" class="accordion-image">
+            <div class="accordion-title">About Hashtags (#)</div>
+            <div class="accordion-arrow">&#9660;</div>
+        </div>
+        <div class="accordion-content">
+            <p>
+                A hashtag is a word or phrase preceded by the (#) symbol, used to categorize content and boost engagement on social media platforms like Twitter, Instagram, and Facebook. Learn how to leverage hashtags to expand your reach, enhance your brand visibility, and increase engagement with your content. Whether you're a beginner or a professional, you'll find tips and tools here to maximize the impact of hashtags in your marketing strategy
+
+
+            </p>
+        </div>
+
+    </div>
+
+
+<!--our services section-->
+
+<div class="our-inner-service">
+    <div class="container">
+        
+        <div class="dis-flex wrap-services">
+            <div class="inner-services-section">
+                <div class="image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="content">
+                    <h5>Publishing and Planning Services</h5>
+                </div>
+                <div class="services-button">
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="inner-services-section">
+                <div class="image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="content">
+                    <h5>Content Creation</h5>
+                </div>
+                <div class="services-button">
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="inner-services-section">
+                <div class="image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="content">
+                    <h5>Optimize Posting Schedules to Boost Engagement</h5>
+                </div>
+                <div class="services-button">
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="inner-services-section">
+                <div class="image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="content">
+                    <h5>Creation and Execution of Engaging Short Videos (Reels)</h5>
+                </div>
+                <div class="services-button">
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="inner-services-section">
+                <div class="image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="content">
+                    <h5>Are you looking for professional management of Stories on social media?</h5>
+                </div>
+                <div class="services-button">
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            
+            <div class="inner-services-section">
+                <div class="image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="content">
+                    <h5>About Hashtags <span>(#)</span></h5>
+                </div>
+                <div class="services-button">
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+        </div>
     </div>
     
 </div>
@@ -194,7 +478,7 @@
                         <div class="inner-section-wrap dis-flex swap">
                             
                             <div class="inner-left-side">
-                                <h2>About Hashtags (#) /h2>
+                                <h2>About Hashtags (#) </h2>
                                 <p>A hashtag is a word or phrase preceded by the (#) symbol, used to categorize content and boost engagement on social media platforms like Twitter, Instagram, and Facebook. Learn how to leverage hashtags to expand your reach, enhance your brand visibility, and increase engagement with your content. Whether you're a beginner or a professional, you'll find tips and tools here to maximize the impact of hashtags in your marketing strategy</p>
                             </div>
                             <div class="inner-right-side">
@@ -207,7 +491,7 @@
 
 
 </div>
-<div class="client-section-wrap">
+<div class="client-section-wrap white-mode">
     <div class="container">
       <div class="title"><h2>Our works</h2></div>
       <div class="content">
@@ -241,12 +525,23 @@
             </div>
         
             <!-- Two Smaller Texts -->
+               <div class="top dis-flex">
+            
+            <div class="email-icone">
+                <i class="fa fa-envelope"></i>
+            </div>
             <div class="small-text">
                 contact@precedencekw.com
+            </div>
+            </div>
+              <div class="bottom dis-flex">
+            <div class="email-icone">
+                <i class="fas fa-map-marker-alt"></i>
             </div>
             <div class="small-text">
                 Shuwaikh industrial area, Street 26, Kuwait City 32000
             </div>
+        </div>
         
             <!-- One Row of 3 Small Texts -->
             <div class="row-small-texts">
@@ -257,10 +552,17 @@
         </div>
 <div class="footer-right">
     <!-- Column with 3 texts -->
-    <div class="footer-column">
-        <p>Services</p>
-        <p>Clients</p>
-        <p>About</p>
+      <div class="footer-column">
+         <ul>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#client">Clients</a></li>
+              <li><a href="#about">About</a></li>
+        </ul>
+       
+        
+        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank" "="" id="whatsapp-icon" title="Chat with us on WhatsApp" class="show">
+    <i class="fa fa-whatsapp color-orange" aria-hidden="true"></i>
+</a>
     </div>
 
     <!-- Row of social media icons with links -->

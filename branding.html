@@ -15,7 +15,36 @@
 	             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="js/min.js"></script>
+	<script>
+	    $(document).ready(function(){
+
+        $(".humbergur-link").click(function () {
+        $("body").toggleClass("new-class"); 
+        $(".navigation").toggleClass("active");
+        
+        
+    });
+	    });
+	    
+	  
+
+	</script>
+	
+	<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const whatsappIcon = document.getElementById("whatsapp-icon");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) { // Show after 200px of scrolling
+                whatsappIcon.classList.add("show");
+                whatsappIcon.classList.remove("hide");
+            } else {
+                whatsappIcon.classList.add("hide");
+                whatsappIcon.classList.remove("show");
+            }
+        });
+    });
+</script>
 
 
 	<title>Media Producation</title>
@@ -51,6 +80,10 @@
 {
     color:#333;
 }
+
+
+
+
 </style>
 <body>
 <div class="wrapper">
@@ -99,18 +132,83 @@
     </div>
     </div>
 </header>
+	<!-- banner section here -->
+    <div class="banner">
+        <video width="1280" height="720" autoplay loop muted>
+            <source src="video/movie2.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <img src="image/brd.png" alt="Overlay Image" class="dektop">
+            <img src="image/brm.png" alt="Overlay Image" class="mobile">
+            <img src="image/brm.png" alt="Overlay Image" class="mobile-2">
+            
+        </div>
+    </div>
 
-<div class="inner-banner white">
+
+<!--our services section-->
+<div class="our-inner-service">
     <div class="container">
-    <div class="content">
-    <h1>
-        Branding and Rebranding
-    </h1>
-    <p>Our rich design and technology expertise delivers top brands and digital experiences.</p>
+        <div class="dis-flex wrap-services">
+            <div class="inner-services-section">
+                <div class="service-title">Create your Brand</div>
+                <div class="service-image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="service-text">
+                    <p class="service-description" style="display:none;">Your brand is the face of your business. Build it with clarity and creativity.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+            
+            <div class="inner-services-section">
+                <div class="service-title">Visual Identity</div>
+                <div class="service-image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="service-text">
+                    <p class="service-description" style="display:none;">Create a lasting visual impact that resonates with your audience and reflects your brand values.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+            
+            <div class="inner-services-section">
+                <div class="service-title">Branding Identity</div>
+                <div class="service-image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="service-text">
+                    <p class="service-description" style="display:none;">Develop a unique brand identity that stands out and connects emotionally with your audience.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+            
+            <div class="inner-services-section">
+                <div class="service-title">Branding Guidelines</div>
+                <div class="service-image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="service-text">
+                    <p class="service-description" style="display:none;">Establish clear guidelines to maintain consistency in your branding across all touchpoints.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+            
+            <div class="inner-services-section">
+                <div class="service-title">Packaging</div>
+                <div class="service-image">
+                    <img src="image/brand-new.jpg" alt="brand-image">
+                </div>
+                <div class="service-text">
+                    <p class="service-description" style="display:none;">Make a statement with packaging that tells your brand story and stands out on the shelf.</p>
+                    <button class="read-more-btn">Read More</button>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    
 </div>
+
+
 
 <!--Inner Section here-->
 <div class="inner-section white">
@@ -195,7 +293,7 @@
                             
                             <div class="inner-left-side">
                                 <h2>Packaging</h2>
-                                <p>Discover the latest innovative and reliable packaging solutions to support your projects! We offer comprehensive services, including the design and manufacturing of packaging, secure and fast packaging, printing of cards, bags, and cartons, as well as sustainable, eco-friendly solutions. Whether you're looking for packaging for your products, we guarantee high quality and on-time delivery. Visit our website now to learn how we can enhance your packaging processes to grow your business!</p>
+                                <p>Discover the latest innovative and reliable packaging solutions to support your projects! We offer comprehensive services, including the design and manufacturing of packaging, secure and fast packaging, printing of cards, bags, and cartons, as well as sustainable, eco-friendly solutions. Whether you're looking for packaging for your products, we guarantee high quality and on-time delivery.</p>
                             </div>
                             <div class="inner-right-side">
                                 <img src="image/ser4.png" alt="service-image">
@@ -207,7 +305,7 @@
 
 
 </div>
-<div class="client-section-wrap">
+<div class="client-section-wrap white-mode">
     <div class="container">
       <div class="title"><h2>Our works</h2></div>
       <div class="content">
@@ -241,12 +339,23 @@
             </div>
         
             <!-- Two Smaller Texts -->
+            <div class="top dis-flex">
+            
+            <div class="email-icone">
+                <i class="fa fa-envelope"></i>
+            </div>
             <div class="small-text">
                 contact@precedencekw.com
+            </div>
+            </div>
+              <div class="bottom dis-flex">
+            <div class="email-icone">
+                <i class="fas fa-map-marker-alt"></i>
             </div>
             <div class="small-text">
                 Shuwaikh industrial area, Street 26, Kuwait City 32000
             </div>
+        </div>
         
             <!-- One Row of 3 Small Texts -->
             <div class="row-small-texts">
@@ -257,10 +366,17 @@
         </div>
 <div class="footer-right">
     <!-- Column with 3 texts -->
-    <div class="footer-column">
-        <p>Services</p>
-        <p>Clients</p>
-        <p>About</p>
+     <div class="footer-column">
+         <ul>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#client">Clients</a></li>
+              <li><a href="#about">About</a></li>
+        </ul>
+       
+        
+        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank" "="" id="whatsapp-icon" title="Chat with us on WhatsApp" class="show">
+    <i class="fa fa-whatsapp color-orange" aria-hidden="true"></i>
+</a>
     </div>
 
     <!-- Row of social media icons with links -->
@@ -291,7 +407,6 @@
     </div>
 </div>
     </div>
-</div>
 </div>
 </body>
 <!-- Include jQuery and Slick Slider JS -->
@@ -329,6 +444,24 @@
             ]
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    var readMoreButtons = document.querySelectorAll('.read-more-btn');
+    
+    readMoreButtons.forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            var serviceDesc = this.previousElementSibling;
+            if (serviceDesc.style.display === "none" || serviceDesc.style.display === "") {
+                serviceDesc.style.display = "block"; // Show description
+                this.textContent = "Read Less";
+            } else {
+                serviceDesc.style.display = "none"; // Hide description
+                this.textContent = "Read More";
+            }
+        });
+    });
+});
 
 </script>
 </html>
