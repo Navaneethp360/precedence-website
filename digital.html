@@ -3,15 +3,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	 <link rel="stylesheet" href="css/styles2.css">
-	 <link rel="stylesheet" type="text/css" href="css/header.css">
+	 <link rel="stylesheet" href="css/styles2.css?v=1.0.2">
+	 <link rel="stylesheet" type="text/css" href="css/header.css?v=1.0.2">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	    <!-- Slick Slider CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+        <link rel="stylesheet" href="css/non-critical.css" media="print" onload="this.media='all'">
+
 	             
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+         <!-- Favicons -->
+  <link href="icons and logos/logo1.png" rel="icon">
+  <link href="icons and logos/logo1.png" rel="apple-touch-icon">
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -35,12 +41,32 @@
 {
     display:none;
 }
+.info-row a {
+    color: #000000;
+}
+
+
+/*1/18/ css here*/
+
+.learn-more-section .content p {
+    font-size: 18px;
+    line-height: 33px;
+    letter-spacing: 1px;
+
+}
+.contact-left-side .content.new-class {
+    font-size: 18px;
+    line-height: 33px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
 	    @media(max-width:991px)
 	    {
-	        .humbergur-link
-	        {
-	            display:block;position:absolute;right:10px;top:10px;
-	        }
+	        /*.humbergur-link*/
+	        /*{*/
+	        /*    display:block;position:absolute;right:10px;top:10px;*/
+	        /*}*/
 	        .navigation
 	        {
 	            display:none;
@@ -73,6 +99,10 @@ body.new-class header.header {
 img.mobile {
     display: block;
 }
+.mobile-2
+{
+    display:block;
+}
 	    }
 	    
 	     @media(max-width:350px)
@@ -89,6 +119,29 @@ img.mobile-2 {
     font-size:14px;padding:12px;
 }
 	    }
+
+        .learn-more-section {
+    text-align: center;
+}
+
+.button-container {
+    display: inline-block;
+    margin: 20px auto;
+}
+
+.learn-more-btn {
+    background-color: #3176d6; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 11px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 	</style>
 </head>
 <body>
@@ -97,7 +150,7 @@ img.mobile-2 {
 	<header class="header">
         
     <div class="logo">
-        <a href="#">
+        <a href="https://precedencekw.com/">
         <img src="icons and logos/logo1.png" alt="Company Logo"></a>
     </div>
    <nav class="navigation">
@@ -131,11 +184,12 @@ img.mobile-2 {
             <i class="fa fa-bars"></i>
         </a>
     </div>
-    </div>
+    
 </header>
+</div>
 	<!-- banner section here -->
 <div class="banner">
-    <video width="1280" height="720" autoplay loop muted>
+    <video width="1280" height="720" autoplay loop muted playsinline>
         <source src="video/movie2.mp4" type="video/mp4">
     </video>
     <div class="overlay">
@@ -146,99 +200,23 @@ img.mobile-2 {
     </div>
 </div>
 
-
-  <!-- services section here -->
-<div class="service-section-wrapper">
+<!-- learn more section here -->
+<div class="learn-more-section">
     <div class="container">
-        <div class="title"><h2>OUR SERVICES</h2></div>
-        <div class="service dis-flex">
-            <!-- Marketing Strategy -->
-            <div class="service-section">
-                <div class="service-title">Marketing Strategy</div>
-                <div class="service-image">
-                    <img src="image/Mstrategy.jpg" alt="service-image">
-                </div>
-                <div class="service-text">
-                    <p>A successful marketing strategy: A comprehensive guide to enhancing your digital presence and attracting customers through search engines.</p>
-                </div>
-                <div class="service-btn">
-                    <a href="https://precedencekw.com/marketing_strategy.html">Read More</a>
-                </div>
-            </div>
-
-            <!-- Branding and Rebranding -->
-            <div class="service-section">
-                <div class="service-title">Branding & Rebranding</div>
-                <div class="service-image">
-                    <img src="image/ser1.png" alt="Motion Graphics">
-                </div>
-                <div class="service-text">
-                    <p>How to Build and Renew a Strong Identity for Lasting Success</p>
-                </div>
-                <div class="service-btn">
-                    <a href="https://precedencekw.com/branding.html">Read More</a>
-                </div>
-            </div>
-
-            <!-- Digital Solutions -->
-            <div class="service-section">
-                <div class="service-title">Digital Solutions</div>
-                <div class="service-image">
-                    <img src="image/socialmedia.jpg" alt="service-image">
-                </div>
-                <div class="service-text">
-                    <p>The best integrated digital solutions for achieving success in the digital age.</p>
-                </div>
-                <div class="service-btn">
-                    <a href="https://precedencekw.com/digitalsolutions.html">Read More</a>
-                </div>
-            </div>
-
-            <!-- Social Media Marketing -->
-            <div class="service-section">
-                <div class="service-title">Social Media Marketing</div>
-                <div class="service-image">
-                    <img src="image/SMM2.jpg" alt="service-image">
-                </div>
-                <div class="service-text">
-                    <p>Effective Media Marketing Strategies: How to Achieve Success on Social Media Platforms in 2025</p>
-                </div>
-                <div class="service-btn">
-                    <a href="https://precedencekw.com/ssm.html">Read More</a>
-                </div>
-            </div>
-
-            <!-- 3D Production -->
-            <div class="service-section">
-                <div class="service-title">3D Production</div>
-                <div class="service-image">
-                    <img src="image/3D.jpg" alt="service-image">
-                </div>
-                <div class="service-text">
-                    <p>Unlimited Creativity in the World of Three-Dimensional Graphics.</p>
-                </div>
-                <div class="service-btn">
-                    <a href="https://precedencekw.com/3d.html">Read More</a>
-                </div>
-            </div>
-
-            <!-- Ads -->
-            <div class="service-section">
-                <div class="service-title">Ads</div>
-                <div class="service-image">
-                    <img src="image/strategy.jpg" alt="service-image">
-                </div>
-                <div class="service-text">
-                    <p>Enhance your brand presence and increase engagement with tailored marketing campaigns on social media platforms.</p>
-                </div>
-                <div class="service-btn">
-                    <a href="https://precedencekw.com/ads.html">Read More</a>
-                </div>
-            </div>
-
+        <div class="title">
+            <h2>Learn More About Our Services</h2>
+        </div>
+        <div class="content">
+            <p>
+                Digital marketing services offer innovative solutions to enhance your brand's online presence, ranging from managing advertising campaigns on social media platforms to search engine optimization (SEO) and data analysis to achieve the best results. We design customized strategies tailored to your business goals, with a focus on increasing engagement and reaching your target audience. Thanks to our advanced tools , we help you achieve sustainable growth and boost sales through various digital marketing channels.
+            </p>
+        </div>
+        <div class="button-container">
+            <a href="https://precedencekw.com/learn_more.html" class="learn-more-btn">Learn More</a>
         </div>
     </div>
 </div>
+
 <!-- client section here -->
 
   <div class="client-section-wrap">
@@ -273,40 +251,41 @@ img.mobile-2 {
 
   <!-- let's talk section here -->
   <div class="let-talk-section">
+      <div class="title"><h2>
+          Reach Us
+      </h2></div>
+      
   	<div class="container">
+  	   
   		<div class="let-talk dis-flex">
-  			<div class="left-side">
-  				<div class="title">
-  					<h3>Contacts</h3>
-  					<p>
-  						ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  					</p>
-  				</div>
-
-  				<div class="email-section dis-flex">
-  					<div class="left-side-email">
-  						<div class="title">Become a Client</div>
-  						<div class="email-link">
-  							<a href="#">contact@precedencekw.com</a>
-  						</div>
-  					</div>
-  				</div>
-
-  			</div>
-  			<div class="right-side">
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3478.71902162374!2d47.941063975526376!3d29.319916675296394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDE5JzExLjciTiA0N8KwNTYnMzcuMSJF!5e0!3m2!1sen!2skw!4v1728287833763!5m2!1sen!2skw" 
-        width="100%" 
-        height="300" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
+  		    
+  		    <div class="contact-container-left">
+                <div class="contact-info">
+                    
+                   
+            
+                    
+                    <div class="info-row">
+                        <span class="info-text"><a href="tel:+96555353533">+965 55 3535 33</a></span>
+                        <i class="fas fa-phone"></i>
+                    </div>
+            
+                     
+                    <div class="info-row">
+                        <span class="info-text">Shuwaikh Industrial, Block 2, Building 63</span>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+            
+                    
+                    <div class="info-row">
+                        <span class="info-text"><a href="mailto:contact@precedencekw.com">contact@precedencekw.com</a></span>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+  	
+  			<div class="right-side" style=" padding: 10px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3478.71902162374!2d47.941063975526376!3d29.319916675296394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDE5JzExLjciTiA0N8KwNTYnMzcuMSJF!5e0!3m2!1sen!2skw!4v1728287833763!5m2!1sen!2skw" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
     </iframe>
 </div>
   		</div>
@@ -322,72 +301,55 @@ img.mobile-2 {
 <section id="contact" class="contact">
     <div class="container">
         <!-- Moved the h2 outside the contact containers -->
-        <h2 data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-        <div class="dis-flex">
-            <div class="contact-container-left">
-                <div class="contact-info">
+        <h2 data-en="Contact Us">
+            Let's Talk
+            </h2>
+        <div class="dis-flex align-center">
+            <!--<div class="contact-container-left">-->
+            <!--    <div class="contact-info">-->
                     <!-- Phone Row -->
-                    <div class="info-row">
-                        <span class="info-text">Phone: +965 55 3535 33</span>
-                        <i class="fas fa-phone"></i>
-                    </div>
+            <!--        <div class="info-row">-->
+            <!--            <span class="info-text">Phone: +965 55 3535 33</span>-->
+            <!--            <i class="fas fa-phone"></i>-->
+            <!--        </div>-->
             
                     <!-- Address Row -->
-                    <div class="info-row">
-                        <span class="info-text">Shuwaikh industrial area, Street 26, Kuwait City 32000</span>
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
+            <!--        <div class="info-row">-->
+            <!--            <span class="info-text">Precedence, Shuwaikh industrial area, Street 26, Kuwait City 32000</span>-->
+            <!--            <i class="fas fa-map-marker-alt"></i>-->
+            <!--        </div>-->
             
                     <!-- Email Row -->
-                    <div class="info-row">
-                        <span class="info-text">Email:  contact@precedencekw.com</span>
-                        <i class="fas fa-envelope"></i>
-                    </div>
+            <!--        <div class="info-row">-->
+            <!--            <span class="info-text">Email:  contact@precedencekw.com</span>-->
+            <!--            <i class="fas fa-envelope"></i>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>   -->
+            
+            <div class="contact-left-side">
+                <div class="content">
+							<h3>Let’s <span>Work Together!</span></h3>
+				
+						</div>
+                <div class="content new-class">
+                    Through collaboration and mutual synergy, we aim to create impactful and successful partnerships, driving collective growth and prosperity for all involved.
+
                 </div>
-            </div>   
+                <a href="https://precedencekw.com/meeting_scheduler.php" class="contact-button" target="_blank">
+  Book Appointment
+</a>
+            </div>
             <div class="contact-container-right">
                 <div class="new-form">
                     <div class="contact-form">
                         <form id="contactForm" onsubmit="sendEmail(event)">
-                            <input 
-                                type="text" 
-                                name="first_name" 
-                                placeholder="First Name" 
-                                required 
-                                aria-label="First Name"
-                            >
-                            <input 
-                                type="text" 
-                                name="last_name" 
-                                placeholder="Last Name" 
-                                required 
-                                aria-label="Last Name"
-                            >
-                            <input 
-                                type="text" 
-                                name="company" 
-                                placeholder="Company" 
-                                aria-label="Company"
-                            >
-                            <input 
-                                type="email" 
-                                name="email" 
-                                placeholder="Your Email" 
-                                required 
-                                aria-label="Email"
-                            >
-                            <textarea 
-                                name="message" 
-                                placeholder="Your Message" 
-                                required 
-                                aria-label="Message"
-                            ></textarea>
-                            <input 
-                                type="tel" 
-                                name="phone" 
-                                placeholder="Phone Number" 
-                                aria-label="Phone Number"
-                            >
+                            <input type="text" name="first_name" placeholder="First Name" required="" aria-label="First Name">
+                            <input type="text" name="last_name" placeholder="Last Name" required="" aria-label="Last Name">
+                            <input type="text" name="company" placeholder="Company" aria-label="Company">
+                            <input type="email" name="email" placeholder="Your Email" required="" aria-label="Email">
+                            <textarea name="message" placeholder="Your Message" required="" aria-label="Message"></textarea>
+                            <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number">
                             <button type="submit">Send</button>
                         </form>
                     </div>
@@ -399,7 +361,7 @@ img.mobile-2 {
 
 <!-- footer here -->
 
-<div class="footer-wrap">
+<div class="footer-wrap footer-white">
     <div class="footer">
         <div class="footer-left">
             <!-- Large Text -->
@@ -408,26 +370,44 @@ img.mobile-2 {
             </div>
         
             <!-- Two Smaller Texts -->
-            <div class="small-text">
-                contact@precedencekw.com
+            <div class="top dis-flex">
+            
+            <div class="email-icone">
+                <i class="fa fa-envelope"></i>
             </div>
             <div class="small-text">
-                Shuwaikh industrial area, Street 26, Kuwait City 32000
+                 <a href="mailto:contact@precedencekw.com">contact@precedencekw.com</a>
             </div>
+            </div>
+              <div class="bottom dis-flex">
+            <div class="email-icone">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="small-text">
+                 Shuwaikh Industrial, Block 2, Building 63
+            </div>
+        </div>
         
             <!-- One Row of 3 Small Texts -->
             <div class="row-small-texts">
                 <span>Privacy</span>
                 <span>Terms</span>
-                <span>SiteMap</span>
+                
             </div>
         </div>
 <div class="footer-right">
     <!-- Column with 3 texts -->
     <div class="footer-column">
-        <p>Services</p>
-        <p>Clients</p>
-        <p>About</p>
+         <ul>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#client">Clients</a></li>
+              <li><a href="#about">About</a></li>
+        </ul>
+       
+        
+        <a href="https://wa.me/+965 55 3535 33?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank" "="" id="whatsapp-icon" title="Chat with us on WhatsApp" class="show">
+    <i class="fa fa-whatsapp color-orange" aria-hidden="true"></i>
+</a>
     </div>
 
     <!-- Row of social media icons with links -->
@@ -453,14 +433,17 @@ img.mobile-2 {
     </div>
 
     <!-- Small text -->
-    <div class="small-text">
+    <!--<div class="small-text">-->
+    <!--    <p> 2025 Precedence. All rights reserved.</p>-->
+    <!--</div>-->
+</div>
+    </div>
+    <div class="small-text copyright">
         <p> 2025 Precedence. All rights reserved.</p>
     </div>
 </div>
-    </div>
-</div>
-</div>
 
+</div>
 </body>
 
 
@@ -499,6 +482,20 @@ img.mobile-2 {
                 ]
             });
         });
+        
+        document.addEventListener("DOMContentLoaded", function () {
+        const whatsappIcon = document.getElementById("whatsapp-icon");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) { // Show after 200px of scrolling
+                whatsappIcon.classList.add("show");
+                whatsappIcon.classList.remove("hide");
+            } else {
+                whatsappIcon.classList.add("hide");
+                whatsappIcon.classList.remove("show");
+            }
+        });
+    });
     </script>
 
     

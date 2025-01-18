@@ -10,4 +10,22 @@ $(document).ready(function() {
         // Toggle the 'active' class on the navigation
         $(".navigation").toggleClass("active");
     });
+    
+    
+    
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+        const whatsappIcon = document.getElementById("whatsapp-icon");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) { // Show after 200px of scrolling
+                whatsappIcon.classList.add("show");
+                whatsappIcon.classList.remove("hide");
+            } else {
+                whatsappIcon.classList.add("hide");
+                whatsappIcon.classList.remove("show");
+            }
+        });
+    });

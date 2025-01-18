@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC7M807YRT"></script>
+
+   <!-- Favicons -->
+  <link href="icons and logos/logo1.png" rel="icon">
+  <link href="icons and logos/logo1.png" rel="apple-touch-icon">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -10,6 +14,7 @@
 
   gtag('config', 'G-MC7M807YRT');
 </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
@@ -92,6 +97,16 @@
       margin-top: 10px;
       font-weight: normal;
     }
+    @media(max-width:991px)
+    {
+        header.header.home-page .logo
+        {
+            position:initial;
+        }
+        header.header.home-page .logo-2 img {
+            max-width:54px;
+}
+    }
     @media(max-width:767px)
     {
         .side
@@ -112,11 +127,17 @@
 <body>
 
   <!-- Header Here -->
-  <header class="header">
+  <header class="header home-page">
         
     <div class="logo">
-        <a href="#">
+        <a href="https://precedencekw.com/">
         <img src="icons and logos/logo1.png" alt="Company Logo"></a>
+    </div>
+    
+    <div class="logo-2">
+        <a href="https://precedencekw.com/965.html">
+            <img src="image/logo-Stu.png" alt="Studio Logo">
+        </a>
     </div>
 
 </header>

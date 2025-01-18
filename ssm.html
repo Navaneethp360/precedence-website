@@ -68,7 +68,9 @@
     .inner-section.white {
     background: #ffffff;
 }
-
+.overlay img {
+    width: 100%;
+}
 
 .footer-wrap
 {
@@ -95,7 +97,93 @@
 {
     color:#333;
 }
+ /* Button to open the chatbox */
+    #open-chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width:50px;
+      height:50px;
+      background-color: #25D366;
+      color: white;
+      display:flex;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;:flex;align-items:center;justify-content:center;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
+    #open-chat-btn:hover {
+      background-color: #128C7E;
+    }
+
+    /* Chatbox Container */
+    #chatbox-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background-color: white;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    /* Chatbox Header */
+    #chatbox-header {
+      background-color: #25D366;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #chatbox-header span {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Chatbox Body */
+    #chatbox-body {
+      flex-grow: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+      color: #333;
+    }
+
+    /* Chatbox Footer */
+    #chatbox-footer {
+      padding: 10px;
+      border-top: 1px solid #eee;
+      display: flex;
+    }
+
+    #chatbox-footer input {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    #chatbox-footer button {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #chatbox-footer button:hover {
+      background-color: #128C7E;
+    }
 /*accordian css here*/
    .accordion-container {
             width: 80%;
@@ -560,8 +648,24 @@
         </ul>
        
         
-        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank" "="" id="whatsapp-icon" title="Chat with us on WhatsApp" class="show">
-    <i class="fa fa-whatsapp color-orange" aria-hidden="true"></i>
+<div id="open-chat-btn">
+    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+</div>
+
+<!-- Chatbox -->
+<div id="chatbox-container">
+  <div id="chatbox-header">
+    Chat with us
+    <span id="close-chat-btn">&times;</span>
+  </div>
+  <div id="chatbox-body">
+    <p><strong>Support:</strong> Hello! How can we help you today?</p>
+  </div>
+  <div id="chatbox-footer">
+    <input type="text" id="chat-input" placeholder="Type your message...">
+    <button id="send-msg-btn">Send</button>
+  </div>
+</div>
 </a>
     </div>
 
@@ -633,4 +737,46 @@
     });
 
 </script>
+
+<script>
+  const openChatBtn = document.getElementById('open-chat-btn');
+  const chatboxContainer = document.getElementById('chatbox-container');
+  const closeChatBtn = document.getElementById('close-chat-btn');
+  const sendMsgBtn = document.getElementById('send-msg-btn');
+  const chatInput = document.getElementById('chat-input');
+  const chatboxBody = document.getElementById('chatbox-body');
+
+  openChatBtn.addEventListener('click', () => {
+    chatboxContainer.style.display = 'flex';
+  });
+  
+  closeChatBtn.addEventListener('click', () => {
+    chatboxContainer.style.display = 'none';
+  });
+  
+  sendMsgBtn.addEventListener('click', () => {
+    const userMessage = chatInput.value.trim();
+    if (userMessage) {
+      chatboxBody.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+      chatInput.value = '';
+      chatboxBody.innerHTML += `<p><strong>Support:</strong> Thank you for your message!</p>`;
+      chatboxBody.scrollTop = chatboxBody.scrollHeight;  // Scroll to the bottom
+      chatboxBody.scrollTop ="chatInput";
+      // Open WhatsApp chat with the number +919904499815
+      const encodedMessage = encodeURIComponent(userMessage);
+      window.open(`https://wa.me/9904499815?text=${encodedMessage}`, '_blank');
+    }
+  });
+
+
+
+
+  // Optional: Press enter to send message
+  chatInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      sendMsgBtn.click();
+    }
+  });
+</script>
+
 </html>

@@ -64,6 +64,7 @@
 .navigation {
     display: flex; /* Use flexbox for navigation */
     align-items: center; /* Center items vertically */
+    display:none;
     
 }
 
@@ -88,12 +89,20 @@
 .header nav.navigation ul li a { text-decoration: none; }
 .humbergur-link { display: none; }
 
+header.header.home-page {
+    justify-content: space-between;
+}
+
+header.header.home-page .logo-2 img {
+    max-width: 75px;
+}
+
 @media(max-width:1024px)
 {
     .navigation li:hover .mega-menu {
     display: none;
 }
-.humbergur-link { display: block; } ul {display: none;}
+.humbergur-link { display: ; } ul {display: none;}
 .nav.navigation ul {display: none;}
 
 

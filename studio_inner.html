@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services with Arrows</title>
-  	 <link rel="stylesheet" type="text/css" href="css/header.css">
-  	 	 <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" type="text/css" href="css/header.css">
+       <link rel="stylesheet" href="css/style.css">
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
   <style>
-  
-  .studio-inner-service-card .studio-inner-service-image video
-  {
-      height:300px;
-  }
-  
-  @media(max-width:991px)
-  {
-      .studio-inner-service-card
-      {
-          width:50%;
-          margin:10px 0px;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+
+    .studio-inner-service-card {
+      width: 270px;
+      margin: 10px;
+      overflow: hidden;
+      cursor:pointer;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .studio-inner-service-image video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .studio-inner-slider {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+     
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    @media(max-width: 991px) {
+      .studio-inner-service-card {
+        width: 50%;
       }
-  }
-      @media(max-width:767px)
-      {
-      .studio-inner-service-card
-      {
-          width:100%;
-          margin:10px 0px;
+    }
+
+    @media(max-width: 767px) {
+      .studio-inner-service-card {
+        width: 100%;
       }
-      .studio-inner-service-card .studio-inner-service-image video
-      {
-          height:200px;
-      }
-      
-      .banner.studio-inner-section .overlay img {
-    max-width: 179px;
-}
-      }
+    }
   </style>
 </head>
 <body>
-	<!-- banner section here -->
-	<div class="banner studio-inner-section">
-    <video width="1280" height="720" autoplay loop muted>
+
+    <div class="banner studio-inner-section">
+    <video width="1280" height="720" autoplay loop muted playsinline>
         <source src="video/studio.mp4" type="video/mp4">
     </video>
     <div class="overlay">
@@ -54,82 +69,59 @@
         <img src="image/logo-Stu.png" alt="Company Logo">
     </div>
 </div>
-	<!-- content section here -->
-<div class="studio-inner-service-section-wrapper">
-  <div class="studio-inner-slider-container">
-       <div class="container">
-    <h2>Our Works</h2>
-    <div class="studio-inner-slider dis-flex">
-       
-      <div class="studio-inner-service-card">
-        
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
-      <div class="studio-inner-service-card">
-        
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
-      <div class="studio-inner-service-card">
-       
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
-      <div class="studio-inner-service-card">
-        
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
-      <div class="studio-inner-service-card">
-       
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
-      <div class="studio-inner-service-card">
-        
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
-      <div class="studio-inner-service-card">
-       
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
-      <div class="studio-inner-service-card">
-       
-        <div class="studio-inner-service-image">
-           <video width="270" height="270" autoplay loop muted>
-        <source src="video/studio.mp4" type="video/mp4">
-    </video>
-        </div>
-      </div>
 
-      
-    </div></div>
+<!-- Content Section -->
+<div class="studio-inner-service-section-wrapper">
+  <div class="container">
+    <h2 style="color:#ffffff">Our Works</h2>
+    <div class="studio-inner-slider">
+      <div class="studio-inner-service-card">
+        <div class="studio-inner-service-image">
+          <video muted>
+            <source src="video/studio.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+        <div class="studio-inner-service-image">
+          <video muted>
+            <source src="video/studio.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+        <div class="studio-inner-service-image">
+          <video muted>
+            <source src="video/studio.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="studio-inner-service-card">
+        <div class="studio-inner-service-image">
+          <video muted>
+            <source src="video/studio.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // Play video on hover and pause on mouseleave
+    $('.studio-inner-service-card video').on('mouseenter', function () {
+      this.play();
+    });
+
+    $('.studio-inner-service-card video').on('mouseleave', function () {
+      this.pause();
+      this.currentTime = 0; // Reset the video to the beginning
+    });
+  });
+</script>
 
 </body>
 </html>

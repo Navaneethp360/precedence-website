@@ -1,0 +1,187 @@
+[11-Jan-2025 08:16:47 UTC] PHP Warning:  Undefined array key "location" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 89
+[11-Jan-2025 08:24:31 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:103
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(103): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 103
+[11-Jan-2025 08:24:38 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:103
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(103): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 103
+[11-Jan-2025 08:24:53 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:103
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(103): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 103
+[11-Jan-2025 08:26:10 UTC] PHP Warning:  Undefined array key "location" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 89
+[11-Jan-2025 08:26:26 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:103
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(103): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 103
+[11-Jan-2025 08:26:41 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:103
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(103): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 103
+[11-Jan-2025 08:26:54 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:103
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(103): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 103
+[11-Jan-2025 08:31:35 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:129
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(129): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 129
+[11-Jan-2025 08:31:38 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:129
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(129): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 129
+[11-Jan-2025 08:32:01 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'location' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:129
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(129): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 129
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "first_name" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 12
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "last_name" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 13
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "company" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 14
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "email" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 15
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "phone" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 16
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "message" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 17
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "topic" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 18
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "date" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 19
+[11-Jan-2025 10:08:59 UTC] PHP Warning:  Undefined array key "time_slot" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 20
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "first_name" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 12
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "last_name" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 13
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "company" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 14
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "email" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 15
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "phone" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 16
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "message" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 17
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "topic" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 18
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "date" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 19
+[11-Jan-2025 10:33:08 UTC] PHP Warning:  Undefined array key "time_slot" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 20
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "first_name" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 12
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "last_name" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 13
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "company" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 14
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "email" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 15
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "phone" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 16
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "message" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 17
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "topic" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 18
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "date" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 19
+[11-Jan-2025 10:59:53 UTC] PHP Warning:  Undefined array key "time_slot" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 20
+[11-Jan-2025 11:01:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'topic' in 'INSERT INTO' in /home/ashtiric/precedencekw.com/meeting_scheduler.php:81
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/meeting_scheduler.php(81): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 81
+[11-Jan-2025 11:34:17 UTC] PHP Warning:  Undefined array key "topic" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 66
+[11-Jan-2025 12:07:27 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 43
+[11-Jan-2025 12:07:37 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 43
+[11-Jan-2025 12:16:19 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 38
+[11-Jan-2025 12:16:23 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in SELECT is ambiguous in /home/ashtiric/precedencekw.com/admin.php:16
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/admin.php(16): PDO->query()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/admin.php on line 16
+[11-Jan-2025 12:16:25 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in SELECT is ambiguous in /home/ashtiric/precedencekw.com/admin.php:16
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/admin.php(16): PDO->query()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/admin.php on line 16
+[11-Jan-2025 12:16:29 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in SELECT is ambiguous in /home/ashtiric/precedencekw.com/admin.php:16
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/admin.php(16): PDO->query()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/admin.php on line 16
+[11-Jan-2025 12:16:32 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 38
+[11-Jan-2025 12:16:53 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'status' in SELECT is ambiguous in /home/ashtiric/precedencekw.com/admin.php:16
+Stack trace:
+#0 /home/ashtiric/precedencekw.com/admin.php(16): PDO->query()
+#1 {main}
+  thrown in /home/ashtiric/precedencekw.com/admin.php on line 16
+[12-Jan-2025 06:46:57 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/test.php on line 34
+[12-Jan-2025 06:47:09 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/test.php on line 34
+[12-Jan-2025 06:47:33 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/test.php on line 34
+[12-Jan-2025 07:01:25 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/test.php on line 34
+[12-Jan-2025 09:38:05 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 41
+[12-Jan-2025 09:38:15 UTC] PHP Warning:  Trying to access array offset on value of type bool in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 41
+[12-Jan-2025 10:08:54 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:08:54 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:08:54 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 293
+[12-Jan-2025 10:08:54 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:08:54 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:33 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:33 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:33 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 293
+[12-Jan-2025 10:10:33 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:33 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:34 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 293
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:34 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:34 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 293
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:34 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:34 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 293
+[12-Jan-2025 10:10:34 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:34 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:38 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:38 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:38 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 293
+[12-Jan-2025 10:10:38 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:38 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:41 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:41 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 290
+[12-Jan-2025 10:10:41 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 293
+[12-Jan-2025 10:10:41 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 10:10:41 UTC] PHP Deprecated:  ucfirst(): Passing null to parameter #1 ($string) of type string is deprecated in /home/ashtiric/precedencekw.com/admin.php on line 300
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 379
+[12-Jan-2025 11:22:21 UTC] PHP Warning:  Undefined array key "status" in /home/ashtiric/precedencekw.com/meeting_scheduler.php on line 382
+[14-Jan-2025 06:06:37 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 74
+[14-Jan-2025 06:35:37 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 91
+[14-Jan-2025 06:35:39 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 91
+[14-Jan-2025 06:35:41 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 104
+[14-Jan-2025 06:35:41 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 104
+[14-Jan-2025 06:35:41 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 104
+[14-Jan-2025 06:36:00 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 92
+[14-Jan-2025 06:36:53 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 115
+[14-Jan-2025 06:37:44 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/test2.php on line 92
+[14-Jan-2025 10:56:12 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/admin.php on line 92
+[14-Jan-2025 10:58:30 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/admin.php on line 115
+[14-Jan-2025 11:04:47 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/admin.php on line 92
+[14-Jan-2025 11:04:50 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/admin.php on line 115
+[17-Jan-2025 07:46:38 UTC] PHP Warning:  Undefined array key "slot_time" in /home/ashtiric/precedencekw.com/admin.php on line 115

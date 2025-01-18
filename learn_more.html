@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="css/styles2.css">
+	 <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+                 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Favicons -->
+  <link href="icons and logos/logo1.png" rel="icon">
+  <link href="icons and logos/logo1.png" rel="apple-touch-icon">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<title>Media Producation</title>
+	
+	<script>
+    $(document).ready(function(){
+
+        $(".humbergur-link").click(function () {
+        $("body").toggleClass("new-class"); 
+        $(".navigation").toggleClass("active");
+    });
+    });
+
+	</script>
+	<style>
+	.mobile-2
+{
+    display:none;
+}
+    @media(max-width:991px)
+    {
+        .humbergur-link
+        {
+            display:block;position:absolute;right:10px;top:10px;
+        }
+        .navigation
+        {
+            display:none;
+        }
+       .studio-logo { position: absolute; text-align: center; right: 0; top: 3px; left: 0; }
+        body.new-class nav.navigation.active {
+    display: block;position:absolute;top:59px;
+}
+
+body.new-class nav.navigation.active ul {
+    display: block;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0px;
+    margin: 0px;
+}
+
+body.new-class header.header {
+    flex-direction: column;
+    align-items: flex-start;
+     background:#000000;
+    
+}
+    }
+    @media(max-width:767px)
+    {
+        img.dektop {
+    display: none;
+}
+
+img.mobile {
+    display: block !important;
+}
+
+.banner {
+    height:495px;
+}
+    }
+    
+     @media(max-width:350px)
+    {
+        img.mobile {
+    display: none;
+}
+
+img.mobile-2 {
+    display: block;
+}
+
+.contact-form input, .contact-form textarea {
+    font-size:14px;padding:12px;
+}
+    }
+    .new-service-btn {
+    display: flex;          /* Use flexbox for centering */
+    justify-content: center; /* Center the button horizontally */
+    margin-top: 10px;        /* Space above the button */
+}
+
+.new-service-btn button {
+  /* Smaller button styles */
+  background-color: #2196F3; /* Blue background color */
+  color: #ffffff; /* White text color */
+  border: none; /* No border */
+  padding: 8px 16px; /* Smaller padding */
+  font-size: 14px; /* Smaller font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+  text-align: center; /* Center text */
+}
+
+.new-service-btn button:hover {
+  background-color: #1A75FF; /* Darker blue background color on hover */
+}
+
+.new-service-btn button:active {
+  transform: translateY(2px); /* Slight movement on click */
+}
+
+.new-service-btn button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 2px #2196F3; /* Blue box shadow on focus */
+}
+
+	</style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <header class="header">
+            
+        <div class="logo">
+            <a href="https://precedencekw.com/">
+            <img src="icons and logos/logo1.png" alt="Company Logo"></a>
+        </div>
+       <nav class="navigation">
+        <ul>
+            <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a>
+                <div class="mega-menu">
+                    <ul>
+                        <li><a href="#" data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</a></li>
+                        <li><a href="#" data-en="Branding and Rebranding" data-ar="التسمية والتسمية التجارية">Branding and Rebranding</a></li>
+                        <li><a href="#" data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</a></li>
+                        <li><a href="#" data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</a></li>
+                        <li><a href="#" data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</a></li>
+                        <li><a href="#" data-en="3D Production" data-ar="الإنتاج ثلاثي الأبعاد">3D Production</a></li>
+                        <li><a href="#" data-en="Ads" data-ar="الإعلانات">Ads</a></li>
+                        <li><a href="#" data-en="Marketing" data-ar="التسويق">Marketing</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#about" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+            <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
+            <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+        </ul>
+    </nav>
+    
+        
+    
+    
+        <div class="humbergur-link">
+            <a href="#">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        
+    </header>
+    </div>
+	<!-- banner section here -->
+    <div class="banner">
+        <video width="1280" height="720" autoplay loop muted>
+            <source src="video/movie2.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <img src="image/overlay.png" alt="Overlay Image" class="dektop">
+            <img src="image/digi-2.png" alt="Overlay Image" class="mobile">
+            <img src="image/digi-2.png" alt="Overlay Image" class="mobile-2">
+            
+        </div>
+    </div>
+ 
+ <!-- services section here -->
+<div class="service-section-wrapper">
+    <div class="container">
+        <div class="title"><h2>OUR SERVICES</h2></div>
+        <div class="service dis-flex">
+            <!-- Marketing Strategy -->
+            <div class="service-section">
+                <div class="service-title">Marketing Strategy</div>
+                <div class="service-image">
+                    <img src="image/Mstrategy.jpg" alt="service-image">
+                </div>
+                <div class="service-text">
+                    <p>A successful marketing strategy: A comprehensive guide to enhancing your digital presence and attracting customers through search engines.</p>
+                </div>
+                <div class="new-service-btn">
+                    <button>Download</button>
+                </div>
+            </div>
+
+            <!-- Branding and Rebranding -->
+            <div class="service-section">
+                <div class="service-title">Branding & Rebranding</div>
+                <div class="service-image">
+                    <img src="image/ser1.png" alt="Motion Graphics">
+                </div>
+                <div class="service-text">
+                    <p>How to Build and Renew a Strong Identity for Lasting Success</p>
+                </div>
+                <div class="new-service-btn">
+                    <button>Download</button>
+                </div>
+            </div>
+
+            <!-- Digital Solutions -->
+            <div class="service-section">
+                <div class="service-title">Digital Solutions</div>
+                <div class="service-image">
+                    <img src="image/socialmedia.jpg" alt="service-image">
+                </div>
+                <div class="service-text">
+                    <p>The best integrated digital solutions for achieving success in the digital age.</p>
+                </div>
+                <div class="new-service-btn">
+                    <button>Download</button>
+                </div>
+            </div>
+
+            <!-- Social Media Marketing -->
+            <div class="service-section">
+                <div class="service-title">Social Media Marketing</div>
+                <div class="service-image">
+                    <img src="image/SMM2.jpg" alt="service-image">
+                </div>
+                <div class="service-text">
+                    <p>Effective Media Marketing Strategies: How to Achieve Success on Social Media Platforms in 2025</p>
+                </div>
+                <div class="new-service-btn">
+                    <button>Download</button>
+                </div>
+            </div>
+
+            <!-- 3D Production -->
+            <div class="service-section">
+                <div class="service-title">3D Production</div>
+                <div class="service-image">
+                    <img src="image/3D.jpg" alt="service-image">
+                </div>
+                <div class="service-text">
+                    <p>Unlimited Creativity in the World of Three-Dimensional Graphics.</p>
+                </div>
+                <div class="new-service-btn">
+                    <button>Download</button>
+                </div>
+            </div>
+
+            <!-- Ads -->
+            <div class="service-section">
+                <div class="service-title">Ads</div>
+                <div class="service-image">
+                    <img src="image/strategy.jpg" alt="service-image">
+                </div>
+                <div class="service-text">
+                    <p>Enhance your brand presence and increase engagement with tailored marketing campaigns on social media platforms.</p>
+                </div>
+                <div class="new-service-btn">
+                    <button>Download</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- footer here -->
+
+<div class="footer-wrap">
+    <div class="footer">
+        <div class="footer-left">
+            <!-- Large Text -->
+            <div class="large-text">
+                Let's Talk
+            </div>
+        
+            <!-- Two Smaller Texts -->
+            <div class="small-text">
+                contact@precedencekw.com
+            </div>
+            <div class="small-text">
+                
+Shuwaikh Industrial, Block 2, Building 63
+            </div>
+        
+            <!-- One Row of 3 Small Texts -->
+            <div class="row-small-texts">
+                <span>Privacy</span>
+                <span>Terms</span>
+            </div>
+        </div>
+<div class="footer-right">
+    <!-- Column with 3 texts -->
+    <div class="footer-column">
+         <ul>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#client">Clients</a></li>
+              <li><a href="#about">About</a></li>
+        </ul>
+       
+        
+        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank" "="" id="whatsapp-icon" title="Chat with us on WhatsApp" class="show">
+    <i class="fa fa-whatsapp color-orange" aria-hidden="true"></i>
+</a>
+    </div>
+
+    <!-- Row of social media icons with links -->
+    <div class="social-media">
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <!-- Small text -->
+    <div class="small-text">
+        <p> 2025 Precedence. All rights reserved.</p>
+    </div>
+</div>
+    </div>
+</div>
+
+</body>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+        const whatsappIcon = document.getElementById("whatsapp-icon");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 200) { // Show after 200px of scrolling
+                whatsappIcon.classList.add("show");
+                whatsappIcon.classList.remove("hide");
+            } else {
+                whatsappIcon.classList.add("hide");
+                whatsappIcon.classList.remove("show");
+            }
+        });
+    });
+
+</script>
+    
+</html>

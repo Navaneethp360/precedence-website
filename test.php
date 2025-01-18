@@ -78,11 +78,11 @@ if (isset($_POST['book_meeting'])) {
 
             // Send email notification
             $to = "contact@precedencekw.com";
-            $subject = "Meeting Requested: $firstName $lastName";
+            $subject = "Meeting Booked: $firstName $lastName";
             $body = "
             <html>
             <body>
-                <h2>Meeting Requested</h2>
+                <h2>Meeting Booked</h2>
                 <p><b>Name:</b> $firstName $lastName</p>
                 <p><b>Company:</b> $company</p>
                 <p><b>Email:</b> $email</p>
@@ -121,45 +121,47 @@ if (isset($_POST['book_meeting'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
+     <style>
+       
         .meeting-wrap {
             max-width: 100%;
-            display: flex;
+           display:flex;
             padding: 40px;
             background-color: #000000;
+            
             box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
         }
         
         p.success-message {
-            position: absolute;
-            color: #ffffff;
-            top: 142px;
-            font-size: 20px;
-            right: 0;
-            left: 0;
-            margin: 0 auto;
-            text-align: center;
-        }
+    position: absolute;
+    color: #ffffff;
+    top: 142px;
+    font-size: 20px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+}
 
         .tittel {
-            padding-top: 75px;
-            background: #000000;
-        }
+    padding-top: 75px;
+    background: #000000;
+}
 
-        .tittel h1 {
-            margin: 0px;
-            padding: 0px;
-            text-align: center;
-            color: #ffffff;
-        }
+.tittel h1 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: #ffffff;
+}
+
 
         /* Calendar Styles */
         .calendar-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: calc(50% - 20px);
-            margin: 0px -10px;
+            width:calc(50% - 20px);margin:0px -10px;
             margin-bottom: 40px;
         }
 
@@ -208,18 +210,16 @@ if (isset($_POST['book_meeting'])) {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            width: calc(50% - 20px);
-            margin: 0px 10px;
+            width:calc(50% - 20px);
+            margin:0px 10px;
             margin-top: 20px;
         }
-
-        .slot-item {
-            width: calc(33.33% - 20px);
-            margin: 0px 10px 10px;
-            padding: 0px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
+.slot-item {
+    width:100%;
+    margin: 0px 10px 10px;
+    padding: 0px; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;
+}
+        
 
         .slot-item:hover {
             transform: translateY(-5px);
@@ -229,22 +229,36 @@ if (isset($_POST['book_meeting'])) {
         .slot-item.booked {
             background-color: #e74c3c;
             color: white;
+            border:1px solid #ffffff;padding:;
+            text-align:center;
             cursor: not-allowed;
         }
 
+       
+       
+.form-container button.close-btn {
+    width: 39px;
+    /* right: -44%; */
+    left: 20%;
+    top: 10px;
+    margin: 0 auto;
+}
+
+        
         .slot-item.available {
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid;
-        }
+    /* background-color: #2ecc71; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    JUSTIFY-CONTENT: CENTER;
+    ALIGN-ITEMS: CENTER;
+    border: 1px solid;
+    }
 
         /* Popup Form */
         .form-popup {
-            display: none;
-            position: fixed;
+            display: none; /* Initially hidden */
+            position:relative;
             top: 0;
             left: 0;
             right: 0;
@@ -252,7 +266,7 @@ if (isset($_POST['book_meeting'])) {
             background-color: rgba(0, 0, 0, 0.4);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+        
         }
 
         .form-container {
@@ -281,12 +295,18 @@ if (isset($_POST['book_meeting'])) {
             font-size: 16px;
             color: #2c3e50;
         }
+        
+        form
+        {
+            display:flex;
+            flex-wrap:wrap;
+        }
 
         .form-container input,
         .form-container select {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom:10px;
             border-radius: 8px;
             border: 2px solid #ddd;
             font-size: 16px;
@@ -327,6 +347,51 @@ if (isset($_POST['book_meeting'])) {
     </style>
 </head>
 <body>
+    
+    <header class="header">
+        
+    <div class="logo">
+        <a href="#">
+        <img src="icons and logos/logo1.png" alt="Company Logo"></a>
+    </div>
+    <nav class="navigation">
+    <ul>
+        <li><a href="#Home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="#services" data-en="Services" data-ar="خدمات">Services</a>
+            <div class="mega-menu">
+                <ul>
+                    <li><a href="#" data-en="Marketing Strategy" data-ar="استراتيجية التسويق">Marketing Strategy</a></li>
+                    <li><a href="#" data-en="Branding and Rebranding" data-ar="التسمية والتسمية التجارية">Branding and Rebranding</a></li>
+                    <li><a href="#" data-en="Digital Solutions" data-ar="الحلول الرقمية">Digital Solutions</a></li>
+                    <li><a href="#" data-en="Social Media Marketing" data-ar="تسويق وسائل التواصل الاجتماعي">Social Media Marketing</a></li>
+                    <li><a href="#" data-en="Media Production" data-ar="الإنتاج الإعلامي">Media Production</a></li>
+                    <li><a href="#" data-en="3D Production" data-ar="الإنتاج ثلاثي الأبعاد">3D Production</a></li>
+                    <li><a href="#" data-en="Ads" data-ar="الإعلانات">Ads</a></li>
+                    <li><a href="#" data-en="Marketing" data-ar="التسويق">Marketing</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#about" data-en="About Us" data-ar="معلومات عنا">About Us</a></li>
+        <li><a href="#clients" data-en="Clients" data-ar="عملائنا">Clients</a></li>
+        <li><a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a></li>
+    </ul>
+</nav>
+
+    <!--<div class="studio-logo">-->
+    <!--    <a href="https://test.precedencekw.com/965.html">-->
+    <!--    <img src="image/logo-Stu.png" alt="Company Logo"></a>-->
+        
+    <!--</div>-->
+    
+
+
+    <div class="humbergur-link">
+        <a href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+</header>
 <div class="tittel">
     <h1>Book a Meeting</h1>
 </div>
@@ -344,7 +409,7 @@ if (isset($_POST['book_meeting'])) {
     <!-- Booking Form Popup -->
     <div id="formPopup" class="form-popup">
         <div class="form-container">
-            <button class="close-btn" onclick="closeForm()">×</button>
+            <button class="close-btn aeroow-button" onclick="closeForm()">×</button>
             <h2>Book a Meeting</h2>
             <form method="POST" action="">
                 <label for="first_name">First Name:</label>

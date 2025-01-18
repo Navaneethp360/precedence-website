@@ -123,6 +123,10 @@ if (isset($_POST['book_meeting'])) {
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <!-- Favicons -->
+  <link href="icons and logos/logo1.png" rel="icon">
+  <link href="icons and logos/logo1.png" rel="apple-touch-icon">
     <style>
          .meeting-wrap {
             max-width: 100%;
@@ -278,21 +282,20 @@ body {
         }
 
         .form-container {
-            background-color: #ffffff;
+            background-color:rgb(0, 0, 0);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
             width: 400px;
             position:relative;
         }
 
         .form-popup.show {
-            display: flex;
+            display: flex;border:1px solid #ffffff;border-radius:10px;
         }
 
         .form-container h2 {
             text-align: center;
-            color: #2c3e50;
+            color:rgb(255, 255, 255);
             font-size: 1.8rem;
             margin-bottom: 30px;
         }
@@ -302,7 +305,7 @@ body {
             display: block;
             margin-bottom: 8px;
             font-size: 16px;
-            color: #2c3e50;
+            color:rgb(255, 255, 255);
         }
         
         form
@@ -351,11 +354,20 @@ body {
         }
 
         .close-btn:hover {
-            background-color: rgba(231, 76, 60, 0.1);
+            background-color: #;
         }
         
         .calendar-container {
     width: 100%;
+}
+#currentMonth {
+    font-size: 24px;
+    font-weight: bold;
+    color:rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 20px; /* Space between the month label and calendar */
+    padding: 10px 0;
+ 
 }
 
 div#slotContainer {
@@ -371,12 +383,38 @@ div#slotContainer {
     </style>
 </head>
 <body>
+<div class="wrapper">
+
+	<header class="header">
+        
+    <div class="logo">
+        <a href="#">
+        <img src="icons and logos/logo1.png" alt="Company Logo"></a>
+    </div>
+
+
+    
+
+
+    <div class="humbergur-link">
+        <a href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    
+</header>
+</div>
+
 <div class="tittel">
     <h1>Book a Meeting</h1>
 </div>
-<div class="meeting-wrap ">
+<div class="meeting-wrap">
     <!-- Calendar -->
     <div class="calendar-container">
+        <!-- Month display -->
+        <div id="calendarHeader">
+        <div id="currentMonth"></div>
+        </div>
         <div id="calendarDays" class="calendar-days"></div>
     </div>
 
@@ -407,6 +445,7 @@ div#slotContainer {
                 <select id="topic" name="topic" required>
                     <option value="Precedence Office">Precedence Office</option>
                     <option value="Client Office">Client Office</option>
+                    <option value="Online Meeting">Online Meeting</option>
                 </select>
                 
                 <input type="hidden" id="date" name="date" required>
@@ -417,6 +456,90 @@ div#slotContainer {
         </div>
     </div>
 </div>
+<div class="footer-wrap">
+    <div class="footer">
+        <div class="footer-left">
+            <!-- Large Text -->
+            <div class="large-text">
+                Let's Talk
+            </div>
+        
+            <!-- Two Smaller Texts -->
+            <div class="top dis-flex">
+            
+            <div class="email-icone">
+                <i class="fa fa-envelope"></i>
+            </div>
+            <div class="small-text">
+                contact@precedencekw.com
+            </div>
+            </div>
+              <div class="bottom dis-flex">
+            <div class="email-icone">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="small-text">
+                Shuwaikh Industrial, Block 2, Building 63
+            </div>
+        </div>
+            <!-- One Row of 3 Small Texts -->
+            <div class="row-small-texts">
+                <span>Privacy</span>
+                <span>Terms</span>
+             
+            </div>
+        </div>
+<div class="footer-right">
+    <!-- Column with 3 texts -->
+    <div class="footer-column dis-flex">
+        <ul>
+            <li><a href="#services">Services</a></li>
+             <li><a href="#client">Clients</a></li>
+              <li><a href="#about">About</a></li>
+        </ul>
+       
+        
+        <a href="https://wa.me/1234567890?text=Hello%20there!%20I%20am%20interested%20in%20your%20services." target="_blank"" id="whatsapp-icon" target="_blank" title="Chat with us on WhatsApp">
+    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+</a>
+    </div>
+
+    <!-- Row of social media icons with links -->
+    <div class="social-media">
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="https://www.instagram.com/precedence.kw/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+        </div>
+        <div class="social" style="display: inline-block; margin-right: 10px;">
+            <a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <!-- Small text -->
+    <!--<div class="small-text">-->
+    <!--    <p> 2025 Precedence. All rights reserved.</p>-->
+    <!--</div>-->
+</div>
+    </div>
+    
+    
+     <div class="small-text copy-right">
+        <p> 2025 Precedence. All rights reserved.</p>
+    </div>
+</div>
+</div>
+
 
 <script>
     let selectedDate = null;
@@ -485,48 +608,59 @@ function selectSlot(slotId) {
 
     // Initialize the calendar and handle date selection
     function initCalendar() {
-        const calendarDays = document.getElementById('calendarDays');
-        const today = new Date();
-        const currentMonth = today.getMonth();
-        const currentYear = today.getFullYear();
-        const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-        const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    const calendarDays = document.getElementById('calendarDays');
+    const currentMonthElement = document.getElementById('currentMonth'); // Get the current month element
+    const today = new Date();
+    const currentMonth = today.getMonth();
+    const currentYear = today.getFullYear();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
 
-        for (let i = 0; i < firstDay; i++) {
-            const emptyCell = document.createElement('div');
-            calendarDays.appendChild(emptyCell);
-        }
+    // Array of month names
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
 
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dayCell = document.createElement('div');
-            dayCell.classList.add('calendar-day');
-            dayCell.textContent = day;
-            const currentDate = new Date(currentYear, currentMonth, day);
-            dayCell.dataset.date = `${currentYear}-${currentMonth + 1}-${day}`;
+    // Display the current month in the HTML
+    currentMonthElement.textContent = `${monthNames[currentMonth]} ${currentYear}`;
 
-            // Check if it's a Friday (Day 5 of the week)
-            if (currentDate.getDay() === 5) {
-                dayCell.textContent = 'Holiday';  // Display "Holiday" for Fridays
-                dayCell.classList.add('holiday');
-                dayCell.style.cursor = 'not-allowed';  // Disable click on Fridays
-                dayCell.onclick = () => {};  // No action for Fridays
-            } else {
-                // Normal behavior for other days
-                if (currentDate < today) {
-                    dayCell.classList.add('past');
-                    dayCell.onclick = () => {};  // Disable click on past days
-                } else {
-                    dayCell.addEventListener('click', () => selectDate(`${currentYear}-${currentMonth + 1}-${day}`));
-                }
-            }
-            calendarDays.appendChild(dayCell);
-        }
+    for (let i = 0; i < firstDay; i++) {
+        const emptyCell = document.createElement('div');
+        calendarDays.appendChild(emptyCell);
     }
 
-    // Initialize the calendar when the page loads
-    window.onload = function() {
-        initCalendar();
-    };
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayCell = document.createElement('div');
+        dayCell.classList.add('calendar-day');
+        dayCell.textContent = day;
+        const currentDate = new Date(currentYear, currentMonth, day);
+        dayCell.dataset.date = `${currentYear}-${currentMonth + 1}-${day}`;
+
+        // Check if it's a Friday (Day 5 of the week)
+        if (currentDate.getDay() === 5) {
+            dayCell.textContent = 'Holiday';  // Display "Holiday" for Fridays
+            dayCell.classList.add('holiday');
+            dayCell.style.cursor = 'not-allowed';  // Disable click on Fridays
+            dayCell.onclick = () => {};  // No action for Fridays
+        } else {
+            // Normal behavior for other days
+            if (currentDate < today) {
+                dayCell.classList.add('past');
+                dayCell.onclick = () => {};  // Disable click on past days
+            } else {
+                dayCell.addEventListener('click', () => selectDate(`${currentYear}-${currentMonth + 1}-${day}`));
+            }
+        }
+        calendarDays.appendChild(dayCell);
+    }
+}
+
+// Initialize the calendar when the page loads
+window.onload = function() {
+    initCalendar();
+};
+
 </script>
 </body>
 </html>
